@@ -84,7 +84,7 @@ export async function GET() {
   if (!user) return Response.json({ error: "Wymagane logowanie." }, { status: 401 });
 
   try {
-    const db = getDb();
+    const db = await getDb();
     const rows = await db
       .select()
       .from(workEvents)
@@ -115,7 +115,7 @@ export async function POST(request: Request) {
       return Response.json({ error: "Nieprawidłowy typ zdarzenia." }, { status: 400 });
     }
 
-    const db = getDb();
+    const db = await getDb();
     const [saved] = await db
       .insert(workEvents)
       .values({
