@@ -1,0 +1,63 @@
+# Programista jako wąskie gardło
+
+AI może generować więcej wyników, niż człowiek jest w stanie odpowiedzialnie
+odebrać. Dlatego podstawową jednostką systemu nie jest prompt ani liczba
+wygenerowanych linii, lecz **decyzja zakończona dowodem**.
+
+W typowym zadaniu człowiek nadal musi:
+
+1. rozpoznać problem i jego granice,
+2. określić kryteria akceptacji,
+3. udostępnić właściwy kontekst,
+4. ocenić proponowane rozwiązanie,
+5. rozstrzygnąć sprzeczności,
+6. zaakceptować ryzyko i rezultat.
+
+Model może skrócić część wykonawczą, ale równocześnie tworzy nową pracę:
+propozycje trzeba przeczytać, porównać, uruchomić i często poprawić. Jeśli
+generowanie przyspiesza bardziej niż odbiór, kolejka rośnie. System wygląda na
+zajęty, lecz czas od pomysłu do zaakceptowanej zmiany się nie poprawia.
+
+## Uwaga jako budżet
+
+Uwaga nie jest jedną liczbą minut. Ma co najmniej trzy koszty:
+
+- **wejście w kontekst** — przypomnienie celu, ograniczeń i stanu kodu,
+- **utrzymanie kontekstu** — praca bez nieplanowanych przerwań,
+- **domknięcie decyzji** — sprawdzenie dowodu i zapisanie następnego kroku.
+
+Najdroższa jest praca, która została rozpoczęta, ale nie zakończyła żadnej
+decyzji. Dlatego przyjmujemy prosty limit:
+
+> Human WIP = 1: człowiek ma jedno aktywne zadanie poznawcze. Pozostałe zadania
+> mogą czekać albo być wykonywane przez automaty, lecz nie konkurują o uwagę.
+
+Limit nie oznacza, że system realizuje tylko jedną rzecz. Oznacza, że człowiek
+nie próbuje jednocześnie utrzymywać kilku pełnych kontekstów.
+
+## Sygnały przeciążenia
+
+System jest przeciążony, gdy:
+
+- nowe odpowiedzi modeli regularnie przerywają aktywną pracę,
+- kilka diffów czeka na review dłużej niż trwała ich implementacja,
+- człowiek ponownie czyta ten sam kontekst,
+- zadania są „prawie gotowe”, ale nie mają testu ani decyzji,
+- liczba rozpoczętych zmian rośnie szybciej niż liczba zaakceptowanych.
+
+## Eksperyment
+
+Przez pięć dni utrzymuj limit jednej aktywnej decyzji człowieka. Każdy wynik AI
+trafia do kolejki odbioru i nie wywołuje powiadomienia.
+
+Zapisuj:
+
+- czas rozpoczęcia i zakończenia aktywnej pracy,
+- liczbę nieplanowanych przełączeń,
+- czas oczekiwania wyniku na review,
+- liczbę powrotów do wcześniej otwartego zadania,
+- liczbę zaakceptowanych zmian.
+
+Nie próbuj jeszcze optymalizować modeli. Najpierw sprawdź, czy sama ochrona
+uwagi skraca czas domykania decyzji. Sukcesem nie jest większa liczba
+odpowiedzi AI, lecz krótsza kolejka przy co najmniej tej samej jakości.

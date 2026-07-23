@@ -1,0 +1,24 @@
+VERSION: 1
+
+FLOW ticket_execution_chain:
+  META contract "subactor.ticket-execution-chain/v1"
+
+  STEP portrait doql.snapshot "actor"
+    EXPECT portrait.mode == "read_only"
+    EXPECT portrait.autonomy.enabled == false
+    SAVE portrait
+
+  STEP route process.select "capability://routing/candidate"
+    WITH portrait = "$state.portrait"
+    EXPECT aql_covered == true
+    EXPECT uri_resolvable == true
+    SAVE executor
+
+  STEP execute process.run "ticket"
+    WITH executor = "$state.executor"
+    EXPECT receipt.status == "terminal"
+    SAVE predecessor_receipt
+
+  STEP handoff process.next "ticket"
+    WITH receipt = "$state.predecessor_receipt"
+    EXPECT eql_handoff == "green"

@@ -1,0 +1,131 @@
+# Digital Twin Portrait, router i orchestrator ticketów
+
+Digital Twin jest portretem sposobu pracy aktora: specjalizacji, kryteriów
+jakości, rytmu, kosztu i aktualnego obciążenia. Portret jest **tylko do
+odczytu**. Może dostarczyć sygnał routingowy, ale nie przyznaje authority i nie
+może autonomicznie zmienić własnych praw.
+
+W tej książce używamy nazwy **DOQL/Situation** dla agregacji sytuacji Digital
+Twin. Odróżniamy ją od spotykanej w projektach deklaracji `app.doql.less`, która
+opisuje strukturę aplikacji i jej środowisko.
+
+Rozdzielenie obserwacji od uprawnień jest ważniejsze niż trafność samego
+profilu:
+
+- DOQL opisuje sytuację i portret,
+- router wybiera kandydata dopiero po pokryciu AQL i URI,
+- AQL określa granice działania,
+- OQL materializuje przebieg,
+- EQL dopuszcza handoff,
+- receipt dowodzi, co faktycznie wykonano.
+
+## Intencja skrócona do kontraktu
+
+Opis narracyjny:
+
+> Router może korzystać z portretu Digital Twin przy wyborze człowieka, bota
+> albo serwisu, ale nie może na jego podstawie rozszerzyć uprawnień. Kandydat
+> musi mieć pokrycie AQL i rozwiązywalny URI. Następny ticket może rozpocząć się
+> dopiero po terminalnym receipcie poprzednika i zielonym EQL.
+
+Ta sama decyzja w krótkim DSL:
+
+```yaml
+intent:
+  goal: route_ticket
+  portrait: read_only
+  authority: inherited_only
+
+  requires:
+    aql_coverage: true
+    uri_resolvable: true
+    eql_handoff: green
+```
+
+Proza wyjaśnia sens. DSL oddziela pola, które można walidować, testować,
+wersjonować i wdrażać.
+
+## Łańcuch wykonania
+
+Orchestrator materializuje `subactor.ticket-execution-chain/v1`. Kandydatem może
+być człowiek, bot lub serwis. Handoff wymaga terminalnego receiptu poprzednika i
+zielonego EQL:
+
+```text
+Intent -> Composer -> DOQL snapshot -> Digital Twin Router
+                                      /      |       \
+                                   human    bot    service
+                                      \      |       /
+                                  receipt + EQL handoff
+                                           |
+                                      następny ticket
+```
+
+Odmowa readiness nie może tworzyć pętli bez postępu. False-ready przechodzi do
+`waiting_input` z dokładnym kodem bramki. Scheduler nie ponawia niezmienionego
+błędu.
+
+```yaml
+on_false_ready:
+  state: waiting_input
+  gate_code: required
+  retry_unchanged: false
+```
+
+## Dowód z próby wdrożeniowej
+
+Poniższe liczby są snapshotem pojedynczej próby projektu Subactor z 24 lipca
+2026, zapisanym w dołączonym Process Packu. Nie są benchmarkiem wydajności ani
+podstawą do uogólnienia na inne systemy. Pokazują format dowodu:
+
+- przeskanował 55 ticketów,
+- rozważył 33 kandydatów,
+- sprawdził pięć oczekujących ticketów,
+- nie promował żadnego bez zielonych bramek,
+- zakończył `queue_execution` w 18,8 s.
+
+Kontroler wykonuje sweep co 300 000 ms. Błąd wymagający reakcji może zlecić
+dodatkowy cykl po 1 s, z deduplikacją i cooldownem 5 minut. Sam błąd nie
+rozszerza authority ani nie omija lifecycle.
+
+W rejestrze lifecycle `digital_twin_profile` miał status `partial`, a
+`autonomy.enabled=false`. Portret był użyteczny dla routingu, ale nie otrzymał
+prawa do samodzielnej migracji profilu lub modyfikacji uprawnień.
+
+Próba potwierdziła wykonanie wewnętrznego lejka przez
+`operations-operator-bot`, audyt connectorów social przez
+`marketing-operator-bot` oraz powiązanie dwóch skrzynek Plesk z portretami w
+Organization Core. Research `PLF-847` pozostał poprawnie zablokowany do czasu
+implementacji dokładnych adapterów browser i analytics.
+
+## Eksperyment dla własnego workflow
+
+Nie zaczynaj od profilu osobowości ani oceny „który model jest najlepszy”.
+Zbuduj mały portret operacyjny z faktów:
+
+```yaml
+portrait:
+  observed_at: "2026-07-24T09:00:00Z"
+  task_classes:
+    small_bug:
+      accepted_changes: 8
+      median_human_minutes: 24
+      review_required: true
+  current:
+    human_active_tasks: 1
+    ai_running_tasks: 2
+    waiting_reviews: 1
+  autonomy:
+    enabled: false
+```
+
+Router może użyć tych danych do rekomendacji wykonawcy albo kolejności odbioru.
+Nie może na ich podstawie sam nadać dostępu do repozytorium, zwiększyć budżetu
+czy opublikować zmiany.
+
+## Wniosek
+
+Wartością Digital Twina nie jest naśladowanie człowieka. Jest nią coraz lepszy,
+sprawdzalny routing pracy bez rozszerzania uprawnień na podstawie predykcji.
+Dobry portret mówi również, czego jeszcze nie wiadomo i kiedy obserwacja
+przestaje być świeża.

@@ -1,0 +1,71 @@
+# Cotygodniowa retrospektywa
+
+Raz w tygodniu wybieramy jedną rzecz do zachowania, jedną do usunięcia, jedną do
+automatyzacji i jeden eksperyment. Proces ma być prostszy po każdym cyklu.
+
+Retrospektywa nie jest spotkaniem do wymiany wrażeń. Jest domknięciem pętli:
+porównuje intencję z wykonaniem, wskazuje dowód i tworzy małą zmianę następnej
+wersji procesu.
+
+## Dane wejściowe
+
+Przed rozpoczęciem zbierz:
+
+- zaakceptowane i odrzucone zadania,
+- czas aktywnej pracy człowieka,
+- długość kolejki review,
+- przekroczone budżety,
+- rework i defekty po odbiorze,
+- zdarzenia, przy których potrzebna była eskalacja.
+
+Nie potrzebujesz kompletnej telemetrii. Potrzebujesz danych wystarczających do
+odróżnienia zdarzenia jednorazowego od powtarzającego się wzorca.
+
+## Szablon
+
+```yaml
+retrospective:
+  period: 2026-W31
+
+  expected:
+    hypothesis: "Niezależny review zmniejszy rework"
+    success: "rework_minutes -20%, bez wzrostu lead_time"
+
+  observed:
+    comparable_tasks: 8
+    result: inconclusive
+    evidence:
+      - "review wykrył dwa brakujące testy"
+      - "kolejka odbioru dwukrotnie przekroczyła limit"
+
+  decisions:
+    keep: "niezależny review dla zmian wysokiego ryzyka"
+    remove: "podwójne odpowiedzi dla zmian mechanicznych"
+    automate: "zapis czasu gotowości wyniku"
+    experiment: "odbiór wyników o 11:30 i 15:30"
+
+  owner: "human:programmer"
+  review_after: "7d"
+```
+
+## Cztery pytania
+
+1. **Co zachować?** Wskaż praktykę i dowód, nie ogólne odczucie.
+2. **Co usunąć?** Usuń krok, który nie zmienia decyzji ani jakości.
+3. **Co zautomatyzować?** Wybierz powtarzalną czynność z jednoznacznym wynikiem.
+4. **Co sprawdzić?** Zmień jedną hipotezę i określ warunek zatrzymania.
+
+Jeżeli wynik jest niejednoznaczny, nie wymuszaj werdyktu. Zapisz brakujące dane
+i zaprojektuj mniejszą próbę.
+
+## Pierwsze trzydzieści dni
+
+- **Tydzień 1:** tylko pomiar stanu bazowego i Human WIP = 1.
+- **Tydzień 2:** kolejka odbioru oraz stałe okna review.
+- **Tydzień 3:** rozdzielenie ról dwóch modeli dla jednej klasy zadań.
+- **Tydzień 4:** budżety, plan degradacji i pierwszy Process Pack.
+
+Po miesiącu powinieneś mieć mniej zasad niż na początku, ale każda z nich
+powinna być oparta na obserwacji. Celem nie jest maksymalna autonomia. Celem
+jest system pracy, który potrafi wyjaśnić, dlaczego dany poziom autonomii jest
+w tej chwili bezpieczny i opłacalny.

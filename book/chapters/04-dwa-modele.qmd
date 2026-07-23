@@ -1,0 +1,60 @@
+# Dwa modele, różne role
+
+Model A przygotowuje rozwiązanie. Model B otrzymuje diff i kryteria, a następnie
+szuka luk, projektuje testy lub podważa założenia. Dostawca jest bindingiem do
+capability, nie częścią strategii.
+
+Posiadanie dwóch dostępów nie jest jeszcze redundancją. Redundancja powstaje
+dopiero wtedy, gdy drugi tor potrafi przejąć potrzebną capability albo
+niezależnie wykryć błąd pierwszego.
+
+## Podział odpowiedzialności
+
+Najprostszy wzorzec wygląda tak:
+
+| Rola | Otrzymuje | Zwraca |
+|---|---|---|
+| wykonawca | zadanie, kontekst, kryteria | mały diff i wyniki kontroli |
+| recenzent | kryteria, diff, istotne ograniczenia | findings, testy i ocenę ryzyka |
+| człowiek | oba wyniki i dowody | decyzję: zaakceptuj, popraw lub odrzuć |
+
+Recenzent nie powinien otrzymywać całego toku rozumowania wykonawcy. Potrzebuje
+artefaktu, celu i ograniczeń. Dzięki temu ma szansę zakwestionować założenie,
+zamiast tylko kontynuować pierwszą narrację.
+
+## Kiedy drugi model pomaga
+
+- zmiana dotyczy bezpieczeństwa, danych albo trudnego rollbacku,
+- testy są niepełne i potrzebna jest druga perspektywa,
+- jeden dostawca nie ma wymaganej capability,
+- wynik researchu wymaga potwierdzenia źródeł,
+- awaria lub limit jednego dostawcy blokuje pracę.
+
+## Kiedy drugi model szkodzi
+
+- zadanie jest małe, deterministyczne i dobrze pokryte testami,
+- człowiek musi przeczytać dwie długie, podobne odpowiedzi,
+- modele wzajemnie recenzują prozę zamiast sprawdzać artefakt,
+- koszt porównania jest większy niż ryzyko zadania,
+- drugi model dostaje te same błędne założenia i nie ma niezależnego dowodu.
+
+## Routing po capability
+
+Strategia powinna mówić „implementacja”, „research”, „test design” albo
+„niezależny review”, a nie zawierać nazwę produktu. Osobny binding może brać
+pod uwagę:
+
+- dostęp do repozytorium i narzędzi,
+- długość oraz rodzaj kontekstu,
+- prywatność danych,
+- aktualny limit i przewidywany koszt,
+- obserwowaną jakość w podobnych zadaniach.
+
+Zmiana dostawcy nie powinna zmieniać definicji sukcesu.
+
+## Eksperyment
+
+Wybierz dziesięć podobnych zmian. Pięć wykonaj w torze pojedynczym, a pięć w
+torze wykonawca–recenzent. Zmierz aktywny czas człowieka, liczbę poprawek,
+defekty wykryte przed akceptacją i koszt. Dwa modele są usprawnieniem tylko
+wtedy, gdy wartość wcześniejszego wykrycia błędów przewyższa dodatkowy odbiór.

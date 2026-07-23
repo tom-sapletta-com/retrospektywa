@@ -1,0 +1,59 @@
+---
+subtitle: "Jak projektować i mierzyć pracę programisty z AI"
+---
+
+# Retrospektywa {.unnumbered}
+
+> Efektywność programisty pracującego z AI zależy nie od szybkości generowania
+> kodu, lecz od sposobu zarządzania uwagą, kolejką zadań, weryfikacją wyników i
+> ograniczonym budżetem modeli.
+
+Modele potrafią przygotować więcej propozycji, niż człowiek jest w stanie
+odpowiedzialnie ocenić. W takim środowisku kolejne okno czatu nie zwiększa
+automatycznie produktywności. Może jedynie powiększyć kolejkę nieodebranej
+pracy.
+
+Ta książka pokazuje, jak zbudować system, w którym:
+
+- człowiek zachowuje jedno aktywne zadanie wymagające skupienia,
+- modele wykonują rozdzielone i możliwe do zweryfikowania role,
+- wyniki trafiają do kolejki zamiast przerywać pracę,
+- koszt, czas, poprawki i jakość są mierzone,
+- autonomia rośnie dopiero po zebraniu powtarzalnych dowodów.
+
+Nie jest to katalog promptów ani ranking dostawców. Nazwy modeli, limity i ceny
+zmieniają się szybciej niż dobra organizacja pracy. Interesują nas mechanizmy,
+które pozostają użyteczne po zmianie narzędzia: kontrakt celu, ograniczenie
+pracy w toku, niezależna weryfikacja, jawny budżet i retrospektywa.
+
+## Książka jako laboratorium
+
+Każdy rozdział łączy narrację z małym, odtwarzalnym eksperymentem. Część
+decyzji zapisujemy również za pomocą DSL-i wywodzących się z projektów
+Subactora:
+
+| Warstwa | Pytanie |
+|---|---|
+| Intent Contract | Co dokładnie chcemy osiągnąć? |
+| AQL | Kto może wykonać działanie i czego nie wolno? |
+| OQL | Jaki jest przebieg operacji? |
+| URI Process | Która capability realizuje krok? |
+| EQL i TestQL | Po czym poznamy prawidłowy rezultat? |
+| DOQL i DQL | Jaka jest sytuacja i które inwarianty zostały naruszone? |
+| SODL | Co faktycznie wydarzyło się w czasie? |
+
+DSL nie zastępuje prozy. Proza wyjaśnia motywację i kontekst, a kontrakt
+oddziela pola, które można walidować, porównywać i testować.
+
+## Jak czytać
+
+1. Wybierz jeden rzeczywisty proces, nie całą pracę naraz.
+2. Zapisz stan początkowy przez co najmniej kilka porównywalnych zadań.
+3. Wprowadź jedną zmianę i z góry określ czas trwania próby.
+4. Porównaj jakość, koszt, czas oraz aktywny udział człowieka.
+5. Zachowaj zmianę tylko wtedy, gdy wynik poprawił cały system, a nie jedną
+   wygodną metrykę.
+
+Po każdym eksperymencie powinien pozostać ślad: kontrakt, zdarzenia, wynik i
+decyzja. Dzięki temu retrospektywa przestaje być opinią z końca tygodnia i staje
+się metodą rozwijania sposobu pracy.

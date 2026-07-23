@@ -1,0 +1,132 @@
+# DSL: idea, którą można uruchomić
+
+Naturalny język dobrze przenosi kontekst, motywację i wyjątki. Słabo nadaje się
+jednak do jednoznacznego wykrywania brakujących pól, porównywania wersji i
+automatycznego testowania.
+
+DSL zwiększa wartość idei, gdy formalizuje pięć elementów:
+
+1. intencję,
+2. granice authority,
+3. przebieg operacji,
+4. oczekiwany dowód,
+5. reakcję na brak gotowości.
+
+## Języki i odpowiedzialności
+
+W przykładach używamy rodziny DSL-i rozwijanych w projektach Subactora:
+
+| Warstwa | Rola w eksperymencie |
+|---|---|
+| Intent Contract | zaakceptowany cel, ograniczenia i Definition of Done |
+| Strategy DSL | wybór zatwierdzonej strategii oraz abstrakcyjnych capabilities |
+| AQL | authority aktora, allow/deny, limity i delegacja |
+| OQL | plan operacji oraz zależności między krokami |
+| URI Process | binding capability do konkretnego runtime lub connectora |
+| EQL/Expectation | preflight, postcondition i read-back wyniku |
+| EQL/Pressure | ograniczona ocena presji, kosztu lub momentu eskalacji |
+| TestQL | deterministyczna bramka gotowości i jakości |
+| DOQL/Situation | ograniczony obraz sytuacji Digital Twin |
+| DQL/Diagnostic | diagnostyka inwariantów tylko do odczytu |
+| SODL | append-only historia zdarzeń i decyzji |
+
+Nie są to wymienne nazwy dla jednego pliku. Każdy język chroni inną granicę.
+AQL nie wykonuje operacji, DOQL nie nadaje uprawnień, a zielona odpowiedź
+connectora nie zastępuje EQL.
+
+### Kwalifikuj profile
+
+W ekosystemie występują historyczne lub projektowe profile o tych samych
+skrótach. Dlatego w książce piszemy:
+
+- `DOQL/App` dla deklaracji aplikacji w składni `app.doql.less`,
+- `DOQL/Situation` dla agregacji sytuacji Digital Twin,
+- `DQL/Diagnostic` dla read-only autodiagnostyki,
+- `DQL/DOM` dla ograniczonego planu adaptacji interfejsu,
+- `EQL/Expectation`, `EQL/Pressure` i `EQL/Web` dla różnych profili EQL.
+
+Kwalifikator jest częścią kontraktu czytelniczego. Zapobiega przypadkowemu
+przeniesieniu semantyki mutacji do języka diagnostycznego.
+
+## Kompresja bez utraty znaczenia
+
+Krótszy zapis nie jest celem samym w sobie. Dobra kompresja usuwa powtórzenia,
+ale zachowuje decyzje:
+
+```yaml
+intent:
+  id: route-ticket-v1
+  goal: "Wybrać bezpiecznego wykonawcę ticketu"
+
+  constraints:
+    portrait_mutation: forbidden
+    authority_expansion: forbidden
+
+  definition_of_done:
+    - terminal_receipt
+    - eql_handoff_green
+```
+
+Taki kontrakt może jednocześnie:
+
+- przejść walidację schematu,
+- zostać porównany jako mały diff,
+- zasilić router,
+- wygenerować test gotowości,
+- wejść do dokumentacji jako przykład.
+
+## Minimalny przebieg
+
+```text
+idea
+  -> Intent Contract
+  -> AQL + URI validation
+  -> OQL prototype
+  -> EQL + TestQL gate
+  -> SODL receipt
+  -> retrospective
+  -> version + 1
+```
+
+Każdy przebieg dostarcza dowodu. Następna wersja zmienia jedną hipotezę lub
+regułę, dzięki czemu można przypisać zmianę wyniku do konkretnego diffu.
+
+## Process Pack
+
+```text
+digital-twin-router/
+├── intent.yaml
+├── authority.contract.aql
+├── routing.strategy.yaml
+├── portrait.doql.json
+├── execution-chain.oql
+├── handoff.eql
+├── readiness.testql
+├── events.sodl.jsonl
+└── retrospective.md
+```
+
+Pakiet z książki jest demonstracją edukacyjną opartą na rozwiązaniu opisanym w
+Subactorze. Kanoniczna składnia produkcyjna pozostaje w repozytorium projektu,
+a przykład może ewoluować niezależnie wraz z kolejnymi wydaniami książki.
+
+## Reguła ewolucji
+
+Nie zwiększamy autonomii dlatego, że nowa wersja brzmi przekonująco. Zwiększamy
+ją, gdy walidowalny kontrakt, testy, receipts i wyniki powtarzalnych prób
+potwierdzają bezpieczny postęp.
+
+## Granica między przykładem a runtime
+
+Process Pack dołączony do książki jest materiałem edukacyjnym. Składnia
+inspirowana Subactorem nie staje się przez to produkcyjnym grantem. Przed
+wykonaniem system musi:
+
+1. zwalidować dokument względem konkretnej wersji schematu,
+2. rozwiązać principal i authority z rzeczywistego kontraktu,
+3. związać plan, payload i approval jednym hashem,
+4. wybrać istniejący URI przez kontrolowany binding,
+5. zapisać niezależny receipt rezultatu.
+
+LLM może zaproponować treść kontraktu, ale nie powinien sam tworzyć authority,
+sekretu, transportu ani nieznanego URI.

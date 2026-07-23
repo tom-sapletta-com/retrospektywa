@@ -1,0 +1,33 @@
+experiment:
+  id: two-models-001
+  title: "Dwóch wykonawców AI, jedna kolejka człowieka"
+  goal: "Skrócić czas dostarczenia poprawnej zmiany"
+
+  constraints:
+    human_wip_limit: 1
+    ai_wip_limit: 2
+    secrets_allowed: false
+    human_approval_required: true
+
+  strategies:
+    - id: implementation
+      requires: [repository_context, code_generation]
+    - id: independent_review
+      requires: [diff_analysis, test_design]
+
+  measures:
+    - lead_time_minutes
+    - human_active_minutes
+    - ai_wait_minutes
+    - review_minutes
+    - rework_minutes
+    - accepted_changes
+    - escaped_defects
+    - cost_per_accepted_change
+
+  success:
+    lead_time_reduction_percent: ">= 20"
+    escaped_defects: "<= baseline"
+    human_active_tasks: "<= 1"
+
+  result: pending

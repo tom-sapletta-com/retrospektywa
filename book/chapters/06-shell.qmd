@@ -1,0 +1,79 @@
+# Shell jako centrum operacyjne
+
+Każde równoległe zadanie dostaje osobny worktree, sesję i zestaw kontroli.
+Powtarzalne polecenia stają się skryptami, a wynik pracy trafia do jednej
+kolejki odbioru.
+
+Terminal jest dobrym centrum operacyjnym, ponieważ pozostawia ślad i daje się
+automatyzować. Nie oznacza to, że wszystkie narzędzia muszą działać w shellu.
+Oznacza, że shell potrafi odpowiedzieć: na czym pracujemy, jaki jest stan,
+które kontrole przeszły i gdzie znajduje się wynik.
+
+## Izolacja zadania
+
+Osobny `git worktree` pozwala oddzielić diff, zależności i procesy:
+
+```bash
+git fetch origin
+git worktree add ../work/api-validation -b work/api-validation origin/main
+cd ../work/api-validation
+```
+
+Nie twórz worktree bez właściciela i zadania. Nazwa katalogu, gałęzi oraz
+rekordu kolejki powinna prowadzić do tego samego identyfikatora.
+
+Przed usunięciem worktree sprawdź status, wypchnij potrzebną gałąź i zachowaj
+receipt testów. Automatyzacja nie usprawiedliwia utraty nieodebranej pracy.
+
+## Kontrakt poleceń
+
+Projekt powinien mieć mały, przewidywalny zestaw komend:
+
+```text
+install   — odtwarza zależności z lockfile
+check     — szybkie kontrole przed przekazaniem
+test      — pełna weryfikacja
+build     — tworzy artefakt
+preview   — uruchamia bezpieczny podgląd
+```
+
+Dokładna implementacja może korzystać z `npm`, `make`, `just`, `task` albo
+skryptów repozytorium. Ważniejsza od nazwy narzędzia jest stabilna semantyka.
+Agent nie powinien zgadywać, czy `test.sh` publikuje artefakt albo zmienia dane.
+
+## Sesja i receipt
+
+Dla każdego zadania zapisuj:
+
+```yaml
+run:
+  task_id: api-validation-001
+  worktree: ../work/api-validation
+  base_revision: abc123
+  commands:
+    - npm test
+    - npm run build
+  result:
+    tests: passed
+    build: passed
+  output_revision: def456
+```
+
+To nie musi być rozbudowany system telemetryczny. Wystarcza deterministyczna
+odpowiedź na pytanie, co sprawdzono przed review.
+
+## Bezpieczeństwo
+
+- Nie przekazuj modelowi plików `.env`, kluczy ani pełnych logów z tokenami.
+- Preferuj referencje do sekretów zamiast ich wartości.
+- Oddziel komendy odczytu od mutacji i publikacji.
+- Przed publikacją wymagaj jawnego celu, rewizji i potwierdzenia testów.
+- Skrypt awaryjny nie może raportować sukcesu, jeśli pominął rzeczywistą
+  operację.
+
+## Eksperyment
+
+Wybierz jeden często powtarzany rodzaj zadania. Przygotuj komendę `check`,
+szablon receiptu i osobny worktree. Przez tydzień zmierz liczbę ręcznych
+kroków, nieudanych przekazań oraz przypadków, w których review musiało wrócić
+po brakujący test.

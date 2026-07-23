@@ -1,0 +1,77 @@
+# Jak mierzyć efektywność
+
+Najważniejsze metryki to lead time, aktywny czas człowieka, czas oczekiwania,
+rework, defekty po odbiorze oraz koszt zaakceptowanej zmiany. Liczba linii kodu
+nie jest miarą wartości.
+
+Pomiar ma wspierać decyzję o procesie, a nie tworzyć ranking programistów.
+Metryka bez pytania prowadzi do optymalizacji liczby, często kosztem całego
+systemu.
+
+## Minimalny zestaw
+
+| Metryka | Początek | Koniec | Pytanie |
+|---|---|---|---|
+| lead time | zadanie gotowe | wynik zaakceptowany | Jak szybko dostarczamy wartość? |
+| czas człowieka | aktywne skupienie | odłożenie kontekstu | Ile rzadkiego zasobu zużyliśmy? |
+| czas AI | zlecenie | wynik gotowy | Czy wykonanie jest faktycznym blokerem? |
+| czas oczekiwania | wynik gotowy | rozpoczęcie review | Czy kolejka przekracza odbiór? |
+| rework | pierwsze odrzucenie | zaakceptowana poprawka | Ile pracy generuje niepełny wynik? |
+| defekty po odbiorze | akceptacja | koniec okna obserwacji | Czy przyspieszenie ukrywa koszt jakości? |
+| koszt zmiany | pierwsze zlecenie | akceptacja | Ile kosztował cały zaakceptowany rezultat? |
+
+Koszt zmiany obejmuje nie tylko opłatę za model. Obejmuje także aktywny czas
+człowieka, ponowne uruchomienia, review i naprawę regresji.
+
+## Jednostka porównania
+
+Porównuj podobne klasy zadań: mały bug z małym bugiem, migrację z migracją.
+Średnia ze wszystkich zmian miesza różne ryzyko i może ukryć rzeczywisty efekt.
+
+Każdy eksperyment powinien mieć:
+
+- stan bazowy,
+- jedną badaną zmianę,
+- ograniczony czas,
+- miarę jakości,
+- warunek zatrzymania,
+- zapis odrzuconych wyników.
+
+## Metryki ostrzegawcze
+
+Wzrost jednej z tych wartości powinien zatrzymać skalowanie:
+
+- wyniki AI oczekujące dłużej niż samo wykonanie,
+- udział reworku przekraczający pierwszą implementację,
+- malejący odsetek wyników zaakceptowanych bez istotnej poprawki,
+- wzrost defektów po wdrożeniu,
+- rosnący koszt na zaakceptowaną zmianę mimo większej liczby uruchomień.
+
+## Czego nie nagradzać
+
+- liczby promptów,
+- tokenów zużytych w ciągu dnia,
+- liczby równoległych agentów,
+- linii wygenerowanego kodu,
+- liczby rozpoczętych ticketów,
+- zielonej odpowiedzi modelu bez niezależnego testu.
+
+To wskaźniki aktywności, nie wartości.
+
+## Karta wyniku
+
+```yaml
+result:
+  task_class: small_bug
+  accepted: true
+  lead_time_minutes: 74
+  human_active_minutes: 31
+  ai_runtime_minutes: 12
+  review_wait_minutes: 18
+  rework_minutes: 9
+  escaped_defects: 0
+  provider_cost: 1.40
+```
+
+Po kilku porównywalnych zadaniach można sprawdzić, czy dana strategia
+rzeczywiście skraca lead time bez przerzucania kosztu na review i utrzymanie.

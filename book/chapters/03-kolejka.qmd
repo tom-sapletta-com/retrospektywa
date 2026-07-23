@@ -1,0 +1,67 @@
+# Kolejka zamiast chaosu
+
+Każde zadanie przed wysłaniem do modelu ma kryteria akceptacji, limit czasu,
+limit kosztu i jasny punkt eskalacji. Wyniki nie przerywają skupienia — czekają
+na zaplanowany odbiór.
+
+Kolejka jest kontraktem między generowaniem a ludzką decyzją. Bez niej każde
+narzędzie walczy o uwagę, a kolejność pracy ustala moment pojawienia się
+powiadomienia.
+
+## Minimalna karta zadania
+
+```yaml
+task:
+  id: api-validation-001
+  outcome: "Nieprawidłowe wejście zwraca stabilny błąd domenowy"
+  context:
+    - "ścieżka modułu"
+    - "obowiązujący kontrakt API"
+  acceptance:
+    - "test negatywny przechodzi"
+    - "brak zmiany zachowania poprawnych żądań"
+  budget:
+    time_minutes: 30
+    ai_runs: 2
+  escalation:
+    after_failed_attempts: 2
+  owner: "human:programmer"
+```
+
+Karta nie musi być długa. Musi pozwolić odróżnić wynik użyteczny od
+przekonująco brzmiącej odpowiedzi.
+
+## Stany kolejki
+
+Wystarcza sześć stanów:
+
+1. `ready` — zadanie ma kontekst i kryteria,
+2. `running` — wykonawca pracuje,
+3. `review` — wynik czeka na zaplanowany odbiór,
+4. `needs_input` — brakuje konkretnej decyzji albo danych,
+5. `accepted` — kryteria i dowód są spełnione,
+6. `discarded` — wynik odrzucono wraz z powodem.
+
+Stan `running` nie jest postępem samym w sobie. Postęp następuje wtedy, gdy
+zadanie przechodzi do stanu bliższego decyzji i pozostawia nową informację.
+
+## Zasady odbioru
+
+- Odbieraj wyniki partiami, nie natychmiast.
+- Najpierw sprawdzaj zadania blokujące aktywną pracę.
+- Nie uruchamiaj kolejnej iteracji bez zapisania przyczyny odrzucenia.
+- Wynik bez diffu, testu lub wskazanego źródła wraca do wykonawcy.
+- Po przekroczeniu limitu prób eskaluj do człowieka albo zmień strategię.
+
+## Backpressure
+
+Jeżeli kolejka `review` osiąga ustalony limit, nie uruchamiaj następnych zadań
+AI. To nie jest marnowanie dostępnego modelu. To ochrona najrzadszego zasobu:
+zdolności człowieka do odpowiedzialnego odbioru.
+
+## Eksperyment
+
+Ustaw limit dwóch wyników oczekujących na review. Przez pięć dni zapisuj
+największą długość kolejki, średni czas oczekiwania i liczbę wyników
+odrzuconych bez kolejnej iteracji. Jeśli kolejka często jest pełna, zmniejsz
+liczbę równoległych zadań albo popraw ich kryteria wejścia.

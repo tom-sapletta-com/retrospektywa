@@ -1,0 +1,63 @@
+# Równoległość bez multitaskingu
+
+AI może wykonywać kilka niezależnych operacji. Człowiek nie powinien odbierać
+ich w losowej kolejności. Drugi projekt uruchamiamy dopiero wtedy, gdy pierwszy
+czeka na rzeczywisty bloker zewnętrzny.
+
+Równoległość dotyczy wykonania. Multitasking dotyczy uwagi. To rozróżnienie
+pozwala korzystać z przepustowości narzędzi bez utrzymywania kilku problemów w
+pamięci człowieka.
+
+## Pipeline zamiast wielu otwartych frontów
+
+```text
+człowiek: definiuje A
+AI:       wykonuje A
+człowiek: definiuje B
+AI:       wykonuje B
+człowiek: odbiera A
+testy:    weryfikują A
+człowiek: podejmuje decyzję A
+```
+
+Przełączenie jest tanie tylko wtedy, gdy poprzedni kontekst został zapisany.
+Minimalna notatka przekazania powinna zawierać:
+
+- aktualny cel,
+- ostatnią potwierdzoną obserwację,
+- otwarte pytanie,
+- następne polecenie lub decyzję,
+- odnośniki do diffu, testu i zadania.
+
+## Dopuszczalny drugi projekt
+
+Drugi projekt można otworzyć, gdy pierwszy:
+
+- czeka na zewnętrzną odpowiedź,
+- wykonuje długi, automatyczny proces,
+- ma zapisany stan i jednoznaczny punkt wznowienia,
+- nie może zostać przyspieszony kolejną decyzją człowieka.
+
+„Model jeszcze pisze” zwykle nie jest wystarczającym powodem. Ten czas można
+wykorzystać na doprecyzowanie testu, przygotowanie odbioru albo przerwę.
+
+## Limity pracy w toku
+
+Punkt startowy dla jednej osoby:
+
+| Typ pracy | Limit |
+|---|---:|
+| aktywne zadanie człowieka | 1 |
+| zadania wykonywane przez AI | 2 |
+| wyniki oczekujące na review | 2 |
+| projekty wymagające bieżącego kontekstu | 1 |
+
+To hipoteza, nie prawo natury. Limit zwiększamy dopiero wtedy, gdy pomiary
+pokazują pustą kolejkę odbioru, mały rework i brak wzrostu defektów.
+
+## Eksperyment
+
+Porównaj dwa tygodnie. W pierwszym pozwól sobie na zwyczajową liczbę otwartych
+zadań. W drugim zastosuj powyższe limity i obowiązkową notatkę przekazania.
+Zmierz lead time, liczbę wznowień, czas potrzebny na odzyskanie kontekstu oraz
+liczbę zadań pozostawionych bez decyzji.

@@ -1,0 +1,72 @@
+# Budżet i ograniczenia AI
+
+Limit zapytań, tokenów lub czasu jest częścią architektury procesu. Routing
+providerów powinien uwzględniać dostępność, koszt, prywatność i jakość konkretnej
+capability.
+
+Nieograniczony eksperyment łatwo zamienia się w serię kolejnych prób bez nowej
+informacji. Budżet wymusza moment decyzji: poprawić kontekst, zmienić strategię,
+eskalować do człowieka albo odrzucić zadanie.
+
+## Cztery budżety
+
+1. **Pieniądze** — koszt dostawcy, infrastruktury i narzędzi.
+2. **Czas** — czas wykonania oraz maksymalny termin oczekiwania.
+3. **Uwaga** — liczba wyników, które człowiek będzie musiał odebrać.
+4. **Ryzyko** — dopuszczalny zakres danych, mutacji i skutków błędu.
+
+Najtańsza odpowiedź nie musi dawać najtańszej zaakceptowanej zmiany. Jeżeli
+wymaga długiego review i kilku poprawek, koszt całego procesu rośnie.
+
+## Budżet zadania
+
+```yaml
+budget:
+  provider_cost_max: 3.00
+  attempts_max: 2
+  elapsed_minutes_max: 45
+  human_review_minutes_max: 20
+  data_class: internal
+  mutation: proposal_only
+```
+
+Po wyczerpaniu budżetu wynik przechodzi do `needs_input`. Nie uruchamiamy
+automatycznie większego modelu ani kolejnej subskrypcji, jeżeli nie zmieniły się
+fakty lub strategia.
+
+## Dwa dostępy jako odporność
+
+Dwóch dostawców może:
+
+- ograniczyć wpływ awarii i limitów,
+- zapewnić różne capabilities,
+- umożliwić niezależny review,
+- dać punkt odniesienia dla jakości i kosztu.
+
+Nie gwarantuje jednak ciągłości. Oba narzędzia mogą zależeć od podobnych
+upstreamów, mieć inne zasady danych albo nie obsługiwać tego samego workflow.
+Przed zakupem drugiego dostępu sprawdź, którą konkretną awarię lub lukę ma
+pokrywać.
+
+## Plan degradacji
+
+Proces powinien przewidywać:
+
+| Sytuacja | Reakcja |
+|---|---|
+| limit modelu wykonawczego | zachowaj zadanie i przełącz zgodny binding |
+| brak modelu recenzującego | użyj testów deterministycznych i oznacz brak niezależnego review |
+| brak dostępu do sieci | pracuj na zapisanych źródłach albo zatrzymaj research |
+| przekroczony koszt | eskaluj; nie zwiększaj budżetu bez decyzji |
+| niezgodność danych | użyj lokalnego narzędzia albo zredagowanego kontekstu |
+
+Degradacja ma być jawna w receipcie. Wynik o słabszym dowodzie nie może
+wyglądać tak samo jak wynik pełnego procesu.
+
+## Eksperyment
+
+Przez dwa tygodnie przypisuj zadaniom budżet przed uruchomieniem. Zapisuj, ile
+zadań przekroczyło limit oraz dlaczego. Jeżeli najczęstszą przyczyną jest
+niepełny kontekst, kolejny zakup nie rozwiąże problemu. Jeżeli przyczyną są
+rzeczywiste limity albo brak capability, drugi dostawca może mieć mierzalną
+wartość.

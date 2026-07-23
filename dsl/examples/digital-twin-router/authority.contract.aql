@@ -1,0 +1,10 @@
+VERSION: 1
+
+AUTHORITY digital_twin_router:
+  ALLOW read "doql://portrait/*"
+  ALLOW evaluate "capability://routing/candidate"
+  ALLOW request "human://decision/accept"
+
+  DENY mutate "doql://portrait/*"
+  DENY grant "authority://*"
+  DENY bypass "lifecycle://*"

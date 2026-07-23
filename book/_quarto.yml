@@ -1,0 +1,61 @@
+project:
+  type: book
+  output-dir: _book
+
+lang: pl
+date: last-modified
+
+book:
+  title: "Retrospektywa"
+  subtitle: "Jak projektować i mierzyć pracę programisty z AI"
+  author: "Retrospektywa.pl"
+  description: >-
+    Praktyczny system zarządzania uwagą, kolejką, budżetem i dowodami w pracy
+    programisty wspieranej przez AI.
+  site-url: "https://tom-sapletta-com.github.io/retrospektywa/"
+  repo-url: "https://github.com/tom-sapletta-com/retrospektywa"
+  repo-actions: [source, issue]
+  page-navigation: true
+  search: true
+  downloads: [epub, docx]
+  chapters:
+    - index.qmd
+    - part: "I. Człowiek i przepływ pracy"
+      chapters:
+        - chapters/01-uwaga.qmd
+        - chapters/02-srodowisko.qmd
+        - chapters/03-kolejka.qmd
+        - chapters/04-dwa-modele.qmd
+        - chapters/05-rownoleglosc.qmd
+    - part: "II. Warsztat i pomiar"
+      chapters:
+        - chapters/06-shell.qmd
+        - chapters/07-pomiary.qmd
+        - chapters/08-budzet.qmd
+    - part: "III. System uczący się"
+      chapters:
+        - chapters/09-digital-twin.qmd
+        - chapters/10-dsl-intencji.qmd
+        - chapters/11-retrospektywa.qmd
+  page-footer:
+    left: "Retrospektywa.pl"
+    right: "Wydanie 0.1"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-copy: true
+  epub:
+    toc: true
+    number-sections: true
+  docx:
+    toc: true
+    number-sections: true
+  typst:
+    toc: true
+    number-sections: true
+
+bibliography: references.bib

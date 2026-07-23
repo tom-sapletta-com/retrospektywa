@@ -1,0 +1,71 @@
+# Stanowisko pracy
+
+Pierwszy monitor służy aktywnemu problemowi. Drugi pokazuje dokumentację,
+kolejkę wyników AI i stan automatycznych kontroli. Przeglądarka jest narzędziem
+źródłowym, a terminal — centrum operacyjnym.
+
+Sprzęt nie tworzy metody, ale może ją wspierać albo sabotować. Celem stanowiska
+nie jest pokazanie jak największej liczby aplikacji. Celem jest utrzymanie
+czytelnej granicy między **pracą aktywną** a **pracą oczekującą**.
+
+## Dwa monitory, dwie funkcje
+
+Monitor aktywny zawiera tylko to, co jest potrzebne do bieżącej decyzji:
+
+- edytor albo diff,
+- terminal z testem dotyczącym tej zmiany,
+- jedno okno rozmowy związane z zadaniem.
+
+Monitor pomocniczy pokazuje informacje, które można bezpiecznie odłożyć:
+
+- dokumentację i źródła,
+- kolejkę zadań oraz wyników,
+- statusy buildów i testów,
+- licznik budżetu,
+- notatkę przekazania kontekstu.
+
+Dwa monitory nie oznaczają dwóch zadań poznawczych. Oznaczają mniej
+niepotrzebnych przełączeń podczas jednego zadania.
+
+## Przeglądarka jako narzędzie źródłowe
+
+Przeglądarka jest nieodłączna od pracy, ale nie powinna być przypadkową stertą
+kart. Dla aktywnego zadania warto utrzymywać trzy grupy:
+
+1. **źródło pierwotne** — dokumentacja, specyfikacja lub kod upstream,
+2. **obserwacja** — działający interfejs, log lub środowisko testowe,
+3. **materiał roboczy** — wyszukiwanie, które można zamknąć po zapisaniu wniosku.
+
+Wniosek z researchu powinien trafić do zadania wraz z adresem źródła i datą
+sprawdzenia. Sama otwarta karta nie jest pamięcią projektu.
+
+## Dwie aplikacje AI
+
+Dwa narzędzia mają sens, jeśli otrzymują różne role. Przykładowy podział:
+
+| Powierzchnia | Domyślna rola |
+|---|---|
+| AI A | implementacja z pełnym kontekstem repozytorium |
+| AI B | niezależny review, testy lub research |
+| przeglądarka | weryfikacja źródeł i obserwacja działania |
+| terminal | wykonanie, testy, pomiary i receipts |
+
+Nie kopiuj automatycznie każdego promptu do obu modeli. Podwójna odpowiedź
+tworzy podwójny koszt odbioru. Porównanie równoległe jest uzasadnione przy
+decyzji trudnej do cofnięcia, dużej niepewności albo wyraźnym pomiarze jakości.
+
+## Higiena stanowiska
+
+- Wyłącz powiadomienia o zakończeniu odpowiedzi modelu.
+- Ustal dwa lub trzy okna odbioru wyników w ciągu dnia.
+- Nie trzymaj sekretów w historii terminala ani treści promptu.
+- Używaj osobnego profilu przeglądarki dla pracy i researchu.
+- Zamykaj powierzchnie poprzedniego zadania przed rozpoczęciem następnego.
+
+## Eksperyment
+
+Przez tydzień zrób zdjęcie lub tekstowy snapshot stanowiska na początku każdej
+sesji. Zapisz liczbę widocznych powierzchni niezwiązanych z aktywnym zadaniem i
+liczbę przerwań wywołanych przez narzędzia. Następnie usuń jedną klasę
+przerwań. Nie zmieniaj jednocześnie sprzętu, modelu i procesu — nie będziesz
+wiedzieć, co wpłynęło na wynik.

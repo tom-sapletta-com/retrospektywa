@@ -1,0 +1,22 @@
+strategy:
+  id: digital-twin-candidate-routing
+  input: composed_ticket
+
+  prefilter:
+    requires:
+      - aql_covered
+      - uri_resolvable
+
+  score:
+    - specialization_match
+    - workload_available
+    - recent_quality
+
+  candidates:
+    - human
+    - bot
+    - service
+
+  no_candidate:
+    state: waiting_input
+    require_gate_code: true

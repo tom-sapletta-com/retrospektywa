@@ -1,0 +1,27 @@
+---
+title: "Programista jako wąskie gardło"
+episode: 1
+status: draft
+audio: true
+---
+
+# Otwarcie
+
+Modele generują szybciej, niż człowiek może odpowiedzialnie oceniać. Dlatego
+dzisiejszy odcinek nie jest o szybszym pisaniu promptów. Jest o projektowaniu
+kolejki odbioru.
+
+# Teza
+
+Człowiek powinien mieć jedno aktywne zadanie poznawcze, nawet jeśli kilka modeli
+pracuje równolegle. Wynik AI nie może być powiadomieniem. Musi być elementem
+kontrolowanej kolejki.
+
+# Eksperyment tygodnia
+
+Przez pięć dni zapisuj czas wysłania zadania, czas otrzymania wyniku, rozpoczęcia
+review i decyzji. Porównaj te dane z liczbą przełączeń kontekstu.
+
+# Zakończenie
+
+W kolejnym odcinku rozdzielimy role dwóch modeli: twórcy i niezależnego krytyka.
