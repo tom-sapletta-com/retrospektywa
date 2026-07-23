@@ -1,0 +1,5 @@
+# Równoległość bez multitaskingu
+
+AI może wykonywać kilka niezależnych operacji. Człowiek nie powinien odbierać
+ich w losowej kolejności. Drugi projekt uruchamiamy dopiero wtedy, gdy pierwszy
+czeka na rzeczywisty bloker zewnętrzny.

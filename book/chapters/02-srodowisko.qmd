@@ -1,0 +1,10 @@
+# Stanowisko pracy
+
+Pierwszy monitor służy aktywnemu problemowi. Drugi pokazuje dokumentację,
+kolejkę wyników AI i stan automatycznych kontroli. Przeglądarka jest narzędziem
+źródłowym, a terminal — centrum operacyjnym.
+
+## Zasada
+
+Dwa monitory nie oznaczają dwóch zadań poznawczych. Oznaczają mniej
+niepotrzebnych przełączeń podczas jednego zadania.

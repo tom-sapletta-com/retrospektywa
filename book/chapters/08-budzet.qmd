@@ -1,0 +1,5 @@
+# Budżet i ograniczenia AI
+
+Limit zapytań, tokenów lub czasu jest częścią architektury procesu. Routing
+providerów powinien uwzględniać dostępność, koszt, prywatność i jakość konkretnej
+capability.

@@ -1,0 +1,5 @@
+# Shell jako centrum operacyjne
+
+Każde równoległe zadanie dostaje osobny worktree, sesję i zestaw kontroli.
+Powtarzalne polecenia stają się skryptami, a wynik pracy trafia do jednej
+kolejki odbioru.

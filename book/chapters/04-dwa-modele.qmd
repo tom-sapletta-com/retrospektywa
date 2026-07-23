@@ -1,0 +1,5 @@
+# Dwa modele, różne role
+
+Model A przygotowuje rozwiązanie. Model B otrzymuje diff i kryteria, a następnie
+szuka luk, projektuje testy lub podważa założenia. Dostawca jest bindingiem do
+capability, nie częścią strategii.

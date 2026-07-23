@@ -1,0 +1,31 @@
+VERSION: 1
+
+FLOW ai_assisted_change:
+  META owner "human:programmer"
+  META human_wip_limit "1"
+  META ai_wip_limit "2"
+
+  STEP scope work.define "change-scope"
+    EXPECT acceptance_criteria_ready == true
+    SAVE task
+
+  STEP implementation process.run "capability://code/implementation"
+    WITH task = "$state.task"
+    EXPECT patch_created == true
+    SAVE patch
+
+  STEP review process.run "capability://code/independent-review"
+    WITH patch = "$state.patch"
+    EXPECT review_completed == true
+    SAVE review
+
+  STEP verification process.run "capability://code/test"
+    WITH patch = "$state.patch"
+    EXPECT tests_passed == true
+    SAVE verification
+
+  STEP decision human.request "human://programmer/decision/accept"
+    WITH patch = "$state.patch"
+    WITH review = "$state.review"
+    WITH verification = "$state.verification"
+    EXPECT accepted == true

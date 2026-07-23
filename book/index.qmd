@@ -1,0 +1,18 @@
+---
+title: "Retrospektywa"
+---
+
+> Efektywność programisty pracującego z AI zależy nie od szybkości generowania
+> kodu, lecz od sposobu zarządzania uwagą, kolejką zadań, weryfikacją wyników i
+> ograniczonym budżetem modeli.
+
+Ta książka jest zapisem odtwarzalnych eksperymentów. Każdy rozdział łączy
+opowieść z kontraktem celu, procesem, metrykami oraz rejestrem zdarzeń.
+
+## Jak czytać
+
+1. Wybierz jeden proces.
+2. Zapisz stan początkowy.
+3. Zastosuj eksperyment przez określony czas.
+4. Porównaj jakość, koszt, czas i udział człowieka.
+5. Zmień tylko jeden element systemu.

@@ -1,0 +1,10 @@
+# Programista jako wąskie gardło
+
+AI może generować więcej wyników, niż człowiek jest w stanie odpowiedzialnie
+odebrać. Dlatego podstawową jednostką systemu nie jest prompt, lecz decyzja.
+
+## Eksperyment
+
+Przez pięć dni utrzymuj limit jednej aktywnej decyzji człowieka. Pozostałe
+wyniki trafiają do kolejki. Mierz czas oczekiwania, czas review i liczbę
+powrotów do zadania.

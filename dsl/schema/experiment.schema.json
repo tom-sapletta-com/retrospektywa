@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://retrospektywa.pl/schema/experiment.schema.json",
+  "title": "Retrospektywa Experiment",
+  "type": "object",
+  "required": ["experiment"],
+  "properties": {
+    "experiment": {
+      "type": "object",
+      "required": ["id", "title", "goal", "constraints", "measures", "success"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "title": { "type": "string", "minLength": 3 },
+        "goal": { "type": "string", "minLength": 3 },
+        "constraints": { "type": "object" },
+        "strategies": { "type": "array", "items": { "type": "object" } },
+        "measures": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "success": { "type": "object", "minProperties": 1 },
+        "result": { "enum": ["pending", "success", "failure", "inconclusive"] }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

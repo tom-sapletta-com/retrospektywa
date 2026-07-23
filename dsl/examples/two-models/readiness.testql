@@ -1,0 +1,14 @@
+VERSION: 1
+
+SUITE ai_work_readiness "Gotowość systemu pracy":
+  TEST attention "Człowiek ma jedno aktywne zadanie":
+    EXPECT metrics.human_active_tasks <= 1
+
+  TEST queue "Kolejka wyników pozostaje odbieralna":
+    EXPECT metrics.unreviewed_ai_results <= 2
+
+  TEST verification "Każda zaakceptowana zmiana ma dowód":
+    EXPECT metrics.unverified_changes == 0
+
+  TEST secrets "Modele nie otrzymały jawnych sekretów":
+    EXPECT metrics.secret_findings == 0

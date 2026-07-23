@@ -1,0 +1,38 @@
+project:
+  type: book
+  output-dir: _book
+
+lang: pl
+
+book:
+  title: "Retrospektywa"
+  subtitle: "Jak projektować i mierzyć pracę programisty z AI"
+  author: "Retrospektywa.pl"
+  chapters:
+    - index.qmd
+    - chapters/01-uwaga.qmd
+    - chapters/02-srodowisko.qmd
+    - chapters/03-kolejka.qmd
+    - chapters/04-dwa-modele.qmd
+    - chapters/05-rownoleglosc.qmd
+    - chapters/06-shell.qmd
+    - chapters/07-pomiary.qmd
+    - chapters/08-budzet.qmd
+    - chapters/09-digital-twin.qmd
+    - chapters/10-retrospektywa.qmd
+  page-footer:
+    left: "Retrospektywa.pl"
+    right: "Wersja robocza"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+  epub:
+    toc: true
+  docx:
+    toc: true
+  typst:
+    toc: true
+
+bibliography: references.bib

@@ -1,0 +1,4 @@
+# Cotygodniowa retrospektywa
+
+Raz w tygodniu wybieramy jedną rzecz do zachowania, jedną do usunięcia, jedną do
+automatyzacji i jeden eksperyment. Proces ma być prostszy po każdym cyklu.

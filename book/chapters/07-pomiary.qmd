@@ -1,0 +1,5 @@
+# Jak mierzyć efektywność
+
+Najważniejsze metryki to lead time, aktywny czas człowieka, czas oczekiwania,
+rework, defekty po odbiorze oraz koszt zaakceptowanej zmiany. Liczba linii kodu
+nie jest miarą wartości.

@@ -1,0 +1,15 @@
+# Digital twin programisty
+
+Twin jest modelem sposobu pracy: kryteriów decyzji, jakości, rytmu, kosztu i
+granic uprawnień. Nie musi przechowywać treści kodu ani prywatnych rozmów.
+
+## Drabina autonomii
+
+- L0 — obserwuje,
+- L1 — podpowiada,
+- L2 — deleguje,
+- L3 — wykonuje z bramką człowieka,
+- L4 — optymalizuje sprawdzony proces.
+
+Awans wymaga serii dowodów. Incydent krytyczny obniża poziom lub zatrzymuje
+automatyzację.

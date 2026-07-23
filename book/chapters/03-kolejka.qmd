@@ -1,0 +1,5 @@
+# Kolejka zamiast chaosu
+
+Każde zadanie przed wysłaniem do modelu ma kryteria akceptacji, limit czasu,
+limit kosztu i jasny punkt eskalacji. Wyniki nie przerywają skupienia — czekają
+na zaplanowany odbiór.
