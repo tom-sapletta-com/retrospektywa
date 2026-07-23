@@ -19,6 +19,12 @@ const streams = [
     text: "Rejestr zdarzeń, pomiary i digital twin uczący się Twojego sposobu pracy.",
     href: "/laboratorium",
   },
+  {
+    no: "04",
+    title: "DSL",
+    text: "Intencje zamienione w kontrakty, które można walidować, testować i rozwijać.",
+    href: "/dsl",
+  },
 ];
 
 const autonomy = [
@@ -39,6 +45,7 @@ export default function Home() {
         </Link>
         <nav aria-label="Główna nawigacja">
           <Link href="/ksiazka">Książka</Link>
+          <Link href="/dsl">DSL</Link>
           <a href="#eseje">Blog</a>
           <Link href="/podcast">Podcast</Link>
           <Link href="/laboratorium">Eksperymenty</Link>

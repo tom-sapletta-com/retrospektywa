@@ -1,0 +1,18 @@
+VERSION: 1
+
+SUITE digital_twin_router_readiness:
+  TEST portrait "Portret pozostaje tylko do odczytu":
+    EXPECT metrics.portrait_mutations == 0
+    EXPECT metrics.authority_delta == 0
+
+  TEST candidate "Router stosuje twardy prefilter":
+    EXPECT candidate.aql_covered == true
+    EXPECT candidate.uri_resolvable == true
+
+  TEST false_ready "Odmowa zatrzymuje jałowy retry":
+    EXPECT waiting_input.gate_code != null
+    EXPECT metrics.unchanged_retries == 0
+
+  TEST handoff "Następca otrzymuje sprawdzony łańcuch":
+    EXPECT predecessor.receipt.status == "terminal"
+    EXPECT handoff.eql == "green"

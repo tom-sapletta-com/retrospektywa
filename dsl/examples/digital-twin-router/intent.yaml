@@ -1,0 +1,24 @@
+intent:
+  id: digital-twin-router-v1
+  title: "Bezpieczny routing ticketu na podstawie portretu aktora"
+  goal: "Wybrać gotowego wykonawcę bez rozszerzania authority"
+
+  invariants:
+    portrait: read_only
+    authority_expansion: forbidden
+    unchanged_retry: forbidden
+
+  requires:
+    - aql_coverage
+    - uri_resolvable
+    - terminal_predecessor_receipt
+    - eql_handoff_green
+
+  on_false_ready:
+    state: waiting_input
+    gate_code: required
+
+  definition_of_done:
+    - executor_selected
+    - terminal_receipt_saved
+    - next_ticket_handoff_evaluated

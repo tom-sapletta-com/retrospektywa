@@ -19,7 +19,8 @@ book:
     - chapters/07-pomiary.qmd
     - chapters/08-budzet.qmd
     - chapters/09-digital-twin.qmd
-    - chapters/10-retrospektywa.qmd
+    - chapters/10-dsl-intencji.qmd
+    - chapters/11-retrospektywa.qmd
   page-footer:
     left: "Retrospektywa.pl"
     right: "Wersja robocza"

@@ -1,0 +1,5 @@
+{"at":"2026-07-24T00:00:00Z","event":"queue_execution.started","sweep_interval_ms":300000}
+{"at":"2026-07-24T00:00:01Z","event":"tickets.scanned","count":55}
+{"at":"2026-07-24T00:00:08Z","event":"candidates.considered","count":33}
+{"at":"2026-07-24T00:00:15Z","event":"waiting_input.checked","count":5}
+{"at":"2026-07-24T00:00:18.800Z","event":"queue_execution.completed","duration_ms":18800,"promoted_without_green_gates":0}

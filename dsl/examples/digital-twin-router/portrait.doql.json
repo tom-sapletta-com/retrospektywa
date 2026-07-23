@@ -1,0 +1,18 @@
+{
+  "situation": {
+    "id": "digital-twin-router-example",
+    "observed_at": "2026-07-24T00:00:00Z",
+    "digital_twin_profile": {
+      "lifecycle_status": "partial",
+      "autonomy": {
+        "enabled": false
+      },
+      "mode": "read_only",
+      "signals": [
+        "specialization_match",
+        "workload_available",
+        "recent_quality"
+      ]
+    }
+  }
+}

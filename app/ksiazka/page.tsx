@@ -17,7 +17,8 @@ const chapters = [
   ["07", "Pomiary efektywności", "Lead time, czas człowieka, rework, defekty i koszt zaakceptowanej zmiany."],
   ["08", "Budżet i ograniczenia modeli", "Limity, degradacja, routing i plan awaryjny dla providerów."],
   ["09", "Digital twin programisty", "Rejestr zdarzeń, profil decyzji i stopniowo zdobywana autonomia."],
-  ["10", "Cotygodniowa retrospektywa", "Co zachować, co usunąć, co zautomatyzować i jaki test wykonać dalej."],
+  ["10", "DSL: idea, którą można uruchomić", "Formalizacja intencji, walidacja, wersjonowanie i ewolucyjna pętla zmian."],
+  ["11", "Cotygodniowa retrospektywa", "Co zachować, co usunąć, co zautomatyzować i jaki test wykonać dalej."],
 ];
 
 export default function BookPage() {
@@ -45,6 +46,7 @@ export default function BookPage() {
           <div className="book-actions">
             <a className="button button-primary" href="#pakiety">Zobacz wydania</a>
             <a className="button button-secondary" href="#spis">Spis treści</a>
+            <Link className="button button-secondary" href="/dsl">DSL w praktyce</Link>
           </div>
         </div>
       </section>

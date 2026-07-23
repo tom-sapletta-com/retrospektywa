@@ -1,0 +1,81 @@
+# DSL: idea, którą można uruchomić
+
+Naturalny język dobrze przenosi kontekst, motywację i wyjątki. Słabo nadaje się
+jednak do jednoznacznego wykrywania brakujących pól, porównywania wersji i
+automatycznego testowania.
+
+DSL zwiększa wartość idei, gdy formalizuje pięć elementów:
+
+1. intencję,
+2. granice authority,
+3. przebieg operacji,
+4. oczekiwany dowód,
+5. reakcję na brak gotowości.
+
+## Kompresja bez utraty znaczenia
+
+Krótszy zapis nie jest celem samym w sobie. Dobra kompresja usuwa powtórzenia,
+ale zachowuje decyzje:
+
+```yaml
+intent:
+  id: route-ticket-v1
+  goal: "Wybrać bezpiecznego wykonawcę ticketu"
+
+  constraints:
+    portrait_mutation: forbidden
+    authority_expansion: forbidden
+
+  definition_of_done:
+    - terminal_receipt
+    - eql_handoff_green
+```
+
+Taki kontrakt może jednocześnie:
+
+- przejść walidację schematu,
+- zostać porównany jako mały diff,
+- zasilić router,
+- wygenerować test gotowości,
+- wejść do dokumentacji jako przykład.
+
+## Minimalny przebieg
+
+```text
+idea
+  -> Intent Contract
+  -> AQL + URI validation
+  -> OQL prototype
+  -> EQL + TestQL gate
+  -> SODL receipt
+  -> retrospective
+  -> version + 1
+```
+
+Każdy przebieg dostarcza dowodu. Następna wersja zmienia jedną hipotezę lub
+regułę, dzięki czemu można przypisać zmianę wyniku do konkretnego diffu.
+
+## Process Pack
+
+```text
+digital-twin-router/
+├── intent.yaml
+├── authority.contract.aql
+├── routing.strategy.yaml
+├── portrait.doql.json
+├── execution-chain.oql
+├── handoff.eql
+├── readiness.testql
+├── events.sodl.jsonl
+└── retrospective.md
+```
+
+Pakiet z książki jest demonstracją edukacyjną opartą na rozwiązaniu opisanym w
+Subactorze. Kanoniczna składnia produkcyjna pozostaje w repozytorium projektu,
+a przykład może ewoluować niezależnie wraz z kolejnymi wydaniami książki.
+
+## Reguła ewolucji
+
+Nie zwiększamy autonomii dlatego, że nowa wersja brzmi przekonująco. Zwiększamy
+ją, gdy walidowalny kontrakt, testy, receipts i wyniki powtarzalnych prób
+potwierdzają bezpieczny postęp.

@@ -1,0 +1,13 @@
+VERSION: 1
+
+EXPECTATION ticket_handoff:
+  PRECONDITION predecessor.receipt.status == "terminal"
+  PRECONDITION successor.aql_covered == true
+  PRECONDITION successor.uri_resolvable == true
+  POSTCONDITION handoff.status == "green"
+
+PRESSURE queue_retry:
+  WHEN readiness == false
+  SET state = "waiting_input"
+  REQUIRE gate_code
+  FORBID unchanged_retry
