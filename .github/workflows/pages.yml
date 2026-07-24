@@ -100,8 +100,7 @@ jobs:
           npm run content:validate
           npm run dsl:validate
           npm run audio:test
-          quarto render book --to html
-          npm run release:stage
+          npm run release:generate
           npm run release:validate
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
