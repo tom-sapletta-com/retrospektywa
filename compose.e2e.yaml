@@ -1,0 +1,39 @@
+name: retrospektywa-e2e
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.app
+    environment:
+      NODE_ENV: production
+    expose:
+      - "3000"
+    networks:
+      default:
+        aliases:
+          - web
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - --input-type=module
+        - -e
+        - "const r=await fetch('http://127.0.0.1:3000/'); if(!r.ok) process.exit(1)"
+      interval: 2s
+      timeout: 2s
+      retries: 30
+      start_period: 5s
+
+  e2e:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.e2e
+    init: true
+    ipc: host
+    depends_on:
+      app:
+        condition: service_healthy
+    environment:
+      CI: "1"
+      E2E_BASE_URL: http://web:3000

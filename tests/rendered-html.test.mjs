@@ -48,7 +48,7 @@ test("landing routes expose the book, audio and examples", async () => {
   };
 
   for (const [path, patterns] of [
-    ["/", [/Czytaj książkę/, /cybernetycznym WorkCell/, /retrospektywa-process-pack-0\.2\.zip/]],
+    ["/", [/Czytaj książkę/, /cybernetycznym WorkCell/, /Docker E2E/, /retrospektywa-process-pack-0\.2\.zip/]],
     ["/ksiazka", [/WYDANIE 0\.2/, /Cybernetyczny WorkCell/, /retrospektywa-0\.2\.pdf/]],
     ["/podcast", [/Google Cloud/, /audiobook-preview-0\.2\.mp3/]],
   ]) {

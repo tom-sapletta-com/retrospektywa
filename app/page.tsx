@@ -39,16 +39,16 @@ export default function Home() {
   return (
     <main>
       <header className="site-header shell">
-        <Link className="wordmark" href="/" aria-label="Retrospektywa — strona główna">
+        <Link prefetch={false} className="wordmark" href="/" aria-label="Retrospektywa — strona główna">
           <span aria-hidden="true" className="signal-mark" />
           RETROSPEKTYWA.PL
         </Link>
         <nav aria-label="Główna nawigacja">
-          <Link href="/ksiazka">Książka</Link>
-          <Link href="/dsl">DSL</Link>
+          <Link prefetch={false} href="/ksiazka">Książka</Link>
+          <Link prefetch={false} href="/dsl">DSL</Link>
           <a href="#eseje">Blog</a>
-          <Link href="/podcast">Podcast</Link>
-          <Link href="/laboratorium">Eksperymenty</Link>
+          <Link prefetch={false} href="/podcast">Podcast</Link>
+          <Link prefetch={false} href="/laboratorium">Eksperymenty</Link>
         </nav>
       </header>
 
@@ -113,11 +113,36 @@ export default function Home() {
             <p>Książka, audio i wykonywalne przykłady powstają w jednym, testowanym procesie publikacji.</p>
           </div>
           <div className="package-grid">
-            <article><span>01</span><h3>Książka</h3><p>HTML, PDF, EPUB i DOCX z SOA, POA, URI Process, authority oraz cybernetycznym WorkCell.</p><b>otwarte wydanie</b><Link href="/ksiazka">Wybierz format →</Link></article>
+            <article><span>01</span><h3>Książka</h3><p>HTML, PDF, EPUB i DOCX z SOA, POA, URI Process, authority oraz cybernetycznym WorkCell.</p><b>otwarte wydanie</b><Link prefetch={false} href="/ksiazka">Wybierz format →</Link></article>
             <article className="featured"><span>02</span><h3>Audio</h3><p>Polska próbka audiobooka MP3 z manifestem pochodzenia i sumą kontrolną.</p><b>głos syntetyczny</b><a href="/releases/retrospektywa-audiobook-preview-0.2.mp3">Pobierz MP3 →</a></article>
             <article><span>03</span><h3>Przykłady</h3><p>Process Pack: DSL, JSON Schema, authority, URI Process i walidowalny kontrakt WorkCell.</p><b>ZIP + źródła</b><a href="/releases/retrospektywa-process-pack-0.2.zip">Pobierz ZIP →</a></article>
           </div>
         </div>
+      </section>
+
+      <section className="quality-section shell" id="jakosc">
+        <div className="section-heading">
+          <div>
+            <p className="section-kicker">Weryfikacja wydania</p>
+            <h2>Publikacja oparta<br />na dowodach.</h2>
+          </div>
+          <p>
+            Każda zmiana przechodzi przez walidację źródeł, build produkcyjny,
+            przeglądarkę uruchomioną w Dockerze i kontrolę opublikowanych plików.
+          </p>
+        </div>
+        <div className="quality-grid">
+          <article><span>01</span><h3>Kontrakty</h3><p>Lint, JSON Schema, graf URI Process i reguły WorkCell.</p><b>źródło</b></article>
+          <article><span>02</span><h3>Build</h3><p>Aplikacja, HTML, PDF, EPUB, DOCX, MP3 oraz Process Pack.</p><b>artefakty</b></article>
+          <article><span>03</span><h3>Docker E2E</h3><p>Chromium desktop i mobile, nawigacja, API, manifest i pobrania.</p><b>środowisko produkcyjne</b></article>
+          <article><span>04</span><h3>Audyt publiczny</h3><p>HTTP 200, rozmiary i SHA-256 w Sites oraz GitHub Pages.</p><b>publikacja</b></article>
+        </div>
+        <a
+          className="text-link"
+          href="https://github.com/tom-sapletta-com/retrospektywa/actions/workflows/pages.yml"
+        >
+          Zobacz publiczny przebieg testów →
+        </a>
       </section>
 
       <section className="thesis-section shell" id="manifest">
@@ -169,7 +194,7 @@ export default function Home() {
           </div>
           <div className="twin-actions">
             <p><b>Warunek awansu:</b> jakość ≥ 95%, brak incydentów krytycznych i 20 powtórzeń procesu.</p>
-            <Link className="text-link" href="/laboratorium">Otwórz rejestr zdarzeń →</Link>
+            <Link prefetch={false} className="text-link" href="/laboratorium">Otwórz rejestr zdarzeń →</Link>
           </div>
         </div>
       </section>
@@ -187,7 +212,7 @@ export default function Home() {
         </div>
         <div className="stream-grid">
           {streams.map((stream) => (
-            <Link href={stream.href} className="stream-card" key={stream.no}>
+            <Link prefetch={false} href={stream.href} className="stream-card" key={stream.no}>
               <span>{stream.no}</span>
               <h3>{stream.title}</h3>
               <p>{stream.text}</p>
@@ -203,8 +228,8 @@ export default function Home() {
             <span className="footer-mark">R.</span>
             <p>Projektowanie i mierzenie pracy programisty z AI.</p>
           </div>
-          <div><b>Czytaj</b><Link href="/manifest">Manifest</Link><Link href="/ksiazka">Książka</Link></div>
-          <div><b>Praktykuj</b><Link href="/laboratorium">Laboratorium</Link><Link href="/podcast">Podcast</Link></div>
+          <div><b>Czytaj</b><Link prefetch={false} href="/manifest">Manifest</Link><Link prefetch={false} href="/ksiazka">Książka</Link></div>
+          <div><b>Praktykuj</b><Link prefetch={false} href="/laboratorium">Laboratorium</Link><Link prefetch={false} href="/podcast">Podcast</Link></div>
           <div><b>Subdomeny</b><span>ksiazka.retrospektywa.pl</span><span>podcast.retrospektywa.pl</span></div>
         </div>
       </footer>

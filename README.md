@@ -31,6 +31,8 @@ w D1 — bez kodu, promptów i sekretów.
 - `scripts/generate-audio.mjs` — TTS przez Google Cloud, OpenAI, ElevenLabs albo lokalny eSpeak NG;
 - `scripts/generate-release.mjs` — generator wydania i manifestu SHA-256;
 - `scripts/check-publication.mjs` — kontrola publicznego landing page, książki i sum artefaktów;
+- `e2e/` — testy przeglądarkowe publikacji, nawigacji, API i plików wydania;
+- `compose.e2e.yaml` — izolowany zestaw: produkcyjny serwis i Playwright;
 - `.github/workflows/` — statyczna publikacja książki w GitHub Pages.
 
 ## Uruchomienie serwisu
@@ -109,6 +111,43 @@ npm run audio:generate -- content/podcast/001.qmd outputs/episode-001
 
 Domyślne modele i głosy można zmienić przez `GOOGLE_TTS_VOICE`,
 `OPENAI_AUDIO_MODEL`, `OPENAI_AUDIO_VOICE` i `ELEVENLABS_AUDIO_MODEL`.
+
+## Warstwa testowania
+
+Testy są ułożone od najtańszych do najbardziej przekrojowych:
+
+| Warstwa | Polecenie | Zakres |
+|---|---|---|
+| statyczna | `npm run lint` | TypeScript, React i reguły kodu |
+| kontrakty | `npm run dsl:validate` | schematy, URI Process i semantyka WorkCell |
+| jednostkowa/integracyjna | `npm test` | TTS, build workera, routing i obecność artefaktów |
+| E2E | `npm run test:e2e:docker` | produkcyjny serwer oraz Chromium desktop/mobile |
+| produkcyjna | `npm run publication:check` | oba publiczne kanały, rozmiary i SHA-256 |
+
+Docker E2E nie używa danych produkcyjnych. Buduje aplikację od zera, uruchamia
+ją w osobnym kontenerze, czeka na healthcheck, a następnie sprawdza:
+
+- wszystkie publiczne podstrony i nawigację;
+- brak błędów JavaScript w przeglądarce;
+- manifest i bajty pięciu plików wydania;
+- ochronę `GET` i `POST /api/events` przed niezalogowanym dostępem;
+- układ desktopowy i mobilny Chromium.
+
+Wymagany jest Docker z Compose v2:
+
+```bash
+npm run test:e2e:docker
+```
+
+Pełna lokalna bramka jakości:
+
+```bash
+npm run test:all
+```
+
+Test poza Dockerem wymaga jednorazowego `npx playwright install chromium`, po
+czym można użyć `npm run test:e2e`. Obraz E2E instaluje tylko Chromium przez
+przypięty do wersji `1.61.0` pakiet Playwright.
 
 ## Publikacja
 

@@ -84,7 +84,7 @@ export default function BookPage() {
 
       <section className="book-end shell">
         <p>Książka powstaje publicznie z wyników laboratorium i wersjonowanych przykładów.</p>
-        <Link className="text-link" href="/dsl">Zobacz DSL w praktyce →</Link>
+        <Link prefetch={false} className="text-link" href="/dsl">Zobacz DSL w praktyce →</Link>
       </section>
     </main>
   );

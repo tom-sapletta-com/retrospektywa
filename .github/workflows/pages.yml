@@ -4,12 +4,37 @@ on:
   push:
     branches: [main]
     paths:
+      - "app/**"
       - "book/**"
       - "content/**"
+      - "db/**"
       - "dsl/**"
+      - "docker/**"
+      - "e2e/**"
       - "scripts/**"
+      - "tests/**"
       - "public/releases/**"
       - "package.json"
+      - "package-lock.json"
+      - "compose.e2e.yaml"
+      - "playwright.config.ts"
+      - ".github/workflows/pages.yml"
+  pull_request:
+    paths:
+      - "app/**"
+      - "book/**"
+      - "content/**"
+      - "db/**"
+      - "dsl/**"
+      - "docker/**"
+      - "e2e/**"
+      - "scripts/**"
+      - "tests/**"
+      - "public/releases/**"
+      - "package.json"
+      - "package-lock.json"
+      - "compose.e2e.yaml"
+      - "playwright.config.ts"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -19,14 +44,51 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build:
+  quality:
+    name: Quality gate
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install validation tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes ffmpeg
+          python3 -m pip install --requirement scripts/requirements-dsl.txt
+      - run: npm ci
+      - name: Validate source, release and application
+        run: |
+          npm run lint
+          npm run dsl:validate
+          npm run release:validate
+          npm test
+
+  docker-e2e:
+    name: Docker E2E
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run production app and Playwright
+        run: bash scripts/test-e2e-docker.sh
+
+  book:
+    name: Quarto book
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - uses: quarto-dev/quarto-actions/setup@v2
       - name: Install validation tools
         run: |
@@ -46,11 +108,13 @@ jobs:
           path: book/_book
 
   deploy:
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
+    needs: [quality, docker-e2e, book]
+    timeout-minutes: 10
     steps:
       - name: Deploy
         id: deployment

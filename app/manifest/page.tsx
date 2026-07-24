@@ -46,7 +46,7 @@ export default function ManifestPage() {
         <div className="shell">
           <p className="section-kicker">Zacznij od danych</p>
           <h2>Nie zgaduj, jak pracujesz.<br />Zarejestruj pierwszy proces.</h2>
-          <Link className="button button-primary" href="/laboratorium">Otwórz laboratorium</Link>
+          <Link prefetch={false} className="button button-primary" href="/laboratorium">Otwórz laboratorium</Link>
         </div>
       </section>
     </main>

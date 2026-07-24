@@ -57,7 +57,7 @@ async function assertChannel(name, base) {
 }
 
 await retry("landing page", () =>
-  assertHtml(siteBase, [/Czytaj książkę/, /Posłuchaj audiobooka/, /cybernetycznym WorkCell/, /retrospektywa-process-pack-0\.2\.zip/]),
+  assertHtml(siteBase, [/Czytaj książkę/, /Posłuchaj audiobooka/, /cybernetycznym WorkCell/, /Docker E2E/, /retrospektywa-process-pack-0\.2\.zip/]),
 );
 await retry("strona książki", () =>
   assertHtml(bookBase, [/SOA, POA i URI Process/, /Forma współpracy, authority i dowód pracy/, /Cybernetyczny WorkCell/]),

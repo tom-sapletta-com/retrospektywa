@@ -58,7 +58,7 @@ export default function PodcastPage() {
             <span>Google Cloud</span><b>lub</b><span>OpenAI</span><b>lub</b>
             <span>ElevenLabs</span><b>lub</b><span>eSpeak NG</span><i>→</i><span>MP3 + manifest</span>
           </div>
-          <Link className="text-link" href="/ksiazka">Zobacz źródło książki →</Link>
+          <Link prefetch={false} className="text-link" href="/ksiazka">Zobacz źródło książki →</Link>
         </div>
       </section>
     </main>

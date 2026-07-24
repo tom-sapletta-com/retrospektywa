@@ -18,6 +18,19 @@ Sites i GitHub Pages publikują tę samą zatwierdzoną paczkę z
 sprawdza wszystkie rozmiary i sumy SHA-256 oraz obecność najważniejszych treści
 na landing page i stronie książki.
 
+## Bramka jakości
+
+Publikacja na GitHub Pages wymaga powodzenia trzech niezależnych zadań:
+
+1. `quality` — lint, DSL, release, build i testy Node;
+2. `docker-e2e` — produkcyjny serwis oraz Playwright w osobnych kontenerach;
+3. `book` — render HTML Quarto i przygotowanie zatwierdzonej paczki.
+
+E2E obejmuje Chromium w profilu desktopowym i mobilnym, wszystkie publiczne
+trasy, linki, prywatność API, manifest oraz SHA-256 pobranych artefaktów.
+Po wdrożeniu osobny audyt ponownie pobiera landing page, książkę i pliki z obu
+publicznych kanałów.
+
 ## Pozostałe prace
 
 Nie blokują one publicznego wydania 0.2:
