@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { SiteHeader } from "../components/SiteHeader";
 
 export const metadata: Metadata = {
@@ -69,6 +68,24 @@ const readinessDsl = `SUITE routing_readiness:
   TEST handoff "Następca ma dowód":
     EXPECT predecessor.receipt == terminal
     EXPECT handoff.eql == green`;
+
+const workCellDsl = `workcell:
+  goal: accepted_report
+  actor: { executor: agent, validator: human }
+
+  authority:
+    allow: [read_sources, create_draft, run_tests]
+    require_approval: [publish, send]
+
+  protocol:
+    mode: ping_pong
+    checkpoints: [after_plan, before_irreversible_action]
+
+  evidence:
+    require: [sources, decisions, test_results, final_artifact]
+
+  escalation:
+    when: [authority_missing, budget_exceeded, goal_changed]`;
 
 export default function DslPage() {
   return (
@@ -174,6 +191,10 @@ export default function DslPage() {
             <div><span>readiness.testql</span><b>bramki</b></div>
             <pre><code>{readinessDsl}</code></pre>
           </article>
+          <article className="code-card wide">
+            <div><span>workcell.yaml</span><b>cybernetyczny kontrakt</b></div>
+            <pre><code>{workCellDsl}</code></pre>
+          </article>
         </div>
 
         <div className="evidence-strip">
@@ -225,12 +246,12 @@ export default function DslPage() {
         </div>
         <div>
           <p>
-            Pełny demonstracyjny Process Pack zawiera Intent, AQL, OQL, DOQL,
-            EQL, TestQL, SODL i retrospektywę.
+            Process Pack zawiera Intent, AQL, OQL, DOQL, EQL, TestQL, SODL,
+            URI Process oraz walidowalny kontrakt WorkCell.
           </p>
-          <Link className="button button-primary" href="/laboratorium">
-            Zapisz pierwszy eksperyment
-          </Link>
+          <a className="button button-primary" href="/releases/retrospektywa-process-pack-0.2.zip">
+            Pobierz Process Pack
+          </a>
         </div>
       </section>
     </main>

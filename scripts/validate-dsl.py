@@ -64,6 +64,33 @@ def validate_process_graph(path: Path) -> None:
     print(f"graph ok: {path.relative_to(ROOT)} ({len(processes)} procesów)")
 
 
+def validate_workcell(path: Path) -> None:
+    document = yaml.safe_load(path.read_text(encoding="utf-8"))
+    authority = document["authority"]
+    sets = {
+        name: set(authority[name])
+        for name in ("allow", "require_approval", "deny")
+    }
+    for left, right in (
+        ("allow", "require_approval"),
+        ("allow", "deny"),
+        ("require_approval", "deny"),
+    ):
+        overlap = sets[left] & sets[right]
+        if overlap:
+            raise ValueError(f"WorkCell: działania w {left} i {right}: {sorted(overlap)}")
+
+    required_evidence = set(document["validator"]["evidence_required"])
+    for checkpoint in document["protocol"]["checkpoints"]:
+        if not checkpoint["requires"]:
+            raise ValueError(f"WorkCell: pusty checkpoint {checkpoint['when']}")
+    if document["budgets"]["validation_minutes"] > document["budgets"]["time_minutes"]:
+        raise ValueError("WorkCell: budżet walidacji przekracza cały horyzont")
+    if not required_evidence:
+        raise ValueError("WorkCell: validator wymaga co najmniej jednego dowodu")
+    print(f"semantics ok: {path.relative_to(ROOT)}")
+
+
 def main() -> None:
     validate_schema(
         ROOT / "dsl/examples/two-models/experiment.yaml",
@@ -72,6 +99,9 @@ def main() -> None:
     process_path = ROOT / "dsl/examples/uri-process-publication/processes.json"
     validate_schema(process_path, ROOT / "dsl/schema/uri-process.schema.json")
     validate_process_graph(process_path)
+    workcell_path = ROOT / "dsl/examples/workcell-cybernetics/workcell.yaml"
+    validate_schema(workcell_path, ROOT / "dsl/schema/workcell.schema.json")
+    validate_workcell(workcell_path)
 
 
 if __name__ == "__main__":

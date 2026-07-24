@@ -1,0 +1,43 @@
+work_model "analysis-review" v1 {
+  horizon: 4h
+
+  goal:
+    state: "zaakceptowany raport"
+    value: 100 points
+
+  actor:
+    executor: agent
+    validator: human
+    required: { domain_skill: 0.7, reliability: 0.9 }
+
+  authority:
+    allow: [read_sources, create_draft, run_tests]
+    require_approval: [publish, send, modify_external_state]
+    deny: [disclose_secrets]
+
+  protocol:
+    mode: ping_pong
+    checkpoint:
+      - after_plan
+      - before_irreversible_action
+      - when_risk > 0.2
+      - when_goal_changes
+
+  evidence:
+    require: [sources, decisions, test_results, final_artifact]
+
+  budgets:
+    time: 4h
+    validation: 30m
+    expected_loss: 20 points
+
+  stop:
+    when: acceptance_passed
+    or: budget_exceeded
+
+  escalation:
+    when:
+      - authority_missing
+      - confidence < 0.7
+      - expected_loss > 20
+}

@@ -38,6 +38,7 @@ Subactora:
 | AQL | Kto może wykonać działanie i czego nie wolno? |
 | OQL | Jaki jest przebieg operacji? |
 | URI Process | Który adresowalny proces realizuje krok i przez jaki runtime? |
+| WorkCell | Jak cel, actor, authority, protokół, walidator i eskalacja tworzą pętlę pracy? |
 | EQL i TestQL | Po czym poznamy prawidłowy rezultat? |
 | DOQL i DQL | Jaka jest sytuacja i które inwarianty zostały naruszone? |
 | SODL | Co faktycznie wydarzyło się w czasie? |
@@ -48,7 +49,8 @@ oddziela pola, które można walidować, porównywać i testować.
 Wydanie 0.2 rozwija ten model o przejście od architektury usługowej do
 architektury zorientowanej na proces. Książka, audiobook, przykłady i strona
 nie są osobnymi produktami redakcyjnymi: powstają z jednego wersjonowanego
-źródła oraz wspólnego generatora.
+źródła oraz wspólnego generatora. Cybernetyczny WorkCell łączy ten proces z
+teorią kolejek, ryzykiem, obciążeniem poznawczym i sprzężeniem zwrotnym.
 
 ![SOA udostępnia zdolności, POA składa je w kontrolowany proces, a URI Process
 wiąże plan z runtime'em i dowodem.](figures/soa-poa-uri-process.png){fig-alt="Diagram pokazujący warstwy SOA, POA i URI Process" width=95%}

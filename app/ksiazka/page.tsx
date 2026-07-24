@@ -22,6 +22,7 @@ const chapters = [
   ["12", "SOA, POA i URI Process", "Od granic usług do wykonywalnej sieci procesów adresowanych przez URI."],
   ["13", "Wydanie wieloformatowe", "Jeden tekst źródłowy, generator, manifesty i walidacja HTML, PDF, EPUB, DOCX oraz audio."],
   ["14", "Forma współpracy i authority", "UoP, zlecenie, dzieło i B2B jako różne granice kierowania pracą agenta."],
+  ["15", "Cybernetyczny WorkCell", "Sprzężenie zwrotne, kolejki, ryzyko, checkpointy i dopasowanie actor–model."],
 ];
 
 const bookUrl = "https://tom-sapletta-com.github.io/retrospektywa/";

@@ -1,0 +1,4 @@
+{"at":"2026-07-24T09:00:00Z","event":"workcell.started","ticket":"analysis-review-001","mode":"ping_pong"}
+{"at":"2026-07-24T09:06:00Z","event":"checkpoint.completed","checkpoint":"after_plan","evidence":["plan","sources"]}
+{"at":"2026-07-24T09:34:00Z","event":"validation.completed","result":"change_requested","error":{"scope":0.1,"quality":0.2,"risk":0.0}}
+{"at":"2026-07-24T09:51:00Z","event":"validation.completed","result":"accepted","evidence_complete":true}

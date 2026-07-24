@@ -437,6 +437,7 @@ footer { padding: 60px 0 75px; background: var(--paper-deep); border-top: 1px so
 .router-flow article small { margin-top: 4px; color: var(--muted); font: 9px var(--font-geist-mono),monospace; }
 .router-flow > i { color: var(--signal); font-style: normal; }
 .dsl-code-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 40px; }
+.dsl-code-grid .wide { grid-column: 1 / -1; }
 .evidence-strip { display: grid; grid-template-columns: repeat(5,1fr); margin-top: 35px; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
 .evidence-strip > div { min-height: 125px; padding: 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .evidence-strip span { color: var(--signal); font: 36px Georgia,serif; }

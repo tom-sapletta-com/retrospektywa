@@ -22,7 +22,7 @@ const streams = [
   {
     no: "04",
     title: "DSL",
-    text: "Intencje zamienione w kontrakty, które można walidować, testować i rozwijać.",
+    text: "Intencje i WorkCell zamienione w kontrakty, które można walidować, testować i rozwijać.",
     href: "/dsl",
   },
 ];
@@ -113,9 +113,9 @@ export default function Home() {
             <p>Książka, audio i wykonywalne przykłady powstają w jednym, testowanym procesie publikacji.</p>
           </div>
           <div className="package-grid">
-            <article><span>01</span><h3>Książka</h3><p>HTML, PDF, EPUB i DOCX z rozdziałami o SOA, POA, URI Process oraz authority.</p><b>otwarte wydanie</b><Link href="/ksiazka">Wybierz format →</Link></article>
+            <article><span>01</span><h3>Książka</h3><p>HTML, PDF, EPUB i DOCX z SOA, POA, URI Process, authority oraz cybernetycznym WorkCell.</p><b>otwarte wydanie</b><Link href="/ksiazka">Wybierz format →</Link></article>
             <article className="featured"><span>02</span><h3>Audio</h3><p>Polska próbka audiobooka MP3 z manifestem pochodzenia i sumą kontrolną.</p><b>głos syntetyczny</b><a href="/releases/retrospektywa-audiobook-preview-0.2.mp3">Pobierz MP3 →</a></article>
-            <article><span>03</span><h3>Przykłady</h3><p>Process Pack: DSL, JSON Schema, kontrakt authority oraz przepływ URI Process.</p><b>ZIP + źródła</b><a href="/releases/retrospektywa-process-pack-0.2.zip">Pobierz ZIP →</a></article>
+            <article><span>03</span><h3>Przykłady</h3><p>Process Pack: DSL, JSON Schema, authority, URI Process i walidowalny kontrakt WorkCell.</p><b>ZIP + źródła</b><a href="/releases/retrospektywa-process-pack-0.2.zip">Pobierz ZIP →</a></article>
           </div>
         </div>
       </section>

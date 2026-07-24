@@ -1,0 +1,17 @@
+SUITE workcell_readiness:
+  TEST authority "Model nie rozszerza praw":
+    EXPECT runtime.authority <= active_contract.authority
+
+  TEST evidence "Done wymaga dowodu":
+    EXPECT ticket.done == (
+      acceptance.tests == green
+      AND acceptance.evidence_complete == true
+    )
+
+  TEST risk "Nieodwracalne działanie ma bramkę":
+    EXPECT action.irreversible == true
+      IMPLIES approval.status == accepted
+
+  TEST escalation "Brak pokrycia zatrzymuje wykonanie":
+    EXPECT authority_missing == true
+      IMPLIES ticket.state == waiting_input

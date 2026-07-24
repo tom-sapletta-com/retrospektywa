@@ -1,0 +1,436 @@
+# Cybernetyczny WorkCell: actor, sprzężenie zwrotne i wartość
+
+Cybernetyka jest dobrym fundamentem stanowiska pracy człowieka lub agenta,
+ponieważ każe pytać nie tylko o wykonawcę, lecz również o stan pożądany,
+obserwację wyniku, błąd regulacji i korektę. Sama nie wystarcza. Praktyczny
+model musi połączyć sprzężenie zwrotne z teorią kolejek, rachunkiem ryzyka,
+ergonomią poznawczą i eksperymentalnym porównywaniem sposobów pracy.
+
+## Formalny model stanowiska
+
+Niech:
+
+$$
+\operatorname{WorkCell}(T)=\langle G,S,A,R,E,P,V,M,B,X\rangle
+$$
+
+| Symbol | Znaczenie |
+|---|---|
+| $T$ | horyzont: 30 minut, dzień, sprint albo projekt |
+| $G$ | cel i oczekiwany stan końcowy |
+| $S$ | stan początkowy i aktualny stan zadania |
+| $A$ | actor: człowiek, agent albo zespół |
+| $R$ | authority: działania dozwolone actorowi |
+| $E$ | environment: narzędzia, dane, maszyny i repozytoria |
+| $P$ | protocol: sekwencja pracy, checkpointy i reguły |
+| $V$ | validator: człowiek, test, polityka albo drugi agent |
+| $M$ | measurements: dowody i metryki |
+| $B$ | budżety czasu, kosztu, ryzyka i obciążenia |
+| $X$ | escalation: warunki zatrzymania i przekazania decyzji |
+
+Forma prawna wpływa na granice $R$, co opisano w poprzednim rozdziale.
+`WorkCell` opisuje techniczny sposób wykonywania i walidowania pracy. Nie
+przyznaje praw sam z siebie: deklaracja musi zostać przecięta z aktywnym
+kontraktem authority.
+
+![Cybernetyczna pętla WorkCell: orchestrator zleca działanie, validator mierzy
+wynik, a błąd wraca jako korekta albo eskalacja.](../figures/workcell-feedback-loop.png){fig-alt="Pętla celu, orchestratora, actora, środowiska, walidatora i eskalacji" width=100%}
+
+## Pętla regulacji
+
+Dla wielkości skalarnej:
+
+$$
+e(t)=r(t)-y(t),
+$$
+
+gdzie $r(t)$ jest stanem wymaganym, $y(t)$ stanem zmierzonym, a $e(t)$
+odchyleniem. Regulator wybiera działanie:
+
+$$
+u(t)=\pi\left(e(t),S(t),R,\text{constraints}\right).
+$$
+
+Dla pracy nienumerycznej błąd można zapisać jako wektor wyników testów lub
+znormalizowanych odchyleń:
+
+$$
+\mathbf e=
+[e_{\text{zakres}},e_{\text{jakość}},e_{\text{termin}},
+e_{\text{ryzyko}},e_{\text{dowody}}].
+$$
+
+Stan `done` wymaga jednocześnie tolerowalnego błędu, zachowania ograniczeń i
+kompletnego dowodu:
+
+$$
+\operatorname{Done}=
+\left(\lVert\mathbf e\rVert_w\leq\varepsilon\right)
+\land \operatorname{ConstraintsOK}
+\land \operatorname{EvidenceComplete}.
+$$
+
+Norma i wagi muszą być ustalone przed wykonaniem zadania. Bez tego próg
+$\varepsilon$ daje pozór formalności, ale pozwala zmieniać kryteria po
+zobaczeniu wyniku. Sam komunikat actora „skończone” nie jest obserwacją
+środowiska i nie powinien zmieniać stanu ticketu bez wymaganego dowodu.
+
+## Skuteczność, koszt i ryzyko
+
+Wartość zaakceptowana w horyzoncie $T$:
+
+$$
+AV(T)=\sum_{i=1}^{n}
+\operatorname{accepted}_i\cdot value_i\cdot quality_i,
+$$
+
+gdzie $\operatorname{accepted}_i\in\{0,1\}$, a $quality_i$ jest
+znormalizowanym mnożnikiem jakości, na przykład z przedziału $[0,1]$.
+
+Całkowity koszt:
+
+$$
+TC=C_{\text{execution}}+C_{\text{validation}}+C_{\text{coordination}}
++C_{\text{waiting}}+C_{\text{rework}}+C_{\text{tools}}.
+$$
+
+Oczekiwana strata:
+
+$$
+EL=\sum_k P(\operatorname{failure}_k)\cdot Impact_k.
+$$
+
+Wartość netto i efektywność ekonomiczna:
+
+$$
+NV(T)=AV(T)-TC(T)-EL(T),
+$$
+
+$$
+\eta(T)=\frac{AV(T)}{TC(T)+EL(T)}.
+$$
+
+Skuteczność względem planu:
+
+$$
+\operatorname{Effectiveness}(T)=
+\frac{AV(T)}{\operatorname{PlannedValue}(T)}.
+$$
+
+Te działania mają sens tylko wtedy, gdy wartość, koszt i strata są wyrażone w
+tej samej jednostce: pieniądzu albo jawnie uzgodnionych punktach wartości.
+Prawdopodobieństwa awarii nie powinny być dodawane bez sprawdzenia zależności;
+prosta suma $EL$ jest przybliżeniem dla rozłącznych scenariuszy albo modelu,
+który kontroluje ich współwystępowanie.
+
+| Metryka | Wzór | Co pokazuje |
+|---|---|---|
+| przepustowość | $TH=N_{\text{accepted}}/T$ | zaakceptowane wyniki na jednostkę czasu |
+| First Pass Yield | $FPY=N_{\text{first acceptance}}/N_{\text{completed}}$ | udział prac przyjętych bez poprawki |
+| rework ratio | $C_{\text{rework}}/TC$ | udział zasobów zużytych na poprawki |
+| lead time | $t_{\text{accepted}}-t_{\text{created}}$ | czas oczekiwania klienta |
+| validation load | $C_{\text{validation}}/TC$ | względny koszt kontroli |
+| escalation rate | $N_{\text{escalations}}/N_{\text{tickets}}$ | częstość wyjścia poza samodzielność |
+| defect escape | $N_{\text{defects after acceptance}}/N_{\text{accepted}}$ | błędy przepuszczone przez walidację |
+
+Kliknięcia, godziny online, tokeny, commity i liczba wiadomości są danymi
+diagnostycznymi. Bez związku z akceptacją, jakością i wartością nie są miarą
+wyniku.
+
+## Kolejka i przeciążenie
+
+Dla pojedynczego stanowiska o średnim tempie napływu $\lambda$ i średniej
+zdolności obsługi $\mu$:
+
+$$
+\rho=\frac{\lambda}{\mu}.
+$$
+
+To użyteczne przybliżenie, gdy zadania i okres pomiaru są porównywalne. W
+ogólniejszym modelu wykorzystanie zależy od rozkładu czasu obsługi, priorytetów,
+równoległości i blokad. Gdy $\rho$ zbliża się do jedności, małe zakłócenia mogą
+gwałtownie wydłużać kolejkę; stuprocentowa zajętość nie jest więc synonimem
+optymalnej efektywności.
+
+Prawo Little'a:
+
+$$
+L=\lambda W,
+$$
+
+czyli w języku przepływu:
+
+$$
+WIP=\operatorname{Throughput}\cdot \operatorname{LeadTime}.
+$$
+
+Wynik Little'a dotyczy stabilnych średnich i wymaga skończonych wielkości oraz
+warunków stacjonarności opisanych w dowodzie źródłowym [@little1961]. Nie
+gwarantuje, że samo mechaniczne obniżenie WIP zwiększy przepustowość. Pokazuje,
+że przy niezmienionej przepustowości niższy przeciętny WIP oznacza krótszy
+przeciętny lead time.
+
+## Jak często walidować
+
+Ciągły ping-pong może skracać drogę błędu, ale zwiększa koszt kontroli. Dla
+prostego modelu przyjmijmy:
+
+- $\Delta$ — stały odstęp między checkpointami,
+- $c_v$ — koszt jednego checkpointu,
+- $\lambda_e$ — średnie tempo powstawania istotnych błędów,
+- $c_e$ — koszt niewykrytego błędu na jednostkę czasu,
+- $T$ — horyzont analizy.
+
+Jeżeli błędy pojawiają się niezależnie, a średnie opóźnienie wykrycia wynosi
+$\Delta/2$, to:
+
+$$
+C(\Delta)=\frac{T}{\Delta}c_v+
+T\lambda_e c_e\frac{\Delta}{2}.
+$$
+
+Warunek pierwszego rzędu daje:
+
+$$
+\Delta^*=\sqrt{\frac{2c_v}{\lambda_e c_e}}.
+$$
+
+To model redakcyjny, nie uniwersalne prawo. Zakłada stałe koszty, liniową
+szkodę opóźnienia, równomierne checkpointy i brak interakcji błędów. Należy go
+kalibrować na ticketach i zastąpić symulacją, gdy ryzyko ma ciężki ogon,
+walidacja zmienia prawdopodobieństwo błędu albo działania są nieodwracalne.
+Kierunek pozostaje czytelny: droższe lub częstsze błędy skracają checkpoint,
+a droga kontrola go wydłuża.
+
+## Modele pracy
+
+| Model | Mechanizm | Dobre zastosowanie | Preferowany actor | Główna metryka |
+|---|---|---|---|---|
+| rezultatowy | specyfikacja i dostarczenie całości | dobrze zdefiniowane zadanie | ekspert lub dojrzały agent | FPY, wartość, termin |
+| proceduralny | narzucone kroki i dowody | powtarzalność, compliance | nowa osoba, agent narzędziowy | zgodność, cycle time |
+| ping-pong | małe działanie, dowód, walidacja | duża niepewność | człowiek–agent | koszt błędów i kontroli |
+| nadzór przez wyjątki | autonomia w guardrailach | duży wolumen | ekspert lub dojrzały agent | escalation rate |
+| podwójna kontrola | niezależny wykonawca i validator | wysokie ryzyko | dwa modele lub człowiek–agent | defect escape |
+| eksploracyjny | hipoteza, eksperyment, aktualizacja | badanie i prototyp | ekspert wspierany agentem | wartość informacji |
+| incydentowy | stabilizacja przed analizą | awaria i zagrożenie | actor z adekwatnym authority | czas opanowania |
+
+Uniwersalna konfiguracja hybrydowa pozostawia człowiekowi cel i granice ryzyka,
+agentowi plan oraz działania odwracalne, validatorowi kontrolę planu i dowodu,
+a działania nieodwracalne, zmianę celu i wyjątki kieruje do jawnej bramki
+akceptacji.
+
+## Dopasowanie actora, zadania i protokołu
+
+Niech wymagania zadania, zdolności actora i wsparcie modelu pracy będą
+znormalizowanymi wektorami:
+
+$$
+\mathbf D_t=[skill,context,reliability,speed,communication,autonomy],
+$$
+
+$$
+\mathbf S_a=[skill,context,reliability,speed,communication,autonomy],
+$$
+
+$$
+\mathbf P_m=[instructions,tools,validation,coordination,guardrails].
+$$
+
+Dla wspólnego zestawu osi:
+
+$$
+Gap_j=\max\left(0,D_{tj}-\min(1,S_{aj}+P_{mj})\right).
+$$
+
+Surowe dopasowanie:
+
+$$
+Fit_0(a,m,t)=
+1-\frac{\sum_j w_j Gap_j^2}{\sum_j w_j}
+-\kappa\cdot Overhead(a,m,t),
+$$
+
+a raportowany wynik:
+
+$$
+Fit(a,m,t)=\min(1,\max(0,Fit_0(a,m,t))).
+$$
+
+Przed rankingiem obowiązują twarde bramki:
+
+$$
+\operatorname{Feasible}=
+\operatorname{CapabilitiesCoverRequirements}
+\land RequiredActions\subseteq R
+\land \operatorname{ConstraintsSatisfied}.
+$$
+
+Router może następnie wybrać:
+
+$$
+(a^*,m^*)=\arg\max_{a,m:\operatorname{Feasible}}
+\left(
+\alpha Fit+\beta Reliability+\gamma Availability
+-\delta Cost-\epsilon LeadTime-\zeta Risk
+\right).
+$$
+
+Najwyższa kompetencja nie gwarantuje wyboru: actor może być niedostępny, zbyt
+drogi, pozbawiony authority albo źle dopasowany do protokołu.
+
+## Interakcja actor–model
+
+Zwykła korelacja jest myląca, gdy łatwiejsze zadania trafiają do lepszych
+aktorów. Dla porównywalnych, losowo lub blokowo przydzielanych ticketów efekt
+interakcji można opisać:
+
+$$
+I_{a,m}=
+\bar Y_{a,m}-\bar Y_{a,\cdot}
+-\bar Y_{\cdot,m}+\bar Y_{\cdot,\cdot}.
+$$
+
+Dodatnie $I_{a,m}$ oznacza wynik lepszy, niż sugerują osobne średnie actora i
+modelu. Dla zespołu człowiek–agent:
+
+$$
+\operatorname{Synergy}_{H,A}
+=NV_{H+A}-\max(NV_H,NV_A).
+$$
+
+Synergia jest dodatnia dopiero po odjęciu koordynacji i walidacji. Model
+regresyjny powinien kontrolować co najmniej trudność:
+
+$$
+Y_i=\beta_0+\beta_A Actor_i+\beta_M Model_i
++\beta_{AM}(Actor_i\times Model_i)
++\beta_D Difficulty_i+\varepsilon_i.
+$$
+
+Kluczowy jest składnik $\beta_{AM}$, ale interpretacja przyczynowa wymaga
+porównywalnego przydziału zadań, odpowiedniej liczby obserwacji i kontroli
+zmiennych zakłócających.
+
+## Cybernetyka w Subactorze
+
+| Cybernetyka | Model Subactora |
+|---|---|
+| stan pożądany | `goal` i `acceptance` |
+| obiekt sterowany | środowisko pracy i rezultat |
+| regulator | orchestrator |
+| element wykonawczy | actor |
+| czujniki | testy, logi, dowody i obserwacje |
+| sprzężenie zwrotne | walidacja i zmiana ticketu |
+| zakłócenia | błąd danych, zmiana celu, awaria narzędzia |
+| model wewnętrzny | Digital Twin i stan ticketu |
+| różnorodność regulatora | capabilities, tools, authority i escalation |
+
+Prawo wymaganej różnorodności Ashby'ego mówi, w precyzyjniejszej formie, że
+różnorodność regulatora ogranicza różnorodność niepożądanych wyników wywołanych
+zakłóceniami [@ashby1956]. W praktyce nie każdą klasę zakłóceń actor musi
+obsłużyć sam. Część różnorodności może dostarczyć narzędzie, polityka,
+ograniczenie środowiska lub ścieżka eskalacji:
+
+$$
+Variety(capabilities+tools+authority+escalation)
+\gtrsim Variety(relevant\ disturbances).
+$$
+
+To heurystyczny zapis projektowy, a nie dosłowna postać twierdzenia Ashby'ego.
+Jeżeli system nie pokrywa istotnej klasy zdarzeń, musi ją ograniczyć albo
+eskalować.
+
+Twierdzenie Conanta i Ashby'ego dotyczy regulatora maksymalnie skutecznego i
+prostego przy określonych założeniach; wspiera potrzebę adekwatnego modelu
+regulowanego systemu [@conant1970]. Digital Twin może pełnić rolę takiego modelu,
+ale portret nadal nie przyznaje praw: **model opisuje, authority zezwala**.
+
+Dla człowieka potrzebna jest również miara obciążenia. NASA-TLX rozdziela
+wymagania mentalne, fizyczne i czasowe, wysiłek, frustrację oraz samoocenę
+wykonania [@hart1988]. Jest miarą subiektywną, dlatego należy zestawiać ją z
+wynikiem i zdarzeniami procesu. Teoria obciążenia poznawczego dodatkowo
+przypomina, że projekt instrukcji może zużywać zdolność poznawczą niezwiązaną z
+samym zadaniem [@sweller1988].
+
+Dla agenta trafność odpowiedzi także nie wystarcza. NIST ARIA mierzy aplikacje
+na poziomie testów modelu, red-teamingu i testów terenowych oraz podkreśla
+ryzyko i wpływ w kontekście socjotechnicznym [@nistaria2025]. `WorkCell`
+powinien więc przechowywać nie tylko score modelu, lecz także dowód działania,
+konsekwencję i skuteczność zabezpieczeń.
+
+## Wzorzec DSL
+
+```text
+work_model "analysis-review" v1 {
+  horizon: 4h
+
+  goal:
+    state: "zaakceptowany raport"
+    value: 100
+
+  actor:
+    executor: agent
+    validator: human
+    required: { domain_skill: 0.7, reliability: 0.9 }
+
+  authority:
+    allow: [read_sources, create_draft, run_tests]
+    require_approval: [publish, send, modify_external_state]
+
+  protocol:
+    mode: ping_pong
+    checkpoint:
+      - after_plan
+      - before_irreversible_action
+      - when_risk > 0.2
+      - when_goal_changes
+
+  evidence:
+    require: [sources, decisions, test_results, final_artifact]
+
+  budgets:
+    time: 4h
+    validation: 30m
+    expected_loss: 20
+
+  stop:
+    when: acceptance_passed
+    or: budget_exceeded
+
+  escalation:
+    when:
+      - authority_missing
+      - confidence < 0.7
+      - expected_loss > 20
+}
+```
+
+W Process Packu ten zapis ma równoważną projekcję YAML walidowaną przez JSON
+Schema. Tekstowy DSL pozostaje czytelny dla autora, a YAML jest prostym
+interfejsem dla walidatora i eksperymentu.
+
+## Eksperyment
+
+1. Wybierz jedną klasę powtarzalnych ticketów i jeden horyzont $T$.
+2. Zapisz $G,S,R,P,V,B,X$ przed przydzieleniem actora.
+3. Porównaj co najmniej dwa modele pracy blokując zadania według trudności.
+4. Mierz $AV,TC,EL$, lead time, FPY, rework, escalation i defect escape.
+5. Dla pracy człowieka dodaj NASA-TLX po każdym porównywalnym tickecie.
+6. Nie zwiększaj authority na podstawie samego `Fit`; wymagaj stabilnego dowodu.
+7. Zmieniaj jedną regułę protokołu na iterację i zapisuj wersję WorkCell.
+
+Najważniejsza zależność ma charakter projektowy:
+
+$$
+\boxed{
+\operatorname{QualityOfWork}\propto
+\operatorname{ActorFit}\times
+\operatorname{WorkModelFit}\times
+\operatorname{Observability}\times
+\operatorname{Validation}
+}
+$$
+
+Mnożniki trzeba znormalizować i skalibrować. Sens wzoru jest jakościowy: jeżeli
+którykolwiek z czterech elementów jest bliski zeru, samo zwiększanie czasu pracy
+rzadko naprawia cały układ.

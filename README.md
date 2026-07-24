@@ -26,7 +26,7 @@ w D1 — bez kodu, promptów i sekretów.
 - `app/` — serwis i prywatne laboratorium digital twina;
 - `book/` — źródła książki Quarto;
 - `content/podcast/` — scenariusze odcinków;
-- `dsl/` — schematy i trzy przykładowe Process Packi, w tym URI Process;
+- `dsl/` — schematy i cztery przykładowe Process Packi, w tym URI Process i WorkCell;
 - `db/` — rejestr zdarzeń;
 - `scripts/generate-audio.mjs` — TTS przez Google Cloud, OpenAI, ElevenLabs albo lokalny eSpeak NG;
 - `scripts/generate-release.mjs` — generator wydania i manifestu SHA-256;
@@ -48,9 +48,9 @@ npm run db:generate
 
 ## Książka
 
-Źródłem są pliki `.qmd`. Manuskrypt wydania 0.2 ma cztery części, czternaście
+Źródłem są pliki `.qmd`. Manuskrypt wydania 0.2 ma pięć części, piętnaście
 rozdziałów i dwa aneksy. Obejmuje SOA, POA, URI Process, publikowanie
-wieloformatowe oraz prawne granice `authority` w UoP, zleceniu, dziele i B2B.
+wieloformatowe, prawne granice `authority` oraz cybernetyczny model WorkCell.
 Quarto generuje stronę, EPUB, DOCX i PDF przez Typst:
 
 ```bash

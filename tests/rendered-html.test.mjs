@@ -48,8 +48,8 @@ test("landing routes expose the book, audio and examples", async () => {
   };
 
   for (const [path, patterns] of [
-    ["/", [/Czytaj książkę/, /retrospektywa-process-pack-0\.2\.zip/]],
-    ["/ksiazka", [/WYDANIE 0\.2/, /retrospektywa-0\.2\.pdf/]],
+    ["/", [/Czytaj książkę/, /cybernetycznym WorkCell/, /retrospektywa-process-pack-0\.2\.zip/]],
+    ["/ksiazka", [/WYDANIE 0\.2/, /Cybernetyczny WorkCell/, /retrospektywa-0\.2\.pdf/]],
     ["/podcast", [/Google Cloud/, /audiobook-preview-0\.2\.mp3/]],
   ]) {
     const response = await worker.fetch(

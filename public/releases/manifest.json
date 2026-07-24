@@ -1,23 +1,23 @@
 {
   "schema": "retrospektywa.release/v1",
   "version": "0.2",
-  "generatedAt": "2026-07-24T08:29:09.323Z",
+  "generatedAt": "2026-07-24T09:08:16.855Z",
   "source": "book + dsl + content/podcast",
   "files": [
     {
       "file": "retrospektywa-0.2.pdf",
-      "bytes": 1454440,
-      "sha256": "64bf82e5808d4739dd7fc1c4859e5b7303462d52a4bc3d88f190995ea05508b7"
+      "bytes": 1811881,
+      "sha256": "ab1e2c59cb9411eec3e8323ca14b896aa40235b53361d7bcd93e48c26f2e8490"
     },
     {
       "file": "retrospektywa-0.2.epub",
-      "bytes": 427556,
-      "sha256": "8bc150717f66d7c9c525404a435ebb3da34b2e3451e1730d39c0ecaa8bff4530"
+      "bytes": 491122,
+      "sha256": "b61ee9f51b34a269c6912ac3a55fd921e6b076b15ab1e45c0d227fb1ce32510f"
     },
     {
       "file": "retrospektywa-0.2.docx",
-      "bytes": 287725,
-      "sha256": "f4365cd70645540913a9329e25675c051e47a03728cbf7f77db36f6c249568e1"
+      "bytes": 342849,
+      "sha256": "826200ce003cc71c889956ab27356a6d7ab0928d1cee436f6df7be44ba11c0c9"
     },
     {
       "file": "retrospektywa-audiobook-preview-0.2.mp3",
@@ -26,8 +26,8 @@
     },
     {
       "file": "retrospektywa-process-pack-0.2.zip",
-      "bytes": 13769,
-      "sha256": "d9ceee70a0cbee1b93ab077036a7da625c143e3d218bf5fbb5063bb78c05b6d9"
+      "bytes": 18679,
+      "sha256": "b7ae970ea0d3dc9df71565110965cf2f1eee9b86f512d1ba4254e5e800eaece8"
     }
   ]
 }

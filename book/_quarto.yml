@@ -42,6 +42,9 @@ book:
         - chapters/12-soa-poa-uri-process.qmd
         - chapters/13-wydanie-wieloformatowe.qmd
         - chapters/14-forma-wspolpracy-authority.qmd
+    - part: "V. Cybernetyka pracy"
+      chapters:
+        - chapters/15-workcell-cybernetyczny.qmd
     - part: "Aneksy"
       chapters:
         - appendices/a-badania.qmd

@@ -1,10 +1,12 @@
 # Process Pack do pobrania
 
-Repozytorium zawiera trzy kompletne przykłady:
+Repozytorium zawiera cztery kompletne przykłady:
 
 1. `two-models` — implementacja i niezależny review przy Human WIP = 1.
 2. `digital-twin-router` — routing bez rozszerzania authority.
 3. `uri-process-publication` — wydanie książki jako kontrolowany URI Process.
+4. `workcell-cybernetics` — cel, actor, authority, protokół, walidator,
+   budżety i eskalacja cybernetycznego stanowiska pracy.
 
 Pakiet ZIP jest generowany przy każdym wydaniu. Zawiera źródła DSL, schematy
 JSON i README, ale nie zawiera sekretów ani produkcyjnych grantów.

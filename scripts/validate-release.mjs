@@ -67,6 +67,7 @@ await run("ffprobe", [
 
 const html = await readFile(join(root, "book", "_book", "index.html"), "utf8");
 assert.match(html, /SOA.*POA.*URI Process/s);
+assert.match(html, /Cybernetyczny WorkCell/);
 assert.match(html, /downloads\/retrospektywa-0\.2\.pdf/);
 for (const [releaseFile, canonicalFile] of [
   ["retrospektywa-0.2.pdf", "Retrospektywa.pdf"],

@@ -57,10 +57,10 @@ async function assertChannel(name, base) {
 }
 
 await retry("landing page", () =>
-  assertHtml(siteBase, [/Czytaj książkę/, /Posłuchaj audiobooka/, /retrospektywa-process-pack-0\.2\.zip/]),
+  assertHtml(siteBase, [/Czytaj książkę/, /Posłuchaj audiobooka/, /cybernetycznym WorkCell/, /retrospektywa-process-pack-0\.2\.zip/]),
 );
 await retry("strona książki", () =>
-  assertHtml(bookBase, [/SOA, POA i URI Process/, /Forma współpracy, authority i dowód pracy/]),
+  assertHtml(bookBase, [/SOA, POA i URI Process/, /Forma współpracy, authority i dowód pracy/, /Cybernetyczny WorkCell/]),
 );
 await retry("artefakty Sites", () => assertChannel("Sites", `${siteBase}/releases`));
 await retry("artefakty GitHub Pages", () => assertChannel("GitHub Pages", `${bookBase}/downloads`));

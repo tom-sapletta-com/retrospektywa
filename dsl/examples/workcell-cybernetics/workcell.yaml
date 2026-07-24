@@ -1,0 +1,95 @@
+schema: retrospektywa.workcell/v1
+id: analysis-review
+version: 1
+
+horizon:
+  minutes: 240
+
+goal:
+  state: zaakceptowany raport
+  planned_value: 100
+  value_unit: points
+
+state:
+  initial: ticket_ready
+  current: planning
+
+actor:
+  executor: agent
+  validator: human
+  required:
+    domain_skill: 0.7
+    reliability: 0.9
+
+authority:
+  allow:
+    - read_sources
+    - create_draft
+    - run_tests
+  require_approval:
+    - publish
+    - send
+    - modify_external_state
+  deny:
+    - disclose_secrets
+
+environment:
+  tools:
+    - repository
+    - browser
+    - test_runner
+  repositories:
+    - retrospektywa
+  data_classification: internal
+
+protocol:
+  mode: ping_pong
+  checkpoints:
+    - when: after_plan
+      requires: [plan, sources]
+    - when: before_irreversible_action
+      requires: [risk_estimate, approval]
+    - when: risk_above_0_2
+      requires: [risk_estimate, mitigation]
+    - when: goal_changes
+      requires: [updated_goal, human_decision]
+
+validator:
+  types: [human, test, policy]
+  evidence_required:
+    - sources
+    - decisions
+    - test_results
+    - final_artifact
+
+measurements:
+  - accepted_value
+  - first_pass_yield
+  - lead_time
+  - validation_cost
+  - rework_cost
+  - escalation_rate
+  - defect_escape
+  - nasa_tlx
+
+budgets:
+  time_minutes: 240
+  validation_minutes: 30
+  cost: 40
+  expected_loss: 20
+  cognitive_load_max: 70
+
+acceptance:
+  tests:
+    - scope_passed
+    - quality_passed
+    - constraints_ok
+  evidence_complete: true
+
+escalation:
+  conditions:
+    - authority_missing
+    - confidence_below_0_7
+    - expected_loss_above_20
+    - budget_exceeded
+    - goal_changed

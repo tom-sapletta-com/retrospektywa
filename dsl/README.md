@@ -37,8 +37,14 @@ wersjonowania, wdrożenia, testowania i prototypowania.
   false-ready i łańcucha handoffów wdrożonych w Subactorze;
 - `examples/uri-process-publication/` — SOA, POA i URI Process na przykładzie
   wieloformatowego wydania książki.
+- `examples/workcell-cybernetics/` — cybernetyczne stanowisko pracy z celem,
+  authority, protokołem, walidacją, budżetami i eskalacją.
 
 Listy URI Process można walidować względem
 `schema/uri-process.schema.json`. Schemat opisuje przenośną warstwę edukacyjną;
 runtime produkcyjny musi dodatkowo sprawdzić registry, kontrakt capability,
 authority i aktualną politykę.
+
+Kontrakty WorkCell można walidować względem
+`schema/workcell.schema.json`. Schemat nie przyznaje authority: potwierdza
+jedynie kompletność deklaracji, którą runtime musi przeciąć z aktywną polityką.

@@ -15,6 +15,10 @@ Nie wszystkie wyniki mają tę samą siłę ani zakres.
 | workflow | @vanderAalst2003workflow | wzorce kontroli przepływu | domena BPM |
 | URI i REST | @rfc3986; @fielding2000rest | identyfikacja i jednolity interfejs | nie definiują URI Process |
 | granica możliwości AI | @dellacqua2026jagged | nierówny wpływ AI zależnie od zadania | praca konsultantów, nie programowanie |
+| kolejki | @little1961 | związek WIP, przepustowości i lead time | stabilne średnie i założenia stacjonarności |
+| cybernetyka | @ashby1956; @conant1970 | różnorodność regulatora i znaczenie modelu systemu | twierdzenia wymagają swoich formalnych założeń |
+| obciążenie człowieka | @hart1988; @sweller1988 | wielowymiarowy workload i koszt poznawczy instrukcji | TLX jest subiektywny, a teoria nie daje jednej miary pracy |
+| ryzyko AI | @nistaria2025 | pomiar modelu, red-teaming i test terenowy | raport pilotażowy, nie uniwersalny benchmark |
 
 ## Jak interpretować wyniki
 
