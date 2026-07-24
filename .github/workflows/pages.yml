@@ -68,7 +68,6 @@ jobs:
         run: |
           npm run lint
           npm run dsl:validate
-          npm run release:validate
           npm test
 
   docker-e2e:

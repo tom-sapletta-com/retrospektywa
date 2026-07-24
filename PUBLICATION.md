@@ -22,9 +22,9 @@ na landing page i stronie książki.
 
 Publikacja na GitHub Pages wymaga powodzenia trzech niezależnych zadań:
 
-1. `quality` — lint, DSL, release, build i testy Node;
+1. `quality` — lint, DSL, build aplikacji i testy Node;
 2. `docker-e2e` — produkcyjny serwis oraz Playwright w osobnych kontenerach;
-3. `book` — render HTML Quarto i przygotowanie zatwierdzonej paczki.
+3. `book` — render HTML Quarto, przygotowanie i walidacja zatwierdzonej paczki.
 
 E2E obejmuje Chromium w profilu desktopowym i mobilnym, wszystkie publiczne
 trasy, linki, prywatność API, manifest oraz SHA-256 pobranych artefaktów.
