@@ -1,0 +1,91 @@
+[
+  {
+    "id": "inventory",
+    "name": "Zbierz źródła wydania",
+    "actor": "script",
+    "uri": "repo://host/release/query/inventory",
+    "effect": "query",
+    "payload": {
+      "paths": ["book", "dsl", "content"]
+    },
+    "depends_on": [],
+    "human_approval": false,
+    "timeout_seconds": 30,
+    "retries": 0
+  },
+  {
+    "id": "build",
+    "name": "Wygeneruj formaty książki",
+    "actor": "script",
+    "uri": "book://host/release/command/build",
+    "effect": "command",
+    "payload": {
+      "formats": ["html", "pdf", "epub", "docx"]
+    },
+    "depends_on": ["inventory"],
+    "human_approval": false,
+    "timeout_seconds": 600,
+    "retries": 0,
+    "verify_uri": "test://host/release/query/formats"
+  },
+  {
+    "id": "audio",
+    "name": "Wygeneruj próbkę audiobooka",
+    "actor": "script",
+    "uri": "audio://host/narration/command/generate",
+    "effect": "command",
+    "payload": {
+      "format": "mp3",
+      "language": "pl-PL"
+    },
+    "depends_on": ["inventory"],
+    "human_approval": false,
+    "timeout_seconds": 600,
+    "retries": 1,
+    "verify_uri": "test://host/audio/query/probe"
+  },
+  {
+    "id": "verify",
+    "name": "Sprawdź kompletność wydania",
+    "actor": "system",
+    "uri": "test://host/release/query/verify",
+    "effect": "query",
+    "payload": {
+      "require_hashes": true
+    },
+    "depends_on": ["build", "audio"],
+    "human_approval": false,
+    "timeout_seconds": 120,
+    "retries": 0
+  },
+  {
+    "id": "publish-github",
+    "name": "Opublikuj źródła i GitHub Pages",
+    "actor": "human",
+    "uri": "github://host/release/command/publish",
+    "effect": "command",
+    "payload": {
+      "branch": "main"
+    },
+    "depends_on": ["verify"],
+    "human_approval": true,
+    "timeout_seconds": 300,
+    "retries": 0,
+    "verify_uri": "github://host/pages/query/deployment"
+  },
+  {
+    "id": "publish-sites",
+    "name": "Opublikuj landing page",
+    "actor": "human",
+    "uri": "sites://host/version/command/deploy",
+    "effect": "command",
+    "payload": {
+      "access": "public"
+    },
+    "depends_on": ["verify"],
+    "human_approval": true,
+    "timeout_seconds": 300,
+    "retries": 0,
+    "verify_uri": "https://retrospektywa.softreck.chatgpt.site/query/fingerprint"
+  }
+]

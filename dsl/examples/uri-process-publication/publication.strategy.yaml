@@ -1,0 +1,19 @@
+strategy:
+  id: source-once-publish-many
+  input: book_source_revision
+
+  capabilities:
+    - source_inventory
+    - quarto_render
+    - process_pack_archive
+    - text_to_speech
+    - release_validation
+    - github_publish
+    - sites_publish
+    - public_read_back
+
+  rules:
+    - generated_outputs_share_commit
+    - provider_is_binding_not_strategy
+    - commands_require_approval
+    - dispatch_success_is_not_effect

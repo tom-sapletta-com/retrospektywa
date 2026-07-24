@@ -1,0 +1,19 @@
+VERSION: 1
+
+SUITE retrospektywa_release_readiness:
+  TEST formats "Każdy format jest dostępny i niepusty":
+    EXPECT artifacts.html.bytes > 0
+    EXPECT artifacts.pdf.bytes > 0
+    EXPECT artifacts.epub.bytes > 0
+    EXPECT artifacts.docx.bytes > 0
+
+  TEST audio "MP3 przechodzi próbę dekodera":
+    EXPECT artifacts.audio.codec == "mp3"
+    EXPECT artifacts.audio.duration_seconds > 0
+
+  TEST examples "Process Pack jest przenośny":
+    EXPECT artifacts.examples.secret_findings == 0
+    EXPECT artifacts.examples.schema_valid == true
+
+  TEST provenance "Wydanie ma jedno pochodzenie":
+    EXPECT artifacts.distinct_source_commits == 1

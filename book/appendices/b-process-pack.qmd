@@ -1,0 +1,26 @@
+# Process Pack do pobrania
+
+Repozytorium zawiera trzy kompletne przykłady:
+
+1. `two-models` — implementacja i niezależny review przy Human WIP = 1.
+2. `digital-twin-router` — routing bez rozszerzania authority.
+3. `uri-process-publication` — wydanie książki jako kontrolowany URI Process.
+
+Pakiet ZIP jest generowany przy każdym wydaniu. Zawiera źródła DSL, schematy
+JSON i README, ale nie zawiera sekretów ani produkcyjnych grantów.
+
+## Jak pracować z przykładem
+
+```text
+skopiuj katalog
+  -> zmień intent i payload
+  -> zwaliduj schema
+  -> wykonaj query/dry-run
+  -> sprawdź AQL
+  -> zatwierdź command
+  -> wykonaj EQL read-back
+  -> zapisz SODL i retrospektywę
+```
+
+Przykłady są materiałem edukacyjnym. URI należy związać z registry rzeczywistego
+runtime'u, a authority rozwiązać z aktywnego kontraktu organizacji.

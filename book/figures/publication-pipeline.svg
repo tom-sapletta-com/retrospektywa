@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Pipeline wydania Retrospektywy</title>
+  <desc id="desc">Źródła przechodzą przez walidację i generator do formatów książki, audio, przykładów i kanałów publikacji.</desc>
+  <defs>
+    <style>
+      .bg{fill:#fffdf7}.box{fill:#fff;stroke:#a79f92;stroke-width:2}.dark{fill:#20201d}.red{fill:#f22b1d}
+      .ink{fill:#20201d}.muted{fill:#6f685c}.white{fill:#fff}
+      .arrow{fill:none;stroke:#f22b1d;stroke-width:4;marker-end:url(#head)}
+      text{font-family:Arial,sans-serif}.small{font-size:16px}.title{font-family:Georgia,serif;font-size:30px}.label{font-size:15px;font-weight:700;letter-spacing:1.5px}
+    </style>
+    <marker id="head" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" class="red"/></marker>
+  </defs>
+  <rect width="1200" height="500" class="bg"/>
+  <text x="45" y="45" class="label red">JEDNA REWIZJA</text>
+  <rect x="45" y="75" width="230" height="330" rx="4" class="box"/>
+  <text x="75" y="125" class="title ink">Źródła</text>
+  <text x="75" y="178" class="small muted">QMD / Markdown</text>
+  <text x="75" y="216" class="small muted">BibTeX</text>
+  <text x="75" y="254" class="small muted">DSL / JSON Schema</text>
+  <text x="75" y="292" class="small muted">SVG / diagramy</text>
+  <text x="75" y="330" class="small muted">scenariusz audio</text>
+  <path d="M290 240H380" class="arrow"/>
+  <rect x="380" y="125" width="250" height="230" rx="4" class="dark"/>
+  <text x="415" y="180" class="title white">Generator</text>
+  <text x="415" y="225" class="small white">walidacja</text>
+  <text x="415" y="260" class="small white">Quarto + TTS</text>
+  <text x="415" y="295" class="small white">hash + manifest</text>
+  <path d="M645 240H735" class="arrow"/>
+  <text x="735" y="45" class="label red">ARTEFAKTY</text>
+  <rect x="735" y="75" width="200" height="80" rx="4" class="box"/><text x="770" y="124" class="title ink">Książka</text>
+  <rect x="735" y="175" width="200" height="80" rx="4" class="box"/><text x="770" y="224" class="title ink">Audio</text>
+  <rect x="735" y="275" width="200" height="80" rx="4" class="box"/><text x="770" y="324" class="title ink">Przykłady</text>
+  <rect x="735" y="375" width="200" height="80" rx="4" class="box"/><text x="770" y="424" class="title ink">Manifest</text>
+  <path d="M950 240H1020" class="arrow"/>
+  <rect x="1020" y="125" width="145" height="230" rx="4" class="red"/>
+  <text x="1042" y="185" class="label white">PUBLIKACJA</text>
+  <text x="1042" y="232" class="small white">GitHub</text>
+  <text x="1042" y="269" class="small white">Pages</text>
+  <text x="1042" y="306" class="small white">Sites</text>
+</svg>

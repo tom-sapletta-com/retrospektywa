@@ -1,0 +1,17 @@
+intent:
+  id: retrospektywa-release-v02
+  title: "Wygeneruj i opublikuj wieloformatowe wydanie Retrospektywy"
+  goal: "Udostępnić spójne HTML, PDF, EPUB, DOCX, MP3 i przykłady DSL"
+
+  constraints:
+    source_revision_required: true
+    secrets_in_repository: false
+    mutation_without_approval: false
+    public_read_back_required: true
+
+  definition_of_done:
+    - all_formats_valid
+    - release_manifest_hashed
+    - github_pages_green
+    - sites_deployment_green
+    - public_links_verified

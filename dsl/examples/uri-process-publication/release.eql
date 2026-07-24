@@ -1,0 +1,16 @@
+VERSION: 1
+
+EXPECTATION retrospektywa_release:
+  PRECONDITION source.commit != null
+  PRECONDITION formats.validation == "green"
+  PRECONDITION audio.ffprobe == "green"
+  PRECONDITION manifest.hashes_complete == true
+  POSTCONDITION github.pages.status == "deployed"
+  POSTCONDITION sites.status == "deployed"
+  POSTCONDITION public.links_green == true
+
+PRESSURE publication_failure:
+  WHEN public.links_green == false
+  SET state = "blocked"
+  REQUIRE exact_failed_url
+  FORBID success_without_read_back

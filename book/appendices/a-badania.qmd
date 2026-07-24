@@ -1,0 +1,28 @@
+# Mapa badań i siła dowodu
+
+Publikacje w książce pełnią trzy role: dostarczają obserwacji o pracy ludzi,
+wyników eksperymentów z AI oraz modeli formalnych dla workflow i architektury.
+Nie wszystkie wyniki mają tę samą siłę ani zakres.
+
+| Obszar | Źródło | Co wspiera | Ograniczenie |
+|---|---|---|---|
+| przerwania | @parnin2011resumption | koszt rekonstrukcji kontekstu | badanie obserwacyjne |
+| produktywność | @meyer2014productivity | wielowymiarowe rozumienie produktywności | percepcja nie jest samym wynikiem |
+| interakcja z AI | @barke2023grounded | tryby przyspieszenia i eksploracji | 20 uczestników |
+| szybkość z AI | @peng2023copilot | eksperymentalny wpływ na jedno zadanie | zadanie greenfield |
+| zadania repozytoryjne | @jimenez2024swebench | trudność realnych issue | benchmark nie odwzorowuje całej pracy |
+| interfejs agenta | @yang2024sweagent | wpływ ACI na skuteczność | wynik zależny od benchmarku |
+| workflow | @vanderAalst2003workflow | wzorce kontroli przepływu | domena BPM |
+| URI i REST | @rfc3986; @fielding2000rest | identyfikacja i jednolity interfejs | nie definiują URI Process |
+| granica możliwości AI | @dellacqua2026jagged | nierówny wpływ AI zależnie od zadania | praca konsultantów, nie programowanie |
+
+## Jak interpretować wyniki
+
+Nie traktujemy pojedynczego procentu jako stałej właściwości AI. Wynik zależy od
+zadania, ludzi, narzędzia, czasu badania i kryterium jakości. Dlatego książka
+zaleca lokalny eksperyment porównawczy zamiast przyjęcia obcej średniej jako
+obiecanego zwrotu.
+
+W szczególności szybsze ukończenie krótkiego zadania nie dowodzi mniejszego
+reworku, bezpieczniejszej publikacji ani lepszej pracy z dojrzałym systemem.
+Potwierdza hipotezę, którą należy ponownie przetestować w swojej klasie zadań.

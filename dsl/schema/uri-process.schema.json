@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://retrospektywa.pl/schema/uri-process.schema.json",
+  "title": "Retrospektywa URI Process list",
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "type": "object",
+    "required": ["id", "name", "actor", "uri"],
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9-]*$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 3
+      },
+      "actor": {
+        "enum": ["llm", "script", "human", "system"]
+      },
+      "uri": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9+.-]*://[^/\\s]+/.+"
+      },
+      "effect": {
+        "enum": ["query", "command"]
+      },
+      "payload": {
+        "type": "object"
+      },
+      "depends_on": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string"
+        }
+      },
+      "human_approval": {
+        "type": "boolean",
+        "default": false
+      },
+      "timeout_seconds": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "retries": {
+        "type": "integer",
+        "minimum": 0,
+        "default": 0
+      },
+      "verify_uri": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9+.-]*://[^/\\s]+/.+"
+      }
+    }
+  }
+}

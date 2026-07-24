@@ -1,0 +1,4 @@
+{"at":"2026-07-24T10:00:00Z","event":"release.inventory.completed","source_revision":"pending"}
+{"at":"2026-07-24T10:00:01Z","event":"release.render.requested","formats":["html","pdf","epub","docx"]}
+{"at":"2026-07-24T10:00:02Z","event":"release.audio.requested","provider":"binding"}
+{"at":"2026-07-24T10:00:03Z","event":"release.approval.required","targets":["github","sites"]}
