@@ -4,16 +4,20 @@ strategy:
 
   capabilities:
     - source_inventory
+    - editorial_validation
     - quarto_render
-    - process_pack_archive
     - text_to_speech
+    - process_pack_archive
+    - docker_e2e
     - release_validation
     - github_publish
     - sites_publish
     - public_read_back
 
   rules:
-    - generated_outputs_share_commit
+    - generated_outputs_share_source_revision
     - provider_is_binding_not_strategy
-    - commands_require_approval
+    - external_commands_require_approval
     - dispatch_success_is_not_effect
+    - preview_is_not_full_audiobook
+    - paragraph_change_invalidates_receipt

@@ -249,6 +249,19 @@ export default function DslPage() {
             Process Pack zawiera Intent, AQL, OQL, DOQL, EQL, TestQL, SODL,
             URI Process oraz walidowalny kontrakt WorkCell.
           </p>
+          <div className="evidence-box" style={{ marginBottom: 14 }}>
+            <h3 style={{ marginTop: 0 }}>Operacyjnie: jak pisać eskalację</h3>
+            <p style={{ marginBottom: 12 }}>
+              Komunikacja o stanie pracy i decyzjach powinna wskazywać referencje
+              do dowodu, nie załączony plik.
+            </p>
+            <pre>
+              {`Temat: [Escalation] TR-421 — checkpoint nie zakończony
+Context: https://repo.example/ticket/TR-421
+Evidence: https://repo.example/artifact/TR-421/validation-2026-07-24
+Decyzja do podjęcia: rozszerzyć scope działania?`}
+            </pre>
+          </div>
           <a className="button button-primary" href="/releases/retrospektywa-process-pack-0.2.zip">
             Pobierz Process Pack
           </a>

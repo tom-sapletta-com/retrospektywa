@@ -15,6 +15,7 @@ const rules = [
   ["Automatyczna kontrola przed review", "Testy, lint i skan bezpieczeństwa powinny odrzucić słabe wyniki przed angażowaniem człowieka."],
   ["Mierz zaakceptowaną zmianę", "Wygenerowane linie kodu nie są wynikiem. Wynikiem jest bezpiecznie dostarczona wartość."],
   ["Rejestruj metadane, nie sekrety", "Twin potrzebuje decyzji, czasu, kosztu i jakości — nie prywatnego kodu ani pełnych promptów."],
+  ["Komunikuj przez linki", "W eskalacjach i decyzjach dziel się odnośnikiem do ticketu lub dowodu, a nie załączonym plikiem."],
   ["Autonomia jest zdobywana", "AI otrzymuje szersze uprawnienia dopiero po serii powtarzalnych, mierzalnych sukcesów."],
   ["Każda delegacja ma wyłącznik", "Limit kosztu, czasu, iteracji i jednoznaczny warunek eskalacji są częścią zadania."],
   ["Retrospektywa zamyka pętlę", "Po wykonaniu zmieniamy proces, nie tylko kolejne polecenie dla modelu."],

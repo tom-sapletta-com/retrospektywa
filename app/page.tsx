@@ -132,7 +132,7 @@ export default function Home() {
           </p>
         </div>
         <div className="quality-grid">
-          <article><span>01</span><h3>Kontrakty</h3><p>Lint, JSON Schema, graf URI Process i reguły WorkCell.</p><b>źródło</b></article>
+          <article><span>01</span><h3>Treść i kontrakty</h3><p>Receipt 215 akapitów, rejestr pojęć oraz traceability warstw DSL.</p><b>źródło</b></article>
           <article><span>02</span><h3>Build</h3><p>Aplikacja, HTML, PDF, EPUB, DOCX, MP3 oraz Process Pack.</p><b>artefakty</b></article>
           <article><span>03</span><h3>Docker E2E</h3><p>Chromium desktop i mobile, nawigacja, API, manifest i pobrania.</p><b>środowisko produkcyjne</b></article>
           <article><span>04</span><h3>Audyt publiczny</h3><p>HTTP 200, rozmiary i SHA-256 w Sites oraz GitHub Pages.</p><b>publikacja</b></article>

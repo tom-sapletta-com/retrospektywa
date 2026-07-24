@@ -2,12 +2,16 @@ VERSION: 1
 
 EXPECTATION retrospektywa_release:
   PRECONDITION source.commit != null
+  PRECONDITION editorial.paragraph_contract == "green"
+  PRECONDITION dsl.traceability == "green"
   PRECONDITION formats.validation == "green"
   PRECONDITION audio.ffprobe == "green"
   PRECONDITION manifest.hashes_complete == true
+  PRECONDITION docker_e2e.status == "green"
   POSTCONDITION github.pages.status == "deployed"
   POSTCONDITION sites.status == "deployed"
   POSTCONDITION public.links_green == true
+  POSTCONDITION public.artifact_hashes_identical == true
 
 PRESSURE publication_failure:
   WHEN public.links_green == false

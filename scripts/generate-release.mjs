@@ -11,6 +11,7 @@ import {
 } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { stageRelease } from "./stage-release.mjs";
+import { sourceRevision } from "./source-revision.mjs";
 
 const root = resolve(import.meta.dirname, "..");
 const bookOutput = join(root, "book", "_book");
@@ -90,6 +91,7 @@ async function main() {
     "dsl/README.md",
     "dsl/schema",
     "dsl/examples",
+    "book/editorial-receipt.json",
   ]);
   releaseFiles.push(packName);
 
@@ -106,7 +108,7 @@ async function main() {
     schema: "retrospektywa.release/v1",
     version,
     generatedAt: new Date().toISOString(),
-    source: "book + dsl + content/podcast",
+    source: await sourceRevision(root),
     files,
   };
   await writeFile(

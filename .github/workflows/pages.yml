@@ -67,6 +67,7 @@ jobs:
       - name: Validate source, release and application
         run: |
           npm run lint
+          npm run content:validate
           npm run dsl:validate
           npm test
 
@@ -96,6 +97,7 @@ jobs:
           python3 -m pip install --requirement scripts/requirements-dsl.txt
       - name: Render HTML and stage committed release
         run: |
+          npm run content:validate
           npm run dsl:validate
           npm run audio:test
           quarto render book --to html

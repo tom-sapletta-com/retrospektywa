@@ -9,7 +9,8 @@ Repozytorium zawiera cztery kompletne przykłady:
    budżety i eskalacja cybernetycznego stanowiska pracy.
 
 Pakiet ZIP jest generowany przy każdym wydaniu. Zawiera źródła DSL, schematy
-JSON i README, ale nie zawiera sekretów ani produkcyjnych grantów.
+JSON, kontrakt redakcyjny, receipt akapitów i README, ale nie zawiera sekretów
+ani produkcyjnych grantów.
 
 ## Jak pracować z przykładem
 
@@ -26,3 +27,18 @@ skopiuj katalog
 
 Przykłady są materiałem edukacyjnym. URI należy związać z registry rzeczywistego
 runtime'u, a authority rozwiązać z aktywnego kontraktu organizacji.
+
+## Walidacja publikacji
+
+```bash
+npm run content:validate
+npm run dsl:validate
+npm run release:validate
+npm run test:e2e:docker
+npm run publication:check
+```
+
+Pierwsza komenda sprawdza receipt każdego akapitu i rejestr pojęć. Druga
+sprawdza schematy oraz zgodność Intent, Strategy, URI Process, AQL, EQL,
+TestQL i SODL. Pozostałe komendy weryfikują pliki wydania, zachowanie aplikacji
+w kontenerach i publiczny read-back.

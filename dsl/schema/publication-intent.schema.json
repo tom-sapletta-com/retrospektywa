@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://retrospektywa.pl/schema/publication-intent.schema.json",
+  "title": "Retrospektywa publication intent",
+  "type": "object",
+  "required": ["intent"],
+  "additionalProperties": false,
+  "properties": {
+    "intent": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "goal",
+        "deliverables",
+        "non_goals",
+        "constraints",
+        "definition_of_done"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+        "title": {"type": "string", "minLength": 10},
+        "goal": {"type": "string", "minLength": 20},
+        "deliverables": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"}
+        },
+        "non_goals": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 5}
+        },
+        "constraints": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {"type": "boolean"}
+        },
+        "definition_of_done": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["id", "gate"],
+            "additionalProperties": false,
+            "properties": {
+              "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+              "gate": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"}
+            }
+          }
+        }
+      }
+    }
+  }
+}

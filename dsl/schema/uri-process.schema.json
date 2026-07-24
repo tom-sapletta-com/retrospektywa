@@ -6,7 +6,21 @@
   "minItems": 1,
   "items": {
     "type": "object",
-    "required": ["id", "name", "actor", "uri"],
+    "required": [
+      "id",
+      "name",
+      "capability",
+      "actor",
+      "uri",
+      "effect",
+      "payload",
+      "depends_on",
+      "outputs",
+      "acceptance",
+      "human_approval",
+      "timeout_seconds",
+      "retries"
+    ],
     "additionalProperties": false,
     "properties": {
       "id": {
@@ -16,6 +30,10 @@
       "name": {
         "type": "string",
         "minLength": 3
+      },
+      "capability": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_]*$"
       },
       "actor": {
         "enum": ["llm", "script", "human", "system"]
@@ -35,6 +53,24 @@
         "uniqueItems": true,
         "items": {
           "type": "string"
+        }
+      },
+      "outputs": {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9+.-]*://[^/\\s]+/.+"
+        }
+      },
+      "acceptance": {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
         }
       },
       "human_approval": {

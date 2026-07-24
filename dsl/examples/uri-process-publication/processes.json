@@ -2,6 +2,7 @@
   {
     "id": "inventory",
     "name": "Zbierz źródła wydania",
+    "capability": "source_inventory",
     "actor": "script",
     "uri": "repo://host/release/query/inventory",
     "effect": "query",
@@ -9,20 +10,48 @@
       "paths": ["book", "dsl", "content"]
     },
     "depends_on": [],
+    "outputs": ["artifact://release/source/inventory"],
+    "acceptance": ["source_revision_present"],
     "human_approval": false,
     "timeout_seconds": 30,
     "retries": 0
   },
   {
+    "id": "editorial-audit",
+    "name": "Sprawdź każdy akapit i rejestr pojęć",
+    "capability": "editorial_validation",
+    "actor": "script",
+    "uri": "editorial://host/book/query/validate",
+    "effect": "query",
+    "payload": {
+      "contract": "dsl/examples/uri-process-publication/editorial.contract.yaml",
+      "receipt": "book/editorial-receipt.json"
+    },
+    "depends_on": ["inventory"],
+    "outputs": ["artifact://release/editorial/receipt"],
+    "acceptance": ["paragraph_contract_green", "concept_registry_green"],
+    "human_approval": false,
+    "timeout_seconds": 60,
+    "retries": 0
+  },
+  {
     "id": "build",
     "name": "Wygeneruj formaty książki",
+    "capability": "quarto_render",
     "actor": "script",
     "uri": "book://host/release/command/build",
     "effect": "command",
     "payload": {
       "formats": ["html", "pdf", "epub", "docx"]
     },
-    "depends_on": ["inventory"],
+    "depends_on": ["editorial-audit"],
+    "outputs": [
+      "artifact://release/book/html",
+      "artifact://release/book/pdf",
+      "artifact://release/book/epub",
+      "artifact://release/book/docx"
+    ],
+    "acceptance": ["all_formats_valid"],
     "human_approval": false,
     "timeout_seconds": 600,
     "retries": 0,
@@ -31,6 +60,7 @@
   {
     "id": "audio",
     "name": "Wygeneruj próbkę audiobooka",
+    "capability": "text_to_speech",
     "actor": "script",
     "uri": "audio://host/narration/command/generate",
     "effect": "command",
@@ -38,22 +68,68 @@
       "format": "mp3",
       "language": "pl-PL"
     },
-    "depends_on": ["inventory"],
+    "depends_on": ["editorial-audit"],
+    "outputs": ["artifact://release/audio/preview-mp3"],
+    "acceptance": ["audio_preview_decodable"],
     "human_approval": false,
     "timeout_seconds": 600,
     "retries": 1,
     "verify_uri": "test://host/audio/query/probe"
   },
   {
+    "id": "pack",
+    "name": "Zbuduj paczkę DSL i manifest wydania",
+    "capability": "process_pack_archive",
+    "actor": "script",
+    "uri": "artifact://host/release/command/package",
+    "effect": "command",
+    "payload": {
+      "archive": "zip",
+      "hash": "sha256"
+    },
+    "depends_on": ["build", "audio"],
+    "outputs": [
+      "artifact://release/process-pack/zip",
+      "artifact://release/manifest/json"
+    ],
+    "acceptance": ["release_manifest_hashed", "process_pack_schema_valid"],
+    "human_approval": false,
+    "timeout_seconds": 120,
+    "retries": 0,
+    "verify_uri": "test://host/release/query/manifest"
+  },
+  {
+    "id": "docker-e2e",
+    "name": "Sprawdź aplikację i publikację w Docker E2E",
+    "capability": "docker_e2e",
+    "actor": "script",
+    "uri": "test://host/publication/query/docker-e2e",
+    "effect": "query",
+    "payload": {
+      "profiles": ["desktop-chromium", "pixel-7"],
+      "manifest_hashes": true,
+      "api_privacy": true
+    },
+    "depends_on": ["editorial-audit"],
+    "outputs": ["artifact://release/test/docker-e2e-receipt"],
+    "acceptance": ["docker_e2e_green"],
+    "human_approval": false,
+    "timeout_seconds": 900,
+    "retries": 0
+  },
+  {
     "id": "verify",
     "name": "Sprawdź kompletność wydania",
+    "capability": "release_validation",
     "actor": "system",
     "uri": "test://host/release/query/verify",
     "effect": "query",
     "payload": {
       "require_hashes": true
     },
-    "depends_on": ["build", "audio"],
+    "depends_on": ["pack", "docker-e2e"],
+    "outputs": ["artifact://release/test/release-receipt"],
+    "acceptance": ["dsl_layers_consistent", "all_formats_valid", "release_manifest_hashed", "docker_e2e_green"],
     "human_approval": false,
     "timeout_seconds": 120,
     "retries": 0
@@ -61,6 +137,7 @@
   {
     "id": "publish-github",
     "name": "Opublikuj źródła i GitHub Pages",
+    "capability": "github_publish",
     "actor": "human",
     "uri": "github://host/release/command/publish",
     "effect": "command",
@@ -68,6 +145,8 @@
       "branch": "main"
     },
     "depends_on": ["verify"],
+    "outputs": ["deployment://github/pages/retrospektywa"],
+    "acceptance": ["github_pages_green"],
     "human_approval": true,
     "timeout_seconds": 300,
     "retries": 0,
@@ -76,6 +155,7 @@
   {
     "id": "publish-sites",
     "name": "Opublikuj landing page",
+    "capability": "sites_publish",
     "actor": "human",
     "uri": "sites://host/version/command/deploy",
     "effect": "command",
@@ -83,9 +163,29 @@
       "access": "public"
     },
     "depends_on": ["verify"],
+    "outputs": ["deployment://sites/production/retrospektywa"],
+    "acceptance": ["sites_deployment_green"],
     "human_approval": true,
     "timeout_seconds": 300,
     "retries": 0,
     "verify_uri": "https://retrospektywa.softreck.chatgpt.site/query/fingerprint"
+  },
+  {
+    "id": "public-read-back",
+    "name": "Porównaj publiczne artefakty obu kanałów",
+    "capability": "public_read_back",
+    "actor": "system",
+    "uri": "test://host/publication/query/read-back",
+    "effect": "query",
+    "payload": {
+      "channels": ["github-pages", "sites"],
+      "require_identical_sha256": true
+    },
+    "depends_on": ["publish-github", "publish-sites"],
+    "outputs": ["artifact://release/test/public-read-back-receipt"],
+    "acceptance": ["public_links_verified"],
+    "human_approval": false,
+    "timeout_seconds": 120,
+    "retries": 1
   }
 ]

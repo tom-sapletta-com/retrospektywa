@@ -1,4 +1,10 @@
-{"at":"2026-07-24T10:00:00Z","event":"release.inventory.completed","source_revision":"pending"}
-{"at":"2026-07-24T10:00:01Z","event":"release.render.requested","formats":["html","pdf","epub","docx"]}
-{"at":"2026-07-24T10:00:02Z","event":"release.audio.requested","provider":"binding"}
-{"at":"2026-07-24T10:00:03Z","event":"release.approval.required","targets":["github","sites"]}
+{"at":"2026-07-24T10:00:00Z","mode":"example","event":"process.registered","process_id":"inventory","status":"declared"}
+{"at":"2026-07-24T10:00:01Z","mode":"example","event":"process.registered","process_id":"editorial-audit","status":"declared"}
+{"at":"2026-07-24T10:00:02Z","mode":"example","event":"process.registered","process_id":"build","status":"declared"}
+{"at":"2026-07-24T10:00:03Z","mode":"example","event":"process.registered","process_id":"audio","status":"declared"}
+{"at":"2026-07-24T10:00:04Z","mode":"example","event":"process.registered","process_id":"pack","status":"declared"}
+{"at":"2026-07-24T10:00:05Z","mode":"example","event":"process.registered","process_id":"docker-e2e","status":"declared"}
+{"at":"2026-07-24T10:00:06Z","mode":"example","event":"process.registered","process_id":"verify","status":"declared"}
+{"at":"2026-07-24T10:00:07Z","mode":"example","event":"process.registered","process_id":"publish-github","status":"declared"}
+{"at":"2026-07-24T10:00:08Z","mode":"example","event":"process.registered","process_id":"publish-sites","status":"declared"}
+{"at":"2026-07-24T10:00:09Z","mode":"example","event":"process.registered","process_id":"public-read-back","status":"declared"}

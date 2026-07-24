@@ -152,7 +152,7 @@ równoległości i blokad. Gdy $\rho$ zbliża się do jedności, małe zakłóce
 gwałtownie wydłużać kolejkę; stuprocentowa zajętość nie jest więc synonimem
 optymalnej efektywności.
 
-Prawo Little'a:
+Prawo Little'a [@little1961]:
 
 $$
 L=\lambda W,

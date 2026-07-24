@@ -22,7 +22,8 @@ na landing page i stronie książki.
 
 Publikacja na GitHub Pages wymaga powodzenia trzech niezależnych zadań:
 
-1. `quality` — lint, DSL, build aplikacji i testy Node;
+1. `quality` — lint, receipt każdego akapitu, traceability DSL, build aplikacji
+   i testy Node;
 2. `docker-e2e` — produkcyjny serwis oraz Playwright w osobnych kontenerach;
 3. `book` — render HTML Quarto, przygotowanie i walidacja zatwierdzonej paczki.
 
@@ -30,6 +31,29 @@ E2E obejmuje Chromium w profilu desktopowym i mobilnym, wszystkie publiczne
 trasy, linki, prywatność API, manifest oraz SHA-256 pobranych artefaktów.
 Po wdrożeniu osobny audyt ponownie pobiera landing page, książkę i pliki z obu
 publicznych kanałów.
+
+## Kontrakt treści i DSL
+
+Publikację opisuje siedem komplementarnych warstw:
+
+| Warstwa | Co rozstrzyga |
+|---|---|
+| Intent Contract | cel, deliverables, non-goals i Definition of Done |
+| Strategy DSL | capabilities niezależne od providera |
+| URI Process | DAG kroków, outputs, acceptance i finalny read-back |
+| AQL | dozwolone komendy oraz obowiązkowe approval publikacji |
+| EQL | preconditions, postconditions i reakcję na błąd |
+| TestQL | wykonywalne bramki odpowiadające Definition of Done |
+| SODL | format zdarzeń, bez udawania runtime receiptu |
+
+`npm run dsl:validate` sprawdza zgodność identyfikatorów między warstwami,
+pokrycie AQL, acykliczność grafu i pojedynczy finalny read-back.
+
+`npm run content:validate` obejmuje 18 plików źródłowych i 215 akapitów. Każdy
+akapit ma skrót SHA-256, rolę redakcyjną i podstawę walidacji w
+`book/editorial-receipt.json`. Kontrolowany rejestr zawiera 12 pojęć i nie
+pozostawia nierozpoznanych nazw DSL. Receipt potwierdza kompletność audytu, ale
+nie zastępuje oceny prawdziwości argumentu przez autora i recenzenta.
 
 ## Pozostałe prace
 

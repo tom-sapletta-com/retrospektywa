@@ -119,7 +119,8 @@ Testy są ułożone od najtańszych do najbardziej przekrojowych:
 | Warstwa | Polecenie | Zakres |
 |---|---|---|
 | statyczna | `npm run lint` | TypeScript, React i reguły kodu |
-| kontrakty | `npm run dsl:validate` | schematy, URI Process i semantyka WorkCell |
+| redakcyjna | `npm run content:validate` | każdy akapit, cytowania, duplikaty i rejestr pojęć |
+| kontrakty | `npm run dsl:validate` | traceability Intent, Strategy, URI Process, AQL, EQL, TestQL i SODL |
 | jednostkowa/integracyjna | `npm test` | TTS, build workera, routing i obecność artefaktów |
 | E2E | `npm run test:e2e:docker` | produkcyjny serwer oraz Chromium desktop/mobile |
 | produkcyjna | `npm run publication:check` | oba publiczne kanały, rozmiary i SHA-256 |

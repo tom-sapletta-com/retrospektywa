@@ -1,13 +1,21 @@
 VERSION: 1
 
 SUITE retrospektywa_release_readiness:
-  TEST formats "Każdy format jest dostępny i niepusty":
+  TEST editorial_content "Każdy akapit ma funkcję i podstawę walidacji":
+    EXPECT editorial.paragraph_contract == "green"
+    EXPECT editorial.unvalidated_concepts == 0
+
+  TEST dsl_traceability "Warstwy DSL opisują ten sam proces":
+    EXPECT dsl.schema_validation == "green"
+    EXPECT dsl.semantic_traceability == "green"
+
+  TEST formats "Każdy format książki jest dostępny i niepusty":
     EXPECT artifacts.html.bytes > 0
     EXPECT artifacts.pdf.bytes > 0
     EXPECT artifacts.epub.bytes > 0
     EXPECT artifacts.docx.bytes > 0
 
-  TEST audio "MP3 przechodzi próbę dekodera":
+  TEST audio_preview "Próbka MP3 przechodzi próbę dekodera":
     EXPECT artifacts.audio.codec == "mp3"
     EXPECT artifacts.audio.duration_seconds > 0
 
@@ -16,4 +24,20 @@ SUITE retrospektywa_release_readiness:
     EXPECT artifacts.examples.schema_valid == true
 
   TEST provenance "Wydanie ma jedno pochodzenie":
-    EXPECT artifacts.distinct_source_commits == 1
+    EXPECT artifacts.distinct_source_revisions == 1
+    EXPECT manifest.hashes_complete == true
+
+  TEST docker_e2e "Kontenery sprawdzają publikację na desktopie i mobile":
+    EXPECT docker_e2e.desktop_chromium == "green"
+    EXPECT docker_e2e.pixel_7 == "green"
+    EXPECT docker_e2e.api_privacy == "green"
+
+  TEST github_publication "GitHub Pages udostępnia zatwierdzone wydanie":
+    EXPECT github.pages.status == "deployed"
+
+  TEST sites_publication "Sites udostępnia landing page":
+    EXPECT sites.status == "deployed"
+
+  TEST public_read_back "Oba kanały zwracają te same artefakty":
+    EXPECT public.links_green == true
+    EXPECT public.artifact_hashes_identical == true

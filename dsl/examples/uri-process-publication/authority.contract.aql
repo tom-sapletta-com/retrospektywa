@@ -2,9 +2,13 @@ VERSION: 1
 
 AUTHORITY retrospektywa_release:
   ALLOW read "repo://host/release/*"
+  ALLOW inspect "editorial://host/book/query/validate"
   ALLOW execute "book://host/release/command/build"
   ALLOW execute "audio://host/narration/command/generate"
+  ALLOW execute "artifact://host/release/command/package"
   ALLOW execute "test://host/release/query/verify"
+  ALLOW execute "test://host/publication/query/docker-e2e"
+  ALLOW execute "test://host/publication/query/read-back"
   ALLOW request "human://publisher/decision/approve"
 
   DENY publish "github://host/release/*" WITHOUT approval

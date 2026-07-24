@@ -1,17 +1,48 @@
 intent:
   id: retrospektywa-release-v02
   title: "Wygeneruj i opublikuj wieloformatowe wydanie Retrospektywy"
-  goal: "Udostępnić spójne HTML, PDF, EPUB, DOCX, MP3 i przykłady DSL"
+  goal: "Udostępnić z jednej rewizji spójne HTML, PDF, EPUB, DOCX, próbkę MP3 i przykłady DSL"
+
+  deliverables:
+    - book_html
+    - book_pdf
+    - book_epub
+    - book_docx
+    - audiobook_preview_mp3
+    - process_pack_zip
+    - release_manifest
+
+  non_goals:
+    - "pełny audiobook wszystkich rozdziałów"
+    - "przyznawanie produkcyjnego authority przez przykład DSL"
+    - "benchmark lub rekomendacja dostawcy TTS"
+    - "gwarancja identycznych bajtów poza przypiętym toolchainem"
 
   constraints:
     source_revision_required: true
     secrets_in_repository: false
     mutation_without_approval: false
     public_read_back_required: true
+    paragraph_receipt_required: true
 
   definition_of_done:
-    - all_formats_valid
-    - release_manifest_hashed
-    - github_pages_green
-    - sites_deployment_green
-    - public_links_verified
+    - id: paragraph_contract_green
+      gate: editorial_content
+    - id: dsl_layers_consistent
+      gate: dsl_traceability
+    - id: all_formats_valid
+      gate: formats
+    - id: audio_preview_decodable
+      gate: audio_preview
+    - id: process_pack_schema_valid
+      gate: examples
+    - id: release_manifest_hashed
+      gate: provenance
+    - id: docker_e2e_green
+      gate: docker_e2e
+    - id: github_pages_green
+      gate: github_publication
+    - id: sites_deployment_green
+      gate: sites_publication
+    - id: public_links_verified
+      gate: public_read_back

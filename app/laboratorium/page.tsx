@@ -20,6 +20,21 @@ export default function LaboratoryPage() {
           sekretów.
         </p>
       </section>
+      <section className="shell" style={{ paddingTop: 0, paddingBottom: 20 }}>
+        <div className="evidence-box">
+          <h2 style={{ marginTop: 0 }}>Format komunikacji operacyjnej</h2>
+          <p style={{ marginBottom: 14 }}>
+            W decyzjach i eskalacjach operujemy odnośnikiem do dowodu,
+            nie załącznikiem. Jeden link = jeden punkt prawdy.
+          </p>
+          <pre>
+            {`Temat: [Escalation] TR-421 — checkpoint nie zakończony
+Context: https://repo.example/ticket/TR-421
+Evidence: https://repo.example/artifact/TR-421/validation-2026-07-24
+Decyzja do podjęcia: rozszerzyć scope działania?`}
+          </pre>
+        </div>
+      </section>
       <div className="shell"><EventLab /></div>
     </main>
   );

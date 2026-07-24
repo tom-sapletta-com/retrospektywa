@@ -1,0 +1,110 @@
+editorial_contract:
+  id: retrospektywa-editorial-v1
+  version: 1
+
+  scope:
+    - book/index.qmd
+    - book/chapters/01-uwaga.qmd
+    - book/chapters/02-srodowisko.qmd
+    - book/chapters/03-kolejka.qmd
+    - book/chapters/04-dwa-modele.qmd
+    - book/chapters/05-rownoleglosc.qmd
+    - book/chapters/06-shell.qmd
+    - book/chapters/07-pomiary.qmd
+    - book/chapters/08-budzet.qmd
+    - book/chapters/09-digital-twin.qmd
+    - book/chapters/10-dsl-intencji.qmd
+    - book/chapters/11-retrospektywa.qmd
+    - book/chapters/12-soa-poa-uri-process.qmd
+    - book/chapters/13-wydanie-wieloformatowe.qmd
+    - book/chapters/14-forma-wspolpracy-authority.qmd
+    - book/chapters/15-workcell-cybernetyczny.qmd
+    - book/appendices/a-badania.qmd
+    - book/appendices/b-process-pack.qmd
+
+  paragraph_roles:
+    - thesis
+    - definition
+    - evidence
+    - mechanism
+    - procedure
+    - example
+    - limitation
+    - navigation
+
+  evidence_modes:
+    - citation
+    - local_artifact
+    - derivation
+    - bounded_hypothesis
+    - operational_test
+    - scope_boundary
+
+  prohibited_phrases:
+    - "oczywiście"
+    - "zawsze działa"
+    - "gwarantuje sukces"
+    - "bez żadnego ryzyka"
+    - "najlepszy model"
+
+  concepts:
+    - id: soa
+      terms: ["SOA", "architektura zorientowana na usługi"]
+      definition: "Model, w którym usługi udostępniają zdolności przez określone interfejsy."
+      status: standard
+      validated_by: ["book/chapters/12-soa-poa-uri-process.qmd", "@vanderAalst2003workflow"]
+    - id: poa
+      terms: ["POA", "architektura zorientowana na proces"]
+      definition: "Model książki, w którym kontrolowany proces składa zdolności usług w zweryfikowany efekt."
+      status: project-model
+      validated_by: ["dsl/examples/uri-process-publication/processes.json", "npm run dsl:validate"]
+    - id: uri-process
+      terms: ["URI Process"]
+      definition: "Edukacyjny kontrakt adresowalnego kroku z efektem, zależnościami, authority i read-backiem."
+      status: educational-projection
+      validated_by: ["dsl/schema/uri-process.schema.json", "npm run dsl:validate"]
+    - id: oql
+      terms: ["OQL"]
+      definition: "Projekcja planu operacji i zależności między krokami używana w przykładach książki."
+      status: educational-projection
+      validated_by: ["dsl/examples/digital-twin-router/execution-chain.oql", "dsl/examples/two-models/workflow.oql"]
+    - id: doql
+      terms: ["DOQL"]
+      definition: "Projekcja ograniczonego obrazu sytuacji i portretu Digital Twin bez authority."
+      status: educational-projection
+      validated_by: ["dsl/examples/digital-twin-router/portrait.doql.json", "book/chapters/09-digital-twin.qmd"]
+    - id: workcell
+      terms: ["WorkCell"]
+      definition: "Model stanowiska łączący cel, stan, actora, authority, środowisko, protokół, walidację i eskalację."
+      status: project-model
+      validated_by: ["dsl/schema/workcell.schema.json", "npm run dsl:validate"]
+    - id: authority
+      terms: ["authority", "AQL"]
+      definition: "Ograniczenie działań dozwolonych aktorowi; opis modelu nie stanowi produkcyjnego grantu."
+      status: operational-pattern
+      validated_by: ["dsl/examples/uri-process-publication/authority.contract.aql", "npm run dsl:validate"]
+    - id: expectation
+      terms: ["EQL"]
+      definition: "Warstwa preconditions, postconditions i reakcji na niespełnione oczekiwanie."
+      status: educational-projection
+      validated_by: ["dsl/examples/uri-process-publication/release.eql", "npm run dsl:validate"]
+    - id: testql
+      terms: ["TestQL"]
+      definition: "Czytelna projekcja deterministycznych bramek gotowości i jakości przykładu."
+      status: educational-projection
+      validated_by: ["dsl/examples/uri-process-publication/release.testql", "npm run dsl:validate"]
+    - id: sodl
+      terms: ["SODL"]
+      definition: "Dziennik obserwacji, który odróżnia deklarację, dispatch i potwierdzony efekt."
+      status: educational-projection
+      validated_by: ["dsl/examples/uri-process-publication/events.sodl.jsonl", "npm run dsl:validate"]
+    - id: intent-contract
+      terms: ["Intent Contract"]
+      definition: "Kontrakt celu, dostarczanych artefaktów, ograniczeń, non-goals i definicji ukończenia."
+      status: operational-pattern
+      validated_by: ["dsl/schema/publication-intent.schema.json", "npm run dsl:validate"]
+    - id: digital-twin
+      terms: ["Digital Twin", "Digital Twin Portrait"]
+      definition: "Wersjonowany model zdolności i ograniczeń używany do dopasowania, ale nie do nadawania praw."
+      status: project-model
+      validated_by: ["dsl/examples/digital-twin-router/portrait.doql.json", "book/chapters/09-digital-twin.qmd"]

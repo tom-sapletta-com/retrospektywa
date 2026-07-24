@@ -32,27 +32,14 @@ W przykładach używamy rodziny DSL-i rozwijanych w projektach Subactora:
 | EQL/Expectation | preflight, postcondition i read-back wyniku |
 | EQL/Pressure | ograniczona ocena presji, kosztu lub momentu eskalacji |
 | TestQL | deterministyczna bramka gotowości i jakości |
-| DOQL/Situation | ograniczony obraz sytuacji Digital Twin |
-| DQL/Diagnostic | diagnostyka inwariantów tylko do odczytu |
+| DOQL | ograniczony obraz sytuacji Digital Twin |
 | SODL | append-only historia zdarzeń i decyzji |
 
 Nie są to wymienne nazwy dla jednego pliku. Każdy język chroni inną granicę.
 AQL nie wykonuje operacji, DOQL nie nadaje uprawnień, a zielona odpowiedź
-connectora nie zastępuje EQL.
-
-### Kwalifikuj profile
-
-W ekosystemie występują historyczne lub projektowe profile o tych samych
-skrótach. Dlatego w książce piszemy:
-
-- `DOQL/App` dla deklaracji aplikacji w składni `app.doql.less`,
-- `DOQL/Situation` dla agregacji sytuacji Digital Twin,
-- `DQL/Diagnostic` dla read-only autodiagnostyki,
-- `DQL/DOM` dla ograniczonego planu adaptacji interfejsu,
-- `EQL/Expectation`, `EQL/Pressure` i `EQL/Web` dla różnych profili EQL.
-
-Kwalifikator jest częścią kontraktu czytelniczego. Zapobiega przypadkowemu
-przeniesieniu semantyki mutacji do języka diagnostycznego.
+connectora nie zastępuje EQL. Książka wymienia tylko te profile, które mają w
+Process Packu przykład albo walidator; pozostałe nazwy nie są potrzebne do
+wyjaśnienia prezentowanego procesu.
 
 ## Kompresja bez utraty znaczenia
 

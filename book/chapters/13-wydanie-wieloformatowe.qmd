@@ -1,70 +1,127 @@
-# Książka jako wykonywalny system publikacji
+# Książka jako walidowany proces publikacji
 
-Książka jako kod nie kończy się na przechowywaniu rozdziałów w Git. Źródło
-powinno deterministycznie zasilać wszystkie kanały:
+Publikacja nie jest pojedynczym poleceniem `deploy`. Jest grafem od źródła
+przez audyt treści, render, testy i approval do publicznego read-backu. Każdy
+krok ma wejście, wynik oraz kryterium akceptacji, więc poprawny dispatch nie
+jest mylony z dostępnym wydaniem.
 
 ```text
 QMD + BibTeX + DSL + SVG
-  -> walidacja
+  -> kontrakt redakcyjny + receipt akapitów
   -> HTML + PDF + EPUB + DOCX
-  -> tekst narratora
-  -> TTS + MP3
-  -> manifest wydania
-  -> GitHub Pages + landing page
+  -> próbka narracji + TTS + MP3
+  -> Process Pack + manifest SHA-256
+  -> Docker E2E + walidacja wydania
+  -> approval + GitHub Pages + Sites
+  -> publiczny read-back obu kanałów
 ```
 
-![Pipeline publikacji wieloformatowej.](../figures/publication-pipeline.png){fig-alt="Diagram generatora książki, audiobooka i paczki przykładów" width=100%}
+![Pipeline publikacji wieloformatowej.](../figures/publication-pipeline.png){fig-alt="Diagram generatora książki, próbki audiobooka i paczki przykładów" width=100%}
+
+## Warstwy DSL publikacji
+
+Warstwy są komplementarne: każda odpowiada na inne pytanie, a walidator
+sprawdza ich wspólne identyfikatory. Powtarzanie tego samego celu w kilku
+plikach bez kontroli zgodności byłoby dodatkowym źródłem rozbieżności.
+
+| Warstwa | Odpowiedzialność | Walidowany związek |
+|---|---|---|
+| Intent Contract | cel, deliverables, non-goals i Definition of Done | każda bramka ma test |
+| Strategy DSL | wymagane capabilities i reguły niezależne od providera | każda capability ma proces |
+| URI Process | kroki, zależności, efekty, outputs i acceptance | graf jest acykliczny i kończy się read-backiem |
+| AQL | dozwolone operacje i publikacja wymagająca approval | każdy `command` ma pokrycie |
+| EQL | preconditions, postconditions i blokada po błędzie | sukces wymaga stanu publicznego |
+| TestQL | wykonywalne bramki jakości | testy pokrywają Definition of Done |
+| SODL | zdarzenia procesu | przykład jest oznaczony jako deklaracja, nie runtime receipt |
+
+Kanoniczny przykład znajduje się w
+`dsl/examples/uri-process-publication/`. Walidacja schematu nie przyznaje
+authority i nie dowodzi wykonania. Potwierdza tylko, że opis procesu jest
+kompletny i że jego warstwy nie przeczą sobie.
+
+## Graf URI Process
+
+Proces zawiera dziesięć kroków:
+
+```text
+inventory
+  -> editorial-audit
+     -> build ----\
+     -> audio -----+-> pack --------\
+     -> docker-e2e ------------------+-> verify
+                                        -> publish-github --\
+                                        -> publish-sites ----+-> public-read-back
+```
+
+`build`, `audio` i `pack` są odwracalnymi komendami lokalnymi. Publikacja
+zewnętrzna wymaga approval. Ostatni krok pobiera oba publiczne manifesty i
+porównuje pliki, rozmiary oraz SHA-256; dzięki temu status systemu wdrożeniowego
+nie zastępuje obserwacji rezultatu.
+
+## Kontrakt każdego akapitu
+
+Proza pozostaje potrzebna do wyjaśniania motywacji, ograniczeń i konsekwencji.
+Każdy akapit źródłowy otrzymuje jednak w audycie jedną funkcję — tezę,
+definicję, dowód, mechanizm, procedurę, przykład, ograniczenie albo nawigację —
+oraz podstawę walidacji.
+
+Dopuszczone podstawy to cytowane źródło, lokalny artefakt, wyprowadzenie,
+ograniczona hipoteza, test operacyjny albo jawna granica zakresu. Receipt
+zapisuje ścieżkę, numer linii, rolę, podstawę i SHA-256 akapitu. Zmiana prozy
+unieważnia receipt, więc wymaga ponownego przeglądu.
+
+Automatyczny audyt nie rozstrzyga prawdziwości świata. Wykrywa brak źródła przy
+mocnym twierdzeniu, nieznane cytowanie, duplikat, zakazaną frazę lub pojęcie
+spoza kontrolowanego rejestru. Ocena argumentu nadal należy do autora i
+recenzenta.
 
 ## Jedno źródło, różne projekcje
 
-HTML służy do wyszukiwania i linkowania. EPUB daje płynny skład na czytniku.
-PDF utrwala skład. DOCX jest formatem wymiany redakcyjnej. Audio jest odrębną
-projekcją narracyjną, która usuwa tabele, kod i elementy czysto wizualne.
+HTML służy do wyszukiwania i linkowania. EPUB daje płynny skład na czytniku,
+PDF utrwala układ stron, a DOCX służy wymianie redakcyjnej. Pliki nie muszą
+mieć identycznej reprezentacji bajtowej; muszą pochodzić z tego samego
+zestawu źródeł i przejść kontrole właściwe dla formatu.
 
-Generator nie powinien kopiować wiedzy ręcznie. Powinien:
+Generator:
 
-- renderować wszystkie formaty z tej samej rewizji,
-- pakować przykłady DSL,
-- tworzyć manifest z rozmiarami i sumami SHA-256,
-- podpisywać pochodzenie numerem wersji i commitem,
-- publikować tylko po przejściu walidacji.
+- renderuje formaty książki z jednego skrótu źródeł,
+- pakuje schematy, kontrakty i przykłady DSL,
+- tworzy manifest z rozmiarami i SHA-256,
+- wystawia tę samą zatwierdzoną paczkę w obu kanałach,
+- nie publikuje po pominięciu wymaganej bramki.
 
-## Audio jako artefakt
+## Audio jako ograniczony artefakt
 
-Synteza mowy jest operacją zewnętrzną i kosztową. Tekst dzielimy w granicach
-akapitów, a wynik każdego segmentu zapisujemy osobno. Manifest zachowuje nazwę
-providera, głosu, modelu, liczbę znaków i informację o głosie syntetycznym.
+Wydanie 0.2 zawiera próbkę MP3 jednego materiału podcastowego, a nie pełny
+audiobook książki. Intent Contract zapisuje pełny audiobook jako non-goal, aby
+landing page, manifest i narracja nie obiecywały artefaktu, którego generator
+nie tworzy.
 
-Provider nie jest częścią treści. Ten sam tekst może zostać przetworzony przez
-Google Cloud Text-to-Speech, OpenAI, ElevenLabs albo lokalny `espeak-ng`.
-Wydanie testowe wykorzystuje lokalny provider, aby CI nie wymagało sekretów.
-Wydanie produkcyjne może użyć Google lub innego API po dostarczeniu credentials.
+Generator audio dzieli tekst na segmenty, zapisuje providera, liczbę znaków,
+rozmiary, SHA-256 źródła i wyników oraz informację o głosie syntetycznym.
+Provider jest bindingiem: test CI korzysta z lokalnego `espeak-ng`, a adaptery
+Google, OpenAI i ElevenLabs wymagają osobnych credentials.
 
-## Reprodukowalność
+## Reprodukowalność i jej granica
 
-Manifest wydania powinien umożliwić odpowiedź na cztery pytania:
+Manifest identyfikuje skrót kontrolowanych źródeł oraz każdy artefakt wydania.
+Pozwala sprawdzić pochodzenie, integralność plików i zgodność obu publicznych
+kanałów. Wersje zależności i obrazy kontenerów ograniczają zmienność
+środowiska.
 
-1. Z jakiego commita powstał plik?
-2. Jaki generator i provider go utworzył?
-3. Czy plik zmienił się od czasu publikacji?
-4. Czy wszystkie linki landing page prowadzą do tej samej wersji?
+Nie jest to gwarancja bitowej reprodukowalności w dowolnym czasie i na dowolnej
+maszynie. Taka gwarancja wymagałaby zamrożenia całego toolchainu, fontów,
+metadanych czasowych i zewnętrznych providerów. Kontrakt wydania wymaga
+zgodności źródła i pozytywnej walidacji, a nie nieuzasadnionej obietnicy
+identycznych bajtów między niezależnymi renderami.
 
-Dlatego suma kontrolna jest częścią produktu, a nie wyłącznie szczegółem CI.
+## Bramka i dowód wydania
 
-## Test wydania
+Przed publikacją przechodzą: walidacja DSL, receipt akapitów, render Quarto,
+test dekodowania MP3, testy aplikacji oraz Docker E2E w profilach desktopowym i
+mobilnym. Po approval GitHub Pages i Sites są sprawdzane przez publiczne HTTP,
+manifest i SHA-256.
 
-Przed publikacją:
-
-```text
-validate sources
-  -> render book
-  -> validate links and formats
-  -> probe audio with ffprobe
-  -> build application
-  -> smoke test landing page
-  -> commit and push
-  -> deploy saved Sites version
-```
-
-Proces publikacji jest przykładem POA opisanym w poprzednim rozdziale: łączy
-usługi, lecz jego jednostką sukcesu jest dostępne i zweryfikowane wydanie.
+Proces jest przykładem POA: składa usługi, lecz jego jednostką sukcesu nie jest
+wywołanie usługi. Sukcesem jest zatwierdzone wydanie, którego deklarowane
+artefakty można pobrać i niezależnie porównać.

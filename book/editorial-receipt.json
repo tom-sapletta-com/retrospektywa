@@ -1,0 +1,1760 @@
+{
+  "schema": "retrospektywa.editorial-receipt/v1",
+  "contract": {
+    "id": "retrospektywa-editorial-v1",
+    "version": 1,
+    "sha256": "96ecd2daa78e14d8f0b65ffb03f4db455e3133dde9748ba80e046c89a72262de"
+  },
+  "summary": {
+    "files": 18,
+    "paragraphs": 218,
+    "controlled_concepts": 12,
+    "unvalidated_concepts": 0
+  },
+  "files": [
+    {
+      "path": "book/index.qmd",
+      "source_sha256": "42f40ed55c9f068fd3a8e2174dff48d6268e6aa70f2370fdbe698e53fa61a421",
+      "paragraphs": [
+        {
+          "id": "index-p001",
+          "line": 7,
+          "sha256": "b036aff962c1d3ec98354d44ab20b68852ee19bcca8cfa902ab7bfb450222509",
+          "role": "thesis",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "index-p002",
+          "line": 11,
+          "sha256": "5cf993e302698eebac607b1e21ebf1d4520361c098a72363e5590652b4668ebf",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "index-p003",
+          "line": 16,
+          "sha256": "fcb1915c7e2cc308241584516aee0a3e462455c384a93c59ed4f26687baacf4a",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "index-p004",
+          "line": 24,
+          "sha256": "00fa1a2af37a44c683562ac4dce796588f7560310674cbe46ed2c4fc48872451",
+          "role": "procedure",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "index-p005",
+          "line": 31,
+          "sha256": "3cb242c83307bdba1041ee65b2c221d11cdd892126092e60a2b25eaf418e10bb",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "index-p006",
+          "line": 46,
+          "sha256": "5077654db36c043acb9a71a5000f14d096718a2e4b2a191ab6ae38d556873eb9",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "index-p007",
+          "line": 49,
+          "sha256": "3da0f88c036b642b37b1aab91fd0ecf5211fb21c424539e8d4d86db4f9ea9fc9",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "index-p008",
+          "line": 76,
+          "sha256": "ffaa663e131704d046ec28aac40c22f43d8eaa6d19646dbf66624cbda0a6cab7",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        }
+      ]
+    },
+    {
+      "path": "book/chapters/01-uwaga.qmd",
+      "source_sha256": "38888ae869833a361dc3fab1e512d7f4648a99b3b39350a065cd6cffa6b6925a",
+      "paragraphs": [
+        {
+          "id": "01-uwaga-p001",
+          "line": 3,
+          "sha256": "cffec4194e7e8540c32241ab23aacda4029c9fc9ee9dc5c7cc565f0adaa9348b",
+          "role": "thesis",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "01-uwaga-p002",
+          "line": 7,
+          "sha256": "f012ff5c9b3a73e0580776dacc76683597bc59ea71e953e0f6e267ee00932ff0",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "01-uwaga-p003",
+          "line": 13,
+          "sha256": "50b24f5e86590ebce7afcbfd9b923ba1d51e3cf6c7198e682cbcf06456a3ead7",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "01-uwaga-p004",
+          "line": 22,
+          "sha256": "7bbb0cc3a6f1f77ccf822b6af4ecc48ad9402e2417908903e719612d506e68e9",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "01-uwaga-p005",
+          "line": 29,
+          "sha256": "fd23f1aac73d8f051a3c7472ad48316e9592c77b55d8b4d36f696ec9ed4cd521",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "01-uwaga-p006",
+          "line": 35,
+          "sha256": "be082f8547c04bac7391fe92baa365a9b8d5e1fc9f95f9125f2ad5c046e49e48",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "01-uwaga-p007",
+          "line": 38,
+          "sha256": "8a7b1ae843aa0fff923d23c072e5c2920dfa63d489c129599f9fe7274c3b1d74",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "01-uwaga-p008",
+          "line": 41,
+          "sha256": "93e2e3d8604c1203e901c74c042fe0d44ed06fa1c77f726fdd9efd08f9b3f457",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "01-uwaga-p009",
+          "line": 46,
+          "sha256": "237bfef169a3b081eaf79f01700b3c5e2bab6da0ce35611d94fc733a8dd59ba9",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "01-uwaga-p010",
+          "line": 56,
+          "sha256": "ff4e9da5db4f89298432a1df12889e2dd0acce84e6afa6ad0e8823c0076fe87d",
+          "role": "procedure",
+          "basis": "operational_test"
+        },
+        {
+          "id": "01-uwaga-p011",
+          "line": 59,
+          "sha256": "29459c4c6db4d3363a3fe56d3fddadd57e23085e5016773a0c4710419cb5318d",
+          "role": "procedure",
+          "basis": "operational_test"
+        },
+        {
+          "id": "01-uwaga-p012",
+          "line": 67,
+          "sha256": "1e41f140809d6c6877aaecd2f6afc77b262aba1861b4f9dc6e46e67a8b2afe0f",
+          "role": "procedure",
+          "basis": "scope_boundary"
+        }
+      ]
+    },
+    {
+      "path": "book/chapters/02-srodowisko.qmd",
+      "source_sha256": "e442b23829eecb226611c4c18ca3140eb965b33cc441c46038b4072df825bb42",
+      "paragraphs": [
+        {
+          "id": "02-srodowisko-p001",
+          "line": 3,
+          "sha256": "1dd0a1aafb8ed8af2c9162ff7dd43780e82b610e049fe9a28ef1dff2fc33a4b7",
+          "role": "thesis",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "02-srodowisko-p002",
+          "line": 7,
+          "sha256": "33fb6f89f5e09947495f1495980ad113bd1aaf34f7a328f3c3c56c57bfe86607",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "02-srodowisko-p003",
+          "line": 13,
+          "sha256": "020dea2069a769f98d0a5be102b632dc24af87dc3dde74d95dd99e53f5b7df44",
+          "role": "definition",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "02-srodowisko-p004",
+          "line": 19,
+          "sha256": "55c24b3f5a4332eba3f135350f898eb820c664e45c33b4ed1680fc0fd086e6e1",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "02-srodowisko-p005",
+          "line": 27,
+          "sha256": "92ac5fa38df2df4c1dba652140f9dc0364f3e4d5f59a54291c05454412b7acf9",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "02-srodowisko-p006",
+          "line": 32,
+          "sha256": "654defc1ca25f37cefdf55c85fd286541a5bac792ade61d2927327e454fb58a5",
+          "role": "definition",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "02-srodowisko-p007",
+          "line": 39,
+          "sha256": "e0fe14f04b43e2fb9e796c1513a7e42698cb6ce28f0eb7341a914af27440f8c4",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "02-srodowisko-p008",
+          "line": 44,
+          "sha256": "e4ee00116e73eba7b0d3f0f6c70cc7ce4880623cdae809930886fbdaad82d7ee",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "02-srodowisko-p009",
+          "line": 53,
+          "sha256": "eed1124588f3bc33e2e5ce448fff15dcd9eec77d7ee763a7cab150c785bf4d41",
+          "role": "procedure",
+          "basis": "operational_test"
+        },
+        {
+          "id": "02-srodowisko-p010",
+          "line": 67,
+          "sha256": "1a5d469f08378e098ab08dd45727433989322415db3c0e3492fd69ef89615fcd",
+          "role": "procedure",
+          "basis": "operational_test"
+        }
+      ]
+    },
+    {
+      "path": "book/chapters/03-kolejka.qmd",
+      "source_sha256": "0f7bfc70c726eae312185a866035e3e0870414da398c67172678a6c733b38ea1",
+      "paragraphs": [
+        {
+          "id": "03-kolejka-p001",
+          "line": 3,
+          "sha256": "e853d181ad65ccde97d6ce4243f5dfa472dca1b43901c3df4153b8350b27745b",
+          "role": "thesis",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "03-kolejka-p002",
+          "line": 7,
+          "sha256": "4e2c5fe1019dfdd3c7374c5c2c8dd642cecdca26fd6c2ebd24ef08bf5b64c252",
+          "role": "definition",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "03-kolejka-p003",
+          "line": 31,
+          "sha256": "884b47b0e687ac1de33763d6ca9205b723c110522e5a2b27f183bbba606ab252",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "03-kolejka-p004",
+          "line": 36,
+          "sha256": "cda89a5515f39d99eb500ee5fc9a216ef73687a08e9367bec87dd0df3a6517d0",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "03-kolejka-p005",
+          "line": 45,
+          "sha256": "bcd9b0c9054f7bd4395fcb3e7a88d09193aba22affcda64164a0b446e2e0ff24",
+          "role": "limitation",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "03-kolejka-p006",
+          "line": 58,
+          "sha256": "47e563f966f1cc0302367aadfa1c360255c31fbd23b2168bd881617590b98f79",
+          "role": "limitation",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "03-kolejka-p007",
+          "line": 64,
+          "sha256": "06eb24d1ea831d7bebd6617f62451b78c0b927488bd1ba915634f6ea2ea0b4fb",
+          "role": "procedure",
+          "basis": "operational_test"
+        }
+      ]
+    },
+    {
+      "path": "book/chapters/04-dwa-modele.qmd",
+      "source_sha256": "5c90462c11e626fa9d096a8dbd09d860743f94acdcd283bfd2add6b36caa1b6e",
+      "paragraphs": [
+        {
+          "id": "04-dwa-modele-p001",
+          "line": 3,
+          "sha256": "183ee7ec25ec8eac9fec9eeb8265c75f17644c8282263fc398ede53ef8c4314f",
+          "role": "thesis",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "04-dwa-modele-p002",
+          "line": 7,
+          "sha256": "8cbbc3943906e5ea2112fdd7431adb5ead8b8a07dce77e61d3a55145d8e3e4d7",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "04-dwa-modele-p003",
+          "line": 12,
+          "sha256": "4e2cfb6f9f6e477f4156e5722bd1452c09d6ecae8da07ac242f8924a4f8cdf4e",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "04-dwa-modele-p004",
+          "line": 18,
+          "sha256": "e96ccb316878936fb86a05318a947eb27d021c0dbf30fa68c82e465d39d48bed",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "04-dwa-modele-p005",
+          "line": 26,
+          "sha256": "cf7656d48263a9d28a2e2acab47c00232eee626e2f41455bf02a88d4e41308d0",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "04-dwa-modele-p006",
+          "line": 48,
+          "sha256": "4d621313d07ba1a2d0d1a11246b440a8812cbe5d88aa894f77f10b94367a1db9",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "04-dwa-modele-p007",
+          "line": 58,
+          "sha256": "0d82a48a660d1e8819404eab59355a826ac04c276584eb3170f8cf2dcf7280da",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "04-dwa-modele-p008",
+          "line": 62,
+          "sha256": "cd01783ca861836ec8b50e6824bda2424f04d38a5dab2621f8a0936e1b84d92c",
+          "role": "procedure",
+          "basis": "scope_boundary"
+        }
+      ]
+    },
+    {
+      "path": "book/chapters/05-rownoleglosc.qmd",
+      "source_sha256": "a78d7d0108bcd4fadd5707e448bdfb4956a7bf95dbeb59d2f840110a4682b11e",
+      "paragraphs": [
+        {
+          "id": "05-rownoleglosc-p001",
+          "line": 3,
+          "sha256": "cda185c1f6d462542a63e397dde6e9caeea35684d1a165fe7e340cf3c81fcd03",
+          "role": "thesis",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "05-rownoleglosc-p002",
+          "line": 7,
+          "sha256": "ee473c25ec22d2e62ae85a7f7b077a964aab3a52a22ac67e4ee28ac8d2e6dc3b",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "05-rownoleglosc-p003",
+          "line": 23,
+          "sha256": "03e33d56a4889f0365767fdad1757d0ae9ccb62b2eaee65ac7f48256d2076ee6",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "05-rownoleglosc-p004",
+          "line": 34,
+          "sha256": "f6238b5a76bbe9f54e85bf9492cce73ebc176e629de92c7c3da1713895f2f9c0",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "05-rownoleglosc-p005",
+          "line": 41,
+          "sha256": "5b804a7d6f096366313a149d01c1f63802dba964fec2c7cb3a9c4d6f218f3bca",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "05-rownoleglosc-p006",
+          "line": 46,
+          "sha256": "2c1533d8e8f09b231a9ad200fec6ee53f005c4824186fb48519cc90ab95f9a5f",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "05-rownoleglosc-p007",
+          "line": 55,
+          "sha256": "285a76c7fec7df404979c8106b641a89b9fa54d451f286d6a75fbe5e8968cac9",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "05-rownoleglosc-p008",
+          "line": 60,
+          "sha256": "2b87511492cbbc6d7bdbb0f88d4c5ccddf2be602c912a0f8bccf9af4a53c4db0",
+          "role": "procedure",
+          "basis": "operational_test"
+        }
+      ]
+    },
+    {
+      "path": "book/chapters/06-shell.qmd",
+      "source_sha256": "7d68ad2e5c1941bc563bcd734998aa7bf65ae3f710f993e0ca68b0bb2dab2622",
+      "paragraphs": [
+        {
+          "id": "06-shell-p001",
+          "line": 3,
+          "sha256": "d060b8d4cb874d9084171a2c6be526124028d4e43c75ed271468bbcf0442c546",
+          "role": "thesis",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "06-shell-p002",
+          "line": 7,
+          "sha256": "55fe777bd9508242267aaa9f481ec68d172e8fd39663c2c759fcc12950dc5c19",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "06-shell-p003",
+          "line": 14,
+          "sha256": "78772e539f6276021aa929ed5aca41ff4f2db384c66f057dcb394f34445b58ca",
+          "role": "mechanism",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "06-shell-p004",
+          "line": 22,
+          "sha256": "425aa876b284a42476604d6d458c6d0b4af9dd20e0402e19f1bf7c083be16e72",
+          "role": "procedure",
+          "basis": "operational_test"
+        },
+        {
+          "id": "06-shell-p005",
+          "line": 25,
+          "sha256": "30c97cb1e2a3f8765ffeaf10aa5d594f12ab0940661058072cf8e9de6312b4f4",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "06-shell-p006",
+          "line": 30,
+          "sha256": "a2235fe61dd33cd5647c82d00a8f0ca26c082f04f0b2cd3199627a7515cf22af",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "06-shell-p007",
+          "line": 40,
+          "sha256": "ae91211caa337804f570f667059e3c2238712faf2f4dc077ef55d92f8fee6c6e",
+          "role": "example",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "06-shell-p008",
+          "line": 46,
+          "sha256": "7f56390f364325d0aae0232b432e2117dcdcae6a39f9568ea0fd03cb394ceb98",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "06-shell-p009",
+          "line": 62,
+          "sha256": "9ef6c53cc9a07f880929f1f8cf3d04bc72e9df893fa9df457762e1454f50d745",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "06-shell-p010",
+          "line": 76,
+          "sha256": "7f748b569184a3eb92ce2116e5b6f88d4c7248ea3b74e13da184deed09815b2c",
+          "role": "procedure",
+          "basis": "local_artifact"
+        }
+      ]
+    },
+    {
+      "path": "book/chapters/07-pomiary.qmd",
+      "source_sha256": "432a9059856b3b46999422bccfd406337f96d585c04790d4739e40bd05ca6e35",
+      "paragraphs": [
+        {
+          "id": "07-pomiary-p001",
+          "line": 3,
+          "sha256": "7df47e90c4c6f193798d949ccf0a2fc0d13181932858ad0358ad9abd262319ea",
+          "role": "thesis",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "07-pomiary-p002",
+          "line": 7,
+          "sha256": "75ade4039430f7528a9a5877b2d6a9807dff988b096aceab14e34af2a18cfd58",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "07-pomiary-p003",
+          "line": 14,
+          "sha256": "8a2c0e78772d8567bc85b443c66f06350f4aaa7e953c537fd9ae5ecbfa6be6f8",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "07-pomiary-p004",
+          "line": 30,
+          "sha256": "bddf790d0d20faca02b1b959433c74a855e401858ec5f79e4aef31f594db857f",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "07-pomiary-p005",
+          "line": 35,
+          "sha256": "6a7c5e72c33aeeb5d2471d5d6a666281daa3bc0c010fef3fb4e744c1a61e4a8c",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "07-pomiary-p006",
+          "line": 38,
+          "sha256": "1275e449b151cf3cf41d67e0f39afbffc3a497e6c01efc5fdf3b676dc496b52d",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "07-pomiary-p007",
+          "line": 49,
+          "sha256": "51cb5f441d0c2900dfde4ea7e687f6a6a0caac3e0ce92af107628d2861e6f0b5",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "07-pomiary-p008",
+          "line": 66,
+          "sha256": "687c8b42419a5033fad406f411a5340418c6c60685503e3fc216c3ea8e2178ec",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "07-pomiary-p009",
+          "line": 83,
+          "sha256": "f47bc2c195b33b91048a317a8e93203fab23952bc778daea5965428a8bc6e88b",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        }
+      ]
+    },
+    {
+      "path": "book/chapters/08-budzet.qmd",
+      "source_sha256": "a9fefaca39d663b6cf61d8887cd382de9ef88a797fce330aab67162fcc3a6732",
+      "paragraphs": [
+        {
+          "id": "08-budzet-p001",
+          "line": 3,
+          "sha256": "064a89653f66045222468e2e5cf4aaf6bb27a651d9305ff54213c0561e12cf65",
+          "role": "thesis",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "08-budzet-p002",
+          "line": 7,
+          "sha256": "46f7dcf65ab48a1d3c2f2f5b0a250db58ecdcd1b86a37fa57cc75e6f4a26b08c",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "08-budzet-p003",
+          "line": 18,
+          "sha256": "baacc2f255c94b6c3bf1351a9b243c54fb5bc7928630ad8b7b7745da240b3410",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "08-budzet-p004",
+          "line": 33,
+          "sha256": "eb2a27ac3dc03d1aba64d1640d73c79e6b9f501eb3b1627678bdb5fae9d26cdb",
+          "role": "mechanism",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "08-budzet-p005",
+          "line": 39,
+          "sha256": "9d1f74563faabe0274a737aab6b9dfca2758ec64f27a51ca842ad2dfec38cf8a",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "08-budzet-p006",
+          "line": 46,
+          "sha256": "5e175b8852541ddb5e00338c72fb7f346819a5ae5605028ad4318836cc2c1547",
+          "role": "procedure",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "08-budzet-p007",
+          "line": 53,
+          "sha256": "538561c5a3e7b19a018462d1d0e3395b98b6f8182c6799ecf102ee8c4be0622b",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "08-budzet-p008",
+          "line": 63,
+          "sha256": "a3f8d4133b304f8f969267eaf2604d619f883fafafefb39612cfc7a67cd72616",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "08-budzet-p009",
+          "line": 68,
+          "sha256": "95d0b002625352477d2a7ad7b3031312a1dbdfa3bfb71e74df4d92e6c7974a1f",
+          "role": "procedure",
+          "basis": "operational_test"
+        }
+      ]
+    },
+    {
+      "path": "book/chapters/09-digital-twin.qmd",
+      "source_sha256": "0633f13f81b295f15945652af3aacbe419fd83e6f89b9f52aa8662de0328f330",
+      "paragraphs": [
+        {
+          "id": "09-digital-twin-p001",
+          "line": 3,
+          "sha256": "ef583675f942f2d028399f616d8c33cb28b4a98c7ad5159a956d5b27f45b727b",
+          "role": "thesis",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "09-digital-twin-p002",
+          "line": 8,
+          "sha256": "17f89a74d2dfdf2ffbf4d9a4adcfa8212504ef2cc5c13fedd427294d35600e4d",
+          "role": "example",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "09-digital-twin-p003",
+          "line": 13,
+          "sha256": "5b670694fc8cea043c94675640e7e57d8c9f95a7e16aa37d31d8afeb286b39ee",
+          "role": "definition",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "09-digital-twin-p004",
+          "line": 25,
+          "sha256": "2970d4979e3a9d81cc21984ca71918c00231ba000de1561471d706095cad288d",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "09-digital-twin-p005",
+          "line": 27,
+          "sha256": "7d1bda9950b3a51e29836027a33d44d05c7e01d7704f51a2ec1e0b17cb0c8032",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "09-digital-twin-p006",
+          "line": 32,
+          "sha256": "e616c4bffc558142497862e9cc875edeb00aff1c744f8b754b34ddb02d7ed366",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "09-digital-twin-p007",
+          "line": 46,
+          "sha256": "ac37919fae634a0bf2e7e6e81584d696fad66d27ed17e1666f98c16975e28c5d",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "09-digital-twin-p008",
+          "line": 51,
+          "sha256": "8fbeab355c84f58b3701b16d13cb4cdc3ae0b6a2b7b36122d86ee5c43391dffb",
+          "role": "example",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "09-digital-twin-p009",
+          "line": 65,
+          "sha256": "d482301085ba88ed9ba7d9ee35ee2447d938bb444cd3584ae1271ae09fe2720d",
+          "role": "example",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "09-digital-twin-p010",
+          "line": 78,
+          "sha256": "4c086dd5e8225f46aacd8df8037802bb2563481e1e3d4cb3e7cb93f39855fadc",
+          "role": "navigation",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "09-digital-twin-p011",
+          "line": 89,
+          "sha256": "7db00375a6ba879b53eed4066e86122b1ffbba773c63b428c8439eff4d0b65a8",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "09-digital-twin-p012",
+          "line": 93,
+          "sha256": "133a02720f9f84843c6e6941538e9b26f248208deb4bb14bd3b10b7f9b28828d",
+          "role": "navigation",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "09-digital-twin-p013",
+          "line": 97,
+          "sha256": "5348ea93946b9206e68363ee8db539eed7e53adab01b5f09122d517bbd32e940",
+          "role": "navigation",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "09-digital-twin-p014",
+          "line": 105,
+          "sha256": "f29df80df35613971312ef0e9b4f2261f20d3501c4d19b93150d070632012d0a",
+          "role": "procedure",
+          "basis": "operational_test"
+        },
+        {
+          "id": "09-digital-twin-p015",
+          "line": 124,
+          "sha256": "8f3151e0430199073df8d13d6aca6e9981501143a7cf0522316a7bb7441aeb04",
+          "role": "procedure",
+          "basis": "operational_test"
+        },
+        {
+          "id": "09-digital-twin-p016",
+          "line": 130,
+          "sha256": "ae450d31171d46abac73edd14dad3f24d29fbf2fdf5620965c955642e95bfbd6",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        }
+      ]
+    },
+    {
+      "path": "book/chapters/10-dsl-intencji.qmd",
+      "source_sha256": "1102a506df730a5cce06f87fc4c6049a09d7c4fbbeac55fe99c458bc1a8b70e2",
+      "paragraphs": [
+        {
+          "id": "10-dsl-intencji-p001",
+          "line": 3,
+          "sha256": "21e03a6089538952595f0f00773ac23102226a3649acfe8b2e51b6bf599a5d52",
+          "role": "thesis",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "10-dsl-intencji-p002",
+          "line": 7,
+          "sha256": "1aa9e496fbcc9f5c51c2b08d7835772bb73809043ba18282b5352a2f2b72934b",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "10-dsl-intencji-p003",
+          "line": 13,
+          "sha256": "94ec5d65c6b9875b1fa8f9243b32d2eceb992a6a9119e411ebfa0e2b25218dd7",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "10-dsl-intencji-p004",
+          "line": 23,
+          "sha256": "a726c8e23a030ed1205cb05b381959e0317155234a537b4d623e4afe75c39318",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "10-dsl-intencji-p005",
+          "line": 38,
+          "sha256": "e934ee6d0d028891c791ace1fb828a72403d7bc7980fe1a98618080de2cd98ca",
+          "role": "procedure",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "10-dsl-intencji-p006",
+          "line": 46,
+          "sha256": "6ea67ccbea703e48d52750d9e14db81e138cf69278334b01c323885a45d915b3",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "10-dsl-intencji-p007",
+          "line": 63,
+          "sha256": "1fad6e404e335a9dbd356e32e01a3fa4a6bb4b2c07e9f7bbaba56a568d1225ef",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "10-dsl-intencji-p008",
+          "line": 84,
+          "sha256": "2ce8ba44121fb08a59555767498d844915961832925815802e036d189affce77",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "10-dsl-intencji-p009",
+          "line": 102,
+          "sha256": "6e27a6237ca950126113ebe54628db0fd9ec4e7a3dc3718164d2a2439c41da3e",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "10-dsl-intencji-p010",
+          "line": 108,
+          "sha256": "4ea2ea42e46fe16be933a7bf4fb13b76feec49c0a69390a297fb3bf63303c0cc",
+          "role": "procedure",
+          "basis": "operational_test"
+        },
+        {
+          "id": "10-dsl-intencji-p011",
+          "line": 114,
+          "sha256": "6b2f5932144214e21c544340d56b9e563e78ecaeb9af189bf6fce367601c727b",
+          "role": "definition",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "10-dsl-intencji-p012",
+          "line": 124,
+          "sha256": "b8997d0e5d4425dd7a88d2257b86aab911a447c2c546ea66e9a4c1e971f54e41",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        }
+      ]
+    },
+    {
+      "path": "book/chapters/11-retrospektywa.qmd",
+      "source_sha256": "5e2d24a61307091b984f4e5dcb9080f5be97c00f5f54ed3550d4987015bec22b",
+      "paragraphs": [
+        {
+          "id": "11-retrospektywa-p001",
+          "line": 3,
+          "sha256": "d1332430e006d7d646549ec96b6a80c2e9791df2e68fb7186aa515a6015a807a",
+          "role": "thesis",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "11-retrospektywa-p002",
+          "line": 6,
+          "sha256": "e9d9c84c96f92039a38703a2e7218b5a4618dc2c1205b3a35df75aed219bb72a",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "11-retrospektywa-p003",
+          "line": 12,
+          "sha256": "b3484d5402351725d70c47749674d8bb9fa4e0966430f9c6f0361ec87a36a5e7",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "11-retrospektywa-p004",
+          "line": 21,
+          "sha256": "6aebceff9e622ba2dba1b386d472580710548990a46de02da30c645ac3c49286",
+          "role": "procedure",
+          "basis": "operational_test"
+        },
+        {
+          "id": "11-retrospektywa-p005",
+          "line": 58,
+          "sha256": "423fb517c1556e507d08e0fa854a09f0b3e93ce6231657ed563ad661c6aaaa8d",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "11-retrospektywa-p006",
+          "line": 68,
+          "sha256": "96be14d8a1e1592e23cc15f29198c696c46acc317fdc2bec0878bfafa5a4793e",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        }
+      ]
+    },
+    {
+      "path": "book/chapters/12-soa-poa-uri-process.qmd",
+      "source_sha256": "66188fee1648a4dc86af656c1d2f1ce24389007620eec1436adb11d1ab297d60",
+      "paragraphs": [
+        {
+          "id": "12-soa-poa-uri-process-p001",
+          "line": 3,
+          "sha256": "90754700082554d4a456a7a44329a6abfdbbc31572e64400f33f8e1b0f1304a3",
+          "role": "thesis",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "12-soa-poa-uri-process-p002",
+          "line": 7,
+          "sha256": "12d1cb6af59fc374a105196ae804d79ed0b1124ab0aa1dc29e2d9932c602e9b6",
+          "role": "limitation",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "12-soa-poa-uri-process-p003",
+          "line": 19,
+          "sha256": "a531aedc45a9eb846000b03e1c1ec34b68f7736aec5c299607189f0df096267d",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "12-soa-poa-uri-process-p004",
+          "line": 23,
+          "sha256": "de8958b2d58b82822dc32f9e3b2e61993897a3009e25917eae23b7339c6d9357",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "12-soa-poa-uri-process-p005",
+          "line": 31,
+          "sha256": "9b48653e689f72b5b2cd9b9a9794c7f14e5532c4c0c75b161c1ec106444a76e7",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "12-soa-poa-uri-process-p006",
+          "line": 39,
+          "sha256": "1a45433ba24caae2028070499b12600b6622f9823f9d799f9c2b625286ce7e92",
+          "role": "procedure",
+          "basis": "operational_test"
+        },
+        {
+          "id": "12-soa-poa-uri-process-p007",
+          "line": 43,
+          "sha256": "75133223dd4bdcfe2f420682fb212e1f1d4b66b2911fb096c1a0c3a33a21c540",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "12-soa-poa-uri-process-p008",
+          "line": 49,
+          "sha256": "74eedcf6ac046da7443de459c85f767c4c5d01042963b78a8ed755944dd8f091",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "12-soa-poa-uri-process-p009",
+          "line": 65,
+          "sha256": "66919fd9053dfc4574d9e995cb18574e7c6e4fa01c527afb4351e5878b48767b",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "12-soa-poa-uri-process-p010",
+          "line": 75,
+          "sha256": "3c4d5526261b3258e925bb29bfa75a396e0d417844922ac64a9c019d5ef66f91",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "12-soa-poa-uri-process-p011",
+          "line": 93,
+          "sha256": "7d5db653ba812dad203cd7258da3045d64d9f9b54cb29a41e61f574cf6475e94",
+          "role": "limitation",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "12-soa-poa-uri-process-p012",
+          "line": 101,
+          "sha256": "13e45a9860e9eeb3fef05f824e1ea26b5c1cc2ea22662e8a1cd984dc68021458",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "12-soa-poa-uri-process-p013",
+          "line": 114,
+          "sha256": "371fa8cd9c90b000b7513ace2030f8ec009b44cf645d6bc56e47ea6d55b30b97",
+          "role": "mechanism",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "12-soa-poa-uri-process-p014",
+          "line": 117,
+          "sha256": "cd92ee0b43f7d3ac72263b72500c502b59a91632034f6002c946b2d0e02cb621",
+          "role": "example",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "12-soa-poa-uri-process-p015",
+          "line": 122,
+          "sha256": "5ee31e4e7d8a365db2a0f3576e3524903bf2310ea9ec02f8492f21588a46d69a",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "12-soa-poa-uri-process-p016",
+          "line": 125,
+          "sha256": "14cda10b48b6f12d190c7b06285f76d1cba8b611319bf0bcf7edd7b86d290a6d",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "12-soa-poa-uri-process-p017",
+          "line": 133,
+          "sha256": "1504f9b4779750adec01239dc48dc4b89f12192e613af437999332bf5d72e172",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "12-soa-poa-uri-process-p018",
+          "line": 138,
+          "sha256": "7b1150f8620aa635c7fdb6e811ce05b00ffa9d735aa2736d61ee5677d1397fcd",
+          "role": "procedure",
+          "basis": "operational_test"
+        },
+        {
+          "id": "12-soa-poa-uri-process-p019",
+          "line": 147,
+          "sha256": "385de912afebc983bfc1d4f42c96f4995fc8b63e4b27daaa14f98841e7c23b06",
+          "role": "procedure",
+          "basis": "scope_boundary"
+        }
+      ]
+    },
+    {
+      "path": "book/chapters/13-wydanie-wieloformatowe.qmd",
+      "source_sha256": "60b0a2e013be2bdde2461f6a795c388dfe748891823861a77fcdbaf5a3986b22",
+      "paragraphs": [
+        {
+          "id": "13-wydanie-wieloformatowe-p001",
+          "line": 3,
+          "sha256": "91b7e006c77ba233cededf49af809a5f1ce02dec10d0219cbefb3eab7bc0d50f",
+          "role": "thesis",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "13-wydanie-wieloformatowe-p002",
+          "line": 23,
+          "sha256": "7f9ba73e180a179960c2e8cc687ad678f35ac710ae7fa08cb63cff8b0520ca92",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "13-wydanie-wieloformatowe-p003",
+          "line": 37,
+          "sha256": "bc619e650a2ae60fdd8f8e8044650b60de26d7d5107e5ba365df69ae5788920b",
+          "role": "example",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "13-wydanie-wieloformatowe-p004",
+          "line": 44,
+          "sha256": "e2c00f7493c669df1725801e1e82982b75f8f4d80a90c132acedf072710b181c",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "13-wydanie-wieloformatowe-p005",
+          "line": 56,
+          "sha256": "095624fe6c558120bd540a59fd66a6d8894ea11ee2b679d9eb69a14d0eb01c07",
+          "role": "mechanism",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "13-wydanie-wieloformatowe-p006",
+          "line": 63,
+          "sha256": "bac1c168ad43c088921ae8a42040d8e90bf287275647e23638f1f38861859763",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "13-wydanie-wieloformatowe-p007",
+          "line": 68,
+          "sha256": "db78aaa485c0b1524c7d398a479b6c53a1c55d8d5704c6c98c98d8142172a150",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "13-wydanie-wieloformatowe-p008",
+          "line": 73,
+          "sha256": "a7f001131c53bb4dcdde13c438f5d61d3995bfbd714102b12126418e70822779",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "13-wydanie-wieloformatowe-p009",
+          "line": 80,
+          "sha256": "3ba05ba8f7a9dcc7e755d54ac9d6569251c3645c32be4427afb69b3af93485cf",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "13-wydanie-wieloformatowe-p010",
+          "line": 85,
+          "sha256": "1bace9d031e5bcbf8f5ec10f74dc812b7d6c720001edf074aca3fdc1f847c018",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "13-wydanie-wieloformatowe-p011",
+          "line": 95,
+          "sha256": "47cdee088d279066ee63d12fbfd643cef56d6a2e0aefffd6e79bf24494275fc4",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "13-wydanie-wieloformatowe-p012",
+          "line": 100,
+          "sha256": "026bde76a7fde09931535384488e593907d4f04cba854142444505b0dc9cce4d",
+          "role": "definition",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "13-wydanie-wieloformatowe-p013",
+          "line": 107,
+          "sha256": "41e8642902f73501416b99182540693ab8c4270b4eafeb11c277d8db2009e83e",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "13-wydanie-wieloformatowe-p014",
+          "line": 112,
+          "sha256": "ddfe43ddecc6f5d9d1a23ea578bbf7fbed4838aa0b33dc956a9e1aec5e6fc84f",
+          "role": "procedure",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "13-wydanie-wieloformatowe-p015",
+          "line": 120,
+          "sha256": "6941c72e73cbe28300fa791c4a14b213704175578e976e74b7b1fd6bbfec2cc9",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "13-wydanie-wieloformatowe-p016",
+          "line": 125,
+          "sha256": "0cead429b244e308b8814bbd0514912d431240d862b5676b1441183725fb14a6",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        }
+      ]
+    },
+    {
+      "path": "book/chapters/14-forma-wspolpracy-authority.qmd",
+      "source_sha256": "ce1bb40b3009dca653b9e03665ab75ec3c7d72c64113b8759c004b1baef7af06",
+      "paragraphs": [
+        {
+          "id": "14-forma-wspolpracy-authority-p001",
+          "line": 10,
+          "sha256": "f43cf44b8350918037a3876e5b3df986e4bac0451ce79164e667bb23b1db9907",
+          "role": "thesis",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "14-forma-wspolpracy-authority-p002",
+          "line": 15,
+          "sha256": "c8015505bb51241dfacc2f1e6c7aab7d33be4a03ae1d3217ed30fc9d45ec561c",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "14-forma-wspolpracy-authority-p003",
+          "line": 31,
+          "sha256": "325c5367ea1a90f9dbc51d2864c6b0a5293097d07c3fcdbf38e32e083db6c3b9",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "14-forma-wspolpracy-authority-p004",
+          "line": 47,
+          "sha256": "412b7b7e1a706139424114a507d16071d7cc6e2507f7817f3c963deffd754a21",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "14-forma-wspolpracy-authority-p005",
+          "line": 56,
+          "sha256": "325d7b05deda1c0863775965ab3c6fc5b2bd3d1f82d6b0b8a41fe7c2bccbcf9b",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "14-forma-wspolpracy-authority-p006",
+          "line": 61,
+          "sha256": "b2f0d5d3341d386dc68faf378dfcd26c947e9d16b1655d444af474465203efd0",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "14-forma-wspolpracy-authority-p007",
+          "line": 72,
+          "sha256": "cf221f310d90a65b4d52158ec26188f937a7a3bfe35e632729c25838c807bb4c",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "14-forma-wspolpracy-authority-p008",
+          "line": 78,
+          "sha256": "d0190d901e5405454a3fe91490076aafeafad6c8a04152c1609721500871eff5",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "14-forma-wspolpracy-authority-p009",
+          "line": 83,
+          "sha256": "0bc8568ab9f3f583ec7d83c625a5fbfea4e0d4b01b38e88d9d6914ad32c2e1c5",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "14-forma-wspolpracy-authority-p010",
+          "line": 87,
+          "sha256": "693d8375b6625ffcc18af9573e21d8f9a860ea451907d4032411562ebe0773a7",
+          "role": "mechanism",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "14-forma-wspolpracy-authority-p011",
+          "line": 95,
+          "sha256": "5c393962eeeeddeb85783cb881fe35c46be86a35266e7c69d51eb600b4636c07",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "14-forma-wspolpracy-authority-p012",
+          "line": 104,
+          "sha256": "4ce9c8745088d9ddd572ebff4df12ae6bbbf3f9f0f726e3b792a8e94b3776951",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "14-forma-wspolpracy-authority-p013",
+          "line": 124,
+          "sha256": "1e14eb77c0f1225ee7afb09110cecb6e129dd47f758ac41238eabb55f813fbb1",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "14-forma-wspolpracy-authority-p014",
+          "line": 132,
+          "sha256": "0cd1da7d7a37d336941c09e682b64d194c34ca775db66f5e81558d9f46e6da40",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "14-forma-wspolpracy-authority-p015",
+          "line": 147,
+          "sha256": "89d4f9b0a056dcd3ec42d258b3d52713f41feb01f40d7e46989560a91a5cc65a",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "14-forma-wspolpracy-authority-p016",
+          "line": 152,
+          "sha256": "8da46a837f85de90070a378403ad34c5abe6fc618ab05f0b740be3c2e0b3a691",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        }
+      ]
+    },
+    {
+      "path": "book/chapters/15-workcell-cybernetyczny.qmd",
+      "source_sha256": "84ae9e3d43e80b05a1c5ae239f73f1cb836c8b95e013a5002e7bc9c7c2445d21",
+      "paragraphs": [
+        {
+          "id": "15-workcell-cybernetyczny-p001",
+          "line": 3,
+          "sha256": "e8e3d4d63b183862043a6e4fbcc87adf007102a6b2acfe6ba6c3176e71701c34",
+          "role": "thesis",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p002",
+          "line": 11,
+          "sha256": "74dc09846243b0ecc4d1aadd4677aede8da625527e74131238ceb4ec072d238e",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p003",
+          "line": 31,
+          "sha256": "cd2a02152f9bae09589015b6a75d9b56cc78793fa723641dc077d3ed68669077",
+          "role": "definition",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p004",
+          "line": 41,
+          "sha256": "ae16192e4e6fc9750f7536c4c59f694151e62dd92a4b2c256d2a05d13171cd87",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p005",
+          "line": 47,
+          "sha256": "8a078e9e88459e8afea0826e098105bb47152764106d91820cb318f49dc280eb",
+          "role": "definition",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p006",
+          "line": 54,
+          "sha256": "3a0b12a0313308a7d8f16fd2bb78a6f7134c8489f433a303ef8573778efed6ac",
+          "role": "mechanism",
+          "basis": "derivation"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p007",
+          "line": 63,
+          "sha256": "a8c68b1c8197828df68c0187d3d36e97dd4118d07c9a1a24a12e4e41781ce552",
+          "role": "navigation",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p008",
+          "line": 73,
+          "sha256": "da0e5bb5a343fe80de88e1ad89aef04c94a5562e2382f4e9c0e3eb8c09bc5152",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p009",
+          "line": 80,
+          "sha256": "90b07a584e19ac908b4ea317c6e5a22c5988142b09ed503e77787864fbcee479",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p010",
+          "line": 87,
+          "sha256": "ece926d5952cac979240f990dcfcab5392ca19d8a7fd7e226334268c155e89ef",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p011",
+          "line": 90,
+          "sha256": "0e374cfd3c4738e912b2ccc9e80c3d4f3c54e1b9088a97f3443d8723f95fc3c6",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p012",
+          "line": 97,
+          "sha256": "716ef93ed19bcd09579cf3a4c365222482591f3757ab5595e2340fb7fd5e6e57",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p013",
+          "line": 103,
+          "sha256": "8c23edb85e8146146ec00739e4b530ce9a50c80e0a1806676112e134eb715120",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p014",
+          "line": 113,
+          "sha256": "74a9d06a442bc62323f93e1f8585ce16bd3b97d5c3047e142a6683caf09a4f48",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p015",
+          "line": 120,
+          "sha256": "79d6a1ea8c8b71c623231fc09a08265bc91a0e90ef114a21ac8756d093bbe0b0",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p016",
+          "line": 136,
+          "sha256": "bdef2834618789a8bd7d0c3471db2ca60d65d925691ae08aabcca079e84d403a",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p017",
+          "line": 142,
+          "sha256": "2b01f13f0c8e360f9edc770fdde67803cd0843c602c293b14da0cbc387556ca2",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p018",
+          "line": 149,
+          "sha256": "1557932dd073ed6755f939d585864865dbdd95085e9bd3e5722fec2d686335fc",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p019",
+          "line": 155,
+          "sha256": "2fda600ec7fd290eeb2f1ca99606dc73d3327340b12cb2088f73d850ef9f4ee5",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p020",
+          "line": 161,
+          "sha256": "331066acbdc9206d399f1495ac7d8f4b568b17a9219b68a45322cbf59e147fbb",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p021",
+          "line": 167,
+          "sha256": "9688b19586827651541358decfd31656f45dd07345f951d527189abb16816fe4",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p022",
+          "line": 175,
+          "sha256": "85338162e2c3f392e6aabc4b687f8ee90f33f7ff46cfc333479a33be46dc2498",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p023",
+          "line": 184,
+          "sha256": "61fb805b2f3074c67b4667548d7bd2b546aa3ddaf145b9e4854c9f3eb7d26c5e",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p024",
+          "line": 192,
+          "sha256": "02043f7ffd17fe174b0404b2ff02b0218129af1b88ea2e03ccd775bdf6d4a723",
+          "role": "mechanism",
+          "basis": "derivation"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p025",
+          "line": 198,
+          "sha256": "46baf18e90c919add257cbe4e5633ba4652a2239b8393023548c7a0262b56bb1",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p026",
+          "line": 217,
+          "sha256": "83ed3ac5237c4b5bc32ddc1327ff16f083100e67f55a45ed1a046f0d6c16308c",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p027",
+          "line": 224,
+          "sha256": "169edb90cf969ab096349046326af1eb7ad3796d43a0203e9b686f5bd7723b3b",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p028",
+          "line": 239,
+          "sha256": "c08cc53fd9b7d8498117680169623ec36b50abf48a6f5d458eb1f10f48d83479",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p029",
+          "line": 245,
+          "sha256": "7c92c22f201518ddef889d08f16c7fde3c626067c2a00c1222dd78137195c012",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p030",
+          "line": 253,
+          "sha256": "352bf616c01877bc32653d8ac5c487fac61f3dd2c02ed1534028e7ed84d5e7a7",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p031",
+          "line": 259,
+          "sha256": "38ed30547dab676ae1f61ea2126f4cfc3d860be029a52486aea338443335c696",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p032",
+          "line": 268,
+          "sha256": "e7f68f5386f9af6d3a176282cae78bd1645f967c335d08ac80bf8eaab6f29116",
+          "role": "example",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p033",
+          "line": 278,
+          "sha256": "1d3b5cb5dee3d60c6d849f45200467cf7f857198e00822e683c2c6349a9b6208",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p034",
+          "line": 283,
+          "sha256": "e7fe364e29a859193f66096a85806570ec80f1fc044909e12bd424051b75ec41",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p035",
+          "line": 293,
+          "sha256": "75ec8ea6488e8f6a22c48245daad40b3396b301cac0a663ddc9fa8f1e91fd2d4",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p036",
+          "line": 301,
+          "sha256": "7548730037515e40441d39318f77b19aa577d268d65df6ff4697f0a28e439d11",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p037",
+          "line": 310,
+          "sha256": "53a0ab71cb48f0c57a3e8a112c6f2bc231c3c532de525b2ac87dd769ff278d0c",
+          "role": "definition",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p038",
+          "line": 328,
+          "sha256": "69a7040c3bae3d433da4fdb42bd9f3fe07ee3e55fdc3ac520785e3dc60781d51",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p039",
+          "line": 339,
+          "sha256": "b976c11d0cfd260c2e54945ae243180102edaf00c18ab9f8a28bf45596cdf5e3",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p040",
+          "line": 343,
+          "sha256": "8ac1095028aba06448f0a3c5acd11c2684451dccbc4a14dc67a42bbbae224a70",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p041",
+          "line": 348,
+          "sha256": "123bedc214757fbd50f28672396765ab2f83c178460e549c4ffdd09e62d6fe56",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p042",
+          "line": 355,
+          "sha256": "3f13a6a25666c21807d0e418cf58be571757d4964cfe7083f4255f17d7b43565",
+          "role": "evidence",
+          "basis": "citation"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p043",
+          "line": 408,
+          "sha256": "a153d34215d68a6d56c70d8d685f0c2ba390c0a871dbaebb5ebee7957c6a1b1a",
+          "role": "definition",
+          "basis": "local_artifact"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p044",
+          "line": 422,
+          "sha256": "55ec753d3cc79e80c617ca3239c09110febb4ca27b30e8a28c3e263f1caca1e0",
+          "role": "procedure",
+          "basis": "operational_test"
+        },
+        {
+          "id": "15-workcell-cybernetyczny-p045",
+          "line": 434,
+          "sha256": "b8bd07c5bbfa44ea09b562f2262fd45287003ff47c93ed5657b9871eb3a671db",
+          "role": "procedure",
+          "basis": "operational_test"
+        }
+      ]
+    },
+    {
+      "path": "book/appendices/a-badania.qmd",
+      "source_sha256": "1597e3d367b4c4d1756aec99ba7766daadafcc0fa48915614ee17180c656af1a",
+      "paragraphs": [
+        {
+          "id": "a-badania-p001",
+          "line": 3,
+          "sha256": "6208ef35561840e77dba9156d1f03bcfe61632546f8d8fcbea84b4d79c3a0e0b",
+          "role": "thesis",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "a-badania-p002",
+          "line": 25,
+          "sha256": "42fb5c7b0eff8fb564184b43926a26cf24294dc32a5fc98f82bbe195c9362a77",
+          "role": "procedure",
+          "basis": "scope_boundary"
+        },
+        {
+          "id": "a-badania-p003",
+          "line": 30,
+          "sha256": "dfd73d3256676dc1925d92effd769064a659729d69e00c54fa0503005eb7b3bd",
+          "role": "limitation",
+          "basis": "scope_boundary"
+        }
+      ]
+    },
+    {
+      "path": "book/appendices/b-process-pack.qmd",
+      "source_sha256": "57d04071cdd1de6dfaabf702398f8981c685b13a9a691541cc157173c955643f",
+      "paragraphs": [
+        {
+          "id": "b-process-pack-p001",
+          "line": 3,
+          "sha256": "7c02efc285a636e51b832a5e3591372443b0aaa9980a048c559c6ed3ed51e7d0",
+          "role": "thesis",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "b-process-pack-p002",
+          "line": 11,
+          "sha256": "e2f01e20b16411ef2243c2cad74e4ea64ca9ebc120bb153ec196819b8116ef13",
+          "role": "definition",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "b-process-pack-p003",
+          "line": 28,
+          "sha256": "6d4db990d92d7ab7288124e0f9f6bb7793c35dac48066a1b4836e44eccc3d847",
+          "role": "procedure",
+          "basis": "bounded_hypothesis"
+        },
+        {
+          "id": "b-process-pack-p004",
+          "line": 41,
+          "sha256": "4daf0ee732556a080125794c5124fb6146b7020e88f3f7c8a7b148e7b20e5822",
+          "role": "mechanism",
+          "basis": "bounded_hypothesis"
+        }
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "id": "soa",
+      "status": "standard",
+      "occurrences": 1,
+      "validated_by": [
+        "book/chapters/12-soa-poa-uri-process.qmd",
+        "@vanderAalst2003workflow"
+      ]
+    },
+    {
+      "id": "poa",
+      "status": "project-model",
+      "occurrences": 3,
+      "validated_by": [
+        "dsl/examples/uri-process-publication/processes.json",
+        "npm run dsl:validate"
+      ]
+    },
+    {
+      "id": "uri-process",
+      "status": "educational-projection",
+      "occurrences": 4,
+      "validated_by": [
+        "dsl/schema/uri-process.schema.json",
+        "npm run dsl:validate"
+      ]
+    },
+    {
+      "id": "oql",
+      "status": "educational-projection",
+      "occurrences": 2,
+      "validated_by": [
+        "dsl/examples/digital-twin-router/execution-chain.oql",
+        "dsl/examples/two-models/workflow.oql"
+      ]
+    },
+    {
+      "id": "doql",
+      "status": "educational-projection",
+      "occurrences": 2,
+      "validated_by": [
+        "dsl/examples/digital-twin-router/portrait.doql.json",
+        "book/chapters/09-digital-twin.qmd"
+      ]
+    },
+    {
+      "id": "workcell",
+      "status": "project-model",
+      "occurrences": 3,
+      "validated_by": [
+        "dsl/schema/workcell.schema.json",
+        "npm run dsl:validate"
+      ]
+    },
+    {
+      "id": "authority",
+      "status": "operational-pattern",
+      "occurrences": 14,
+      "validated_by": [
+        "dsl/examples/uri-process-publication/authority.contract.aql",
+        "npm run dsl:validate"
+      ]
+    },
+    {
+      "id": "expectation",
+      "status": "educational-projection",
+      "occurrences": 4,
+      "validated_by": [
+        "dsl/examples/uri-process-publication/release.eql",
+        "npm run dsl:validate"
+      ]
+    },
+    {
+      "id": "testql",
+      "status": "educational-projection",
+      "occurrences": 1,
+      "validated_by": [
+        "dsl/examples/uri-process-publication/release.testql",
+        "npm run dsl:validate"
+      ]
+    },
+    {
+      "id": "sodl",
+      "status": "educational-projection",
+      "occurrences": 1,
+      "validated_by": [
+        "dsl/examples/uri-process-publication/events.sodl.jsonl",
+        "npm run dsl:validate"
+      ]
+    },
+    {
+      "id": "intent-contract",
+      "status": "operational-pattern",
+      "occurrences": 1,
+      "validated_by": [
+        "dsl/schema/publication-intent.schema.json",
+        "npm run dsl:validate"
+      ]
+    },
+    {
+      "id": "digital-twin",
+      "status": "project-model",
+      "occurrences": 5,
+      "validated_by": [
+        "dsl/examples/digital-twin-router/portrait.doql.json",
+        "book/chapters/09-digital-twin.qmd"
+      ]
+    }
+  ]
+}

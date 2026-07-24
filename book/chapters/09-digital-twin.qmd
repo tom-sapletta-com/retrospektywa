@@ -5,9 +5,10 @@ jakości, rytmu, kosztu i aktualnego obciążenia. Portret jest **tylko do
 odczytu**. Może dostarczyć sygnał routingowy, ale nie przyznaje authority i nie
 może autonomicznie zmienić własnych praw.
 
-W tej książce używamy nazwy **DOQL/Situation** dla agregacji sytuacji Digital
-Twin. Odróżniamy ją od spotykanej w projektach deklaracji `app.doql.less`, która
-opisuje strukturę aplikacji i jej środowisko.
+W tej książce używamy nazwy **DOQL** dla edukacyjnej projekcji ograniczonej
+sytuacji Digital Twin. Jej przykład znajduje się w Process Packu; nie
+przenosimy do książki innych profili o podobnych skrótach, jeśli nie mają tu
+schematu albo wykonywalnego przykładu.
 
 Rozdzielenie obserwacji od uprawnień jest ważniejsze niż trafność samego
 profilu:
@@ -74,9 +75,10 @@ on_false_ready:
 
 ## Dowód z próby wdrożeniowej
 
-Poniższe liczby są snapshotem pojedynczej próby projektu Subactor z 24 lipca
-2026, zapisanym w dołączonym Process Packu. Nie są benchmarkiem wydajności ani
-podstawą do uogólnienia na inne systemy. Pokazują format dowodu:
+Poniższe liczby pochodzą z jednego zamkniętego receiptu zapisanego w
+`dsl/examples/digital-twin-router/`. Nie opisują aktualnego stanu systemu, nie
+są benchmarkiem i nie stanowią podstawy do uogólnienia. Pokazują wyłącznie
+format lokalnego dowodu:
 
 - przeskanował 55 ticketów,
 - rozważył 33 kandydatów,

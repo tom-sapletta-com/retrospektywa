@@ -84,6 +84,26 @@ UODO wskazuje, że monitoring musi realizować określony prawem cel, przejść 
 niezbędności i proporcjonalności oraz ustąpić mniej inwazyjnemu środkowi, jeśli
 ten pozwala osiągnąć ten sam cel [@uodomonitoring].
 
+W komunikacji operacyjnej celniejsze jest domyślne dzielenie się **linkami** do
+kanonicznych obiektów (`ticket`, `artifact`, `log`, `report`) zamiast wysyłania
+załączonych dokumentów. Ten sam celowy stan pracy ma wtedy jedną wersję źródła,
+której wszyscy używają; każda decyzja i komentarz odwołuje się do tego samego
+punktu prawdy. To ogranicza pracę na kopiach, zmniejsza ryzyko „różnicujących
+wersji” dokumentów i skraca czas eskalacji, bo zamiast przesyłać treści, udostępnia
+się już gotową ścieżkę wglądu.
+
+Przykładowy wzorzec komunikacji operacyjnej:
+
+```text
+Temat: [Escalation] TR-421 — checkpoint nie zakończony
+Context: https://repo.example/ticket/TR-421
+Evidence: https://repo.example/artifact/TR-421/validation-2026-07-24
+Decyzja do podjęcia: rozszerzyć scope działania?
+```
+
+Tożsamość informacji pozostaje w 1 miejscu, a komentarze i decyzje dokumentują
+odwołanie do tego samego dowodu procesu.
+
 ```text
 preferowane:
   ticket.started
