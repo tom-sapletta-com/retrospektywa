@@ -8,6 +8,7 @@ on:
       - "content/**"
       - "dsl/**"
       - "scripts/**"
+      - "public/releases/**"
       - "package.json"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
@@ -27,14 +28,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: quarto-dev/quarto-actions/setup@v2
-      - name: Install release tools
+      - name: Install validation tools
         run: |
           sudo apt-get update
-          sudo apt-get install --yes espeak-ng ffmpeg zip
+          sudo apt-get install --yes ffmpeg
           python3 -m pip install --requirement scripts/requirements-dsl.txt
-      - name: Generate and validate release
+      - name: Render HTML and stage committed release
         run: |
-          npm run release:generate
+          npm run dsl:validate
+          npm run audio:test
+          quarto render book --to html
+          npm run release:stage
           npm run release:validate
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
@@ -51,3 +55,6 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+      - uses: actions/checkout@v4
+      - name: Audit public landing, book and downloads
+        run: node scripts/check-publication.mjs

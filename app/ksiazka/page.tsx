@@ -58,7 +58,7 @@ export default function BookPage() {
       </section>
 
       <section className="chapters-section shell" id="spis">
-        <p className="section-kicker">Spis treści / wersja robocza</p>
+        <p className="section-kicker">Spis treści / wydanie 0.2</p>
         <div className="chapter-list">
           {chapters.map(([no, title, text]) => (
             <article key={no}><span>{no}</span><h3>{title}</h3><p>{text}</p></article>

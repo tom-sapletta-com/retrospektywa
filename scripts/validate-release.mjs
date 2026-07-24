@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { spawn } from "node:child_process";
 import { readFile, stat } from "node:fs/promises";
 import { join, resolve } from "node:path";
@@ -29,6 +30,21 @@ for (const file of required) {
   assert.ok((await stat(join(releases, file))).size > 0, `${file} jest pusty`);
 }
 
+const manifest = JSON.parse(await readFile(join(releases, "manifest.json"), "utf8"));
+assert.deepEqual(
+  manifest.files.map(({ file }) => file).sort(),
+  required.filter((file) => file !== "manifest.json").sort(),
+);
+for (const item of manifest.files) {
+  const data = await readFile(join(releases, item.file));
+  assert.equal(data.length, item.bytes, `${item.file}: rozmiar nie zgadza się z manifestem`);
+  assert.equal(
+    createHash("sha256").update(data).digest("hex"),
+    item.sha256,
+    `${item.file}: SHA-256 nie zgadza się z manifestem`,
+  );
+}
+
 assert.equal((await readFile(join(releases, required[0]))).subarray(0, 4).toString(), "%PDF");
 for (const file of [required[1], required[2], required[4]]) {
   assert.equal(
@@ -52,4 +68,15 @@ await run("ffprobe", [
 const html = await readFile(join(root, "book", "_book", "index.html"), "utf8");
 assert.match(html, /SOA.*POA.*URI Process/s);
 assert.match(html, /downloads\/retrospektywa-0\.2\.pdf/);
+for (const [releaseFile, canonicalFile] of [
+  ["retrospektywa-0.2.pdf", "Retrospektywa.pdf"],
+  ["retrospektywa-0.2.epub", "Retrospektywa.epub"],
+  ["retrospektywa-0.2.docx", "Retrospektywa.docx"],
+]) {
+  assert.deepEqual(
+    await readFile(join(releases, releaseFile)),
+    await readFile(join(root, "book", "_book", canonicalFile)),
+    `${canonicalFile}: Quarto powinno udostępniać zatwierdzony plik wydania`,
+  );
+}
 console.log(`release ok: ${required.length} artefaktów`);

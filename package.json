@@ -1,6 +1,6 @@
 {
   "name": "retrospektywa",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "engines": {
     "node": ">=22.13.0"
@@ -21,7 +21,9 @@
     "audio:test": "node --test tests/audio-generator.test.mjs",
     "audio:google:test": "node scripts/test-google-tts.mjs",
     "release:generate": "npm run dsl:validate && npm run audio:test && npm run audio:preview && node scripts/generate-release.mjs",
-    "release:validate": "node scripts/validate-release.mjs"
+    "release:stage": "node scripts/stage-release.mjs",
+    "release:validate": "node scripts/validate-release.mjs",
+    "publication:check": "node scripts/check-publication.mjs"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",

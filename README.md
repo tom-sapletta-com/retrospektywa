@@ -30,6 +30,7 @@ w D1 — bez kodu, promptów i sekretów.
 - `db/` — rejestr zdarzeń;
 - `scripts/generate-audio.mjs` — TTS przez Google Cloud, OpenAI, ElevenLabs albo lokalny eSpeak NG;
 - `scripts/generate-release.mjs` — generator wydania i manifestu SHA-256;
+- `scripts/check-publication.mjs` — kontrola publicznego landing page, książki i sum artefaktów;
 - `.github/workflows/` — statyczna publikacja książki w GitHub Pages.
 
 ## Uruchomienie serwisu
@@ -73,7 +74,7 @@ Google Cloud TTS można przetestować bez sekretu:
 npm run audio:test
 ```
 
-Lokalna, deterministyczna próbka używana w otwartym wydaniu:
+Lokalna, audytowalna próbka używana w otwartym wydaniu:
 
 ```bash
 npm run audio:preview
@@ -115,6 +116,17 @@ GitHub Pages publikuje książkę i pliki do pobrania. Landing page w Sites
 prowadzi do książki HTML, PDF/EPUB/DOCX, audiobooka i Process Packa.
 Interaktywne laboratorium działa w tej samej aplikacji, ale jego dane wymagają
 uwierzytelnienia.
+
+Pliki w `public/releases` są kanoniczną, zatwierdzoną paczką. GitHub Pages nie
+generuje ich ponownie: kopiuje dokładnie te same bajty, które publikuje Sites.
+Po wdrożeniu można sprawdzić oba kanały wraz z sumami SHA-256:
+
+```bash
+npm run publication:check
+```
+
+Aktualny stan publikacji i jawna lista dalszych prac znajdują się w
+[`PUBLICATION.md`](PUBLICATION.md).
 
 Docelowa mapa:
 

@@ -9,12 +9,12 @@ import {
   stat,
   writeFile,
 } from "node:fs/promises";
-import { basename, join, resolve } from "node:path";
+import { join, resolve } from "node:path";
+import { stageRelease } from "./stage-release.mjs";
 
 const root = resolve(import.meta.dirname, "..");
 const bookOutput = join(root, "book", "_book");
 const publicOutput = join(root, "public", "releases");
-const pagesOutput = join(bookOutput, "downloads");
 const quartoCache = join(root, ".quarto-cache");
 const version = "0.2";
 
@@ -114,11 +114,7 @@ async function main() {
     `${JSON.stringify(manifest, null, 2)}\n`,
   );
 
-  await rm(pagesOutput, { recursive: true, force: true });
-  await mkdir(pagesOutput, { recursive: true });
-  for (const file of [...releaseFiles, "manifest.json"]) {
-    await copyFile(join(publicOutput, file), join(pagesOutput, basename(file)));
-  }
+  await stageRelease(root);
   console.log(`Wydanie ${version}: ${releaseFiles.length} plików + manifest`);
 }
 
