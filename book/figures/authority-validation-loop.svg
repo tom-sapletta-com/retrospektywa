@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Pętla działania i walidacji</title>
+  <desc id="desc">Cel prowadzi do działania, dowodu, walidacji i akceptacji; żądanie zmiany wraca do działania.</desc>
+  <defs>
+    <style>
+      .bg{fill:#fffdf7}.box{fill:#fff;stroke:#a79f92;stroke-width:2}.dark{fill:#20201d}.red{fill:#f22b1d}
+      .ink{fill:#20201d}.white{fill:#fff}.line{fill:none;stroke:#f22b1d;stroke-width:4;marker-end:url(#head)}
+      .return{fill:none;stroke:#82796b;stroke-width:3;stroke-dasharray:8 8;marker-end:url(#head2)}
+      text{font-family:Arial,sans-serif}.body{font-size:21px;font-weight:700}.small{font-size:16px}
+    </style>
+    <marker id="head" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" class="red"/></marker>
+    <marker id="head2" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#82796b"/></marker>
+  </defs>
+  <rect width="1200" height="360" class="bg"/>
+  <rect x="45" y="100" width="175" height="90" rx="4" class="box"/><text x="132" y="154" text-anchor="middle" class="body ink">Cel</text>
+  <rect x="280" y="100" width="175" height="90" rx="4" class="dark"/><text x="367" y="154" text-anchor="middle" class="body white">Działanie</text>
+  <rect x="515" y="100" width="175" height="90" rx="4" class="box"/><text x="602" y="154" text-anchor="middle" class="body ink">Dowód</text>
+  <rect x="750" y="100" width="175" height="90" rx="4" class="box"/><text x="837" y="154" text-anchor="middle" class="body ink">Walidacja</text>
+  <rect x="985" y="100" width="175" height="90" rx="4" class="dark"/><text x="1072" y="154" text-anchor="middle" class="body white">Akceptacja</text>
+  <path d="M220 145H270M455 145H505M690 145H740M925 145H975" class="line"/>
+  <text x="948" y="128" class="small red">OK</text>
+  <path d="M837 200V280H367V202" class="return"/>
+  <text x="588" y="310" text-anchor="middle" class="small ink">zmiana celu, poprawka lub przekroczenie authority</text>
+</svg>

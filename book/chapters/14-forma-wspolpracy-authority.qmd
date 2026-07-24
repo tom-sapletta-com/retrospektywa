@@ -99,15 +99,7 @@ ryzykowne bez odrębnej podstawy i analizy:
 
 ## Granica między UoP a relacją cywilną
 
-```{mermaid}
-flowchart TD
-    A["Czy organizacja wymaga osobistej, stałej dyspozycyjności?"] -->|Tak| B["Czy kieruje czasem, miejscem i bieżącym sposobem pracy?"]
-    B -->|Tak| C["Silne cechy stosunku pracy"]
-    B -->|Nie| D["Sprawdź wszystkie dominujące cechy relacji"]
-    A -->|Nie| E["Czy istnieje jednorazowy, sprawdzalny rezultat?"]
-    E -->|Tak| F["Możliwa umowa o dzieło"]
-    E -->|Nie| G["Możliwe zlecenie, usługi lub B2B"]
-```
+![Orientacyjne drzewo cech relacji współpracy.](../figures/legal-relation-guide.png){fig-alt="Drzewo pytań o dyspozycyjność, kierownictwo i rezultat" width=100%}
 
 To drzewo jest narzędziem orientacyjnym, nie kwalifikatorem prawnym. Artykuł
 22 Kodeksu pracy zabrania zastępowania umowy o pracę kontraktem cywilnym przy
@@ -130,14 +122,7 @@ ticket
   escalation: kiedy actor musi oddać decyzję
 ```
 
-```{mermaid}
-flowchart LR
-    A["Cel"] --> B["Działanie"]
-    B --> C["Dowód"]
-    C --> D["Walidacja"]
-    D -->|OK| E["Akceptacja"]
-    D -->|Zmiana| B
-```
+![Pętla od celu przez działanie, dowód i walidację do akceptacji.](../figures/authority-validation-loop.png){fig-alt="Pętla walidacji z powrotem do działania przy żądaniu zmiany" width=100%}
 
 Na UoP pracodawca może tę pętlę w dużym stopniu organizować w granicach prawa
 i umowy. Przy zleceniu lub B2B powinna wynikać z umówionego protokołu

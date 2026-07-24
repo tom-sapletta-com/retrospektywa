@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Orientacyjne drzewo cech relacji współpracy</title>
+  <desc id="desc">Pytania o dyspozycyjność, kierownictwo i jednorazowy rezultat prowadzą do możliwych form współpracy, ale nie zastępują oceny prawnej.</desc>
+  <defs>
+    <style>
+      .bg{fill:#fffdf7}.box{fill:#fff;stroke:#a79f92;stroke-width:2}.result{fill:#20201d}.red{fill:#f22b1d}
+      .ink{fill:#20201d}.muted{fill:#6f685c}.white{fill:#fff}.line{fill:none;stroke:#f22b1d;stroke-width:4;marker-end:url(#head)}
+      text{font-family:Arial,sans-serif}.label{font-size:17px;font-weight:700;letter-spacing:1px}.body{font-size:20px}.small{font-size:16px}
+    </style>
+    <marker id="head" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" class="red"/></marker>
+  </defs>
+  <rect width="1200" height="700" class="bg"/>
+  <text x="60" y="48" class="label red">NARZĘDZIE ORIENTACYJNE — NIE KWALIFIKATOR PRAWNY</text>
+  <rect x="350" y="75" width="500" height="90" rx="4" class="box"/>
+  <text x="600" y="112" text-anchor="middle" class="body ink">Osobista, stała dyspozycyjność?</text>
+  <text x="600" y="142" text-anchor="middle" class="small muted">Oceń faktyczny sposób wykonywania relacji</text>
+  <path d="M500 165V215H270V250" class="line"/><text x="390" y="205" class="label red">TAK</text>
+  <path d="M700 165V215H930V250" class="line"/><text x="800" y="205" class="label red">NIE</text>
+  <rect x="70" y="250" width="400" height="105" rx="4" class="box"/>
+  <text x="270" y="291" text-anchor="middle" class="body ink">Kierowanie czasem, miejscem</text>
+  <text x="270" y="323" text-anchor="middle" class="body ink">i bieżącym sposobem pracy?</text>
+  <rect x="730" y="250" width="400" height="105" rx="4" class="box"/>
+  <text x="930" y="291" text-anchor="middle" class="body ink">Jednorazowy, indywidualny</text>
+  <text x="930" y="323" text-anchor="middle" class="body ink">i sprawdzalny rezultat?</text>
+  <path d="M200 355V430H165V475" class="line"/><text x="140" y="409" class="label red">TAK</text>
+  <path d="M340 355V430H435V475" class="line"/><text x="380" y="409" class="label red">NIE</text>
+  <path d="M860 355V430H765V475" class="line"/><text x="790" y="409" class="label red">TAK</text>
+  <path d="M1000 355V430H1035V475" class="line"/><text x="1018" y="409" class="label red">NIE</text>
+  <rect x="45" y="475" width="240" height="125" rx="4" class="result"/>
+  <text x="165" y="520" text-anchor="middle" class="body white">Silne cechy</text><text x="165" y="552" text-anchor="middle" class="body white">stosunku pracy</text>
+  <rect x="315" y="475" width="240" height="125" rx="4" class="box"/>
+  <text x="435" y="520" text-anchor="middle" class="body ink">Sprawdź wszystkie</text><text x="435" y="552" text-anchor="middle" class="body ink">dominujące cechy</text>
+  <rect x="645" y="475" width="240" height="125" rx="4" class="box"/>
+  <text x="765" y="520" text-anchor="middle" class="body ink">Możliwa umowa</text><text x="765" y="552" text-anchor="middle" class="body ink">o dzieło</text>
+  <rect x="915" y="475" width="240" height="125" rx="4" class="box"/>
+  <text x="1035" y="520" text-anchor="middle" class="body ink">Zlecenie, usługi</text><text x="1035" y="552" text-anchor="middle" class="body ink">lub B2B</text>
+  <text x="600" y="656" text-anchor="middle" class="small muted">Nazwa umowy nie rozstrzyga — znaczenie ma całość warunków i praktyka współpracy.</text>
+</svg>

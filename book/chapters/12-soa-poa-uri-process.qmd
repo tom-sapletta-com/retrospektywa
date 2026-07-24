@@ -24,7 +24,7 @@ Badania nad wzorcami workflow pokazują, że kontrola przepływu, danych, zasob�
 i wyjątków jest osobnym problemem względem implementacji pojedynczej usługi
 [@vanderAalst2003workflow].
 
-![Relacja usługi, procesu URI, routera i dowodu wykonania.](../figures/soa-poa-uri-process.svg){fig-alt="Schemat SOA, POA i URI Process" width=100%}
+![Relacja usługi, procesu URI, routera i dowodu wykonania.](../figures/soa-poa-uri-process.png){fig-alt="Schemat SOA, POA i URI Process" width=100%}
 
 ## URI jest nazwą, nie transportem
 

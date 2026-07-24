@@ -13,7 +13,7 @@ QMD + BibTeX + DSL + SVG
   -> GitHub Pages + landing page
 ```
 
-![Pipeline publikacji wieloformatowej.](../figures/publication-pipeline.svg){fig-alt="Diagram generatora książki, audiobooka i paczki przykładów" width=100%}
+![Pipeline publikacji wieloformatowej.](../figures/publication-pipeline.png){fig-alt="Diagram generatora książki, audiobooka i paczki przykładów" width=100%}
 
 ## Jedno źródło, różne projekcje
 

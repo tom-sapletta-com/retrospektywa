@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
   <title id="title">Pipeline wydania Retrospektywy</title>
   <desc id="desc">Źródła przechodzą przez walidację i generator do formatów książki, audio, przykładów i kanałów publikacji.</desc>
   <defs>

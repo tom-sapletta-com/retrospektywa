@@ -51,7 +51,7 @@ nie są osobnymi produktami redakcyjnymi: powstają z jednego wersjonowanego
 źródła oraz wspólnego generatora.
 
 ![SOA udostępnia zdolności, POA składa je w kontrolowany proces, a URI Process
-wiąże plan z runtime'em i dowodem.](figures/soa-poa-uri-process.svg){fig-alt="Diagram pokazujący warstwy SOA, POA i URI Process" width=95%}
+wiąże plan z runtime'em i dowodem.](figures/soa-poa-uri-process.png){fig-alt="Diagram pokazujący warstwy SOA, POA i URI Process" width=95%}
 
 ## Pobierz wydanie 0.2
 
