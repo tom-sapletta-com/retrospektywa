@@ -62,12 +62,12 @@ export default function Home() {
             Twojej uwagi.
           </p>
           <div className="hero-actions">
-            <Link className="button button-primary" href="/manifest">
-              Czytaj manifest
-            </Link>
-            <Link className="button button-secondary" href="/podcast">
-              Posłuchaj podcastu
-            </Link>
+            <a className="button button-primary" href="https://tom-sapletta-com.github.io/retrospektywa/">
+              Czytaj książkę
+            </a>
+            <a className="button button-secondary" href="/releases/retrospektywa-audiobook-preview-0.2.mp3">
+              Posłuchaj audiobooka
+            </a>
           </div>
         </div>
 
@@ -102,6 +102,20 @@ export default function Home() {
             <span><i className="legend-focus" />FOKUS</span>
             <span><i />LIMIT UWAGI</span>
             <span><em />KOSZT PRZEŁĄCZANIA KONTEKSTU</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="packages-section" id="wydanie">
+        <div className="shell">
+          <div className="section-heading">
+            <div><p className="section-kicker">Wydanie 0.2</p><h2>Czytaj, słuchaj<br />albo uruchom.</h2></div>
+            <p>Książka, audio i wykonywalne przykłady powstają w jednym, testowanym procesie publikacji.</p>
+          </div>
+          <div className="package-grid">
+            <article><span>01</span><h3>Książka</h3><p>HTML, PDF, EPUB i DOCX z rozdziałami o SOA, POA, URI Process oraz authority.</p><b>otwarte wydanie</b><Link href="/ksiazka">Wybierz format →</Link></article>
+            <article className="featured"><span>02</span><h3>Audio</h3><p>Polska próbka audiobooka MP3 z manifestem pochodzenia i sumą kontrolną.</p><b>głos syntetyczny</b><a href="/releases/retrospektywa-audiobook-preview-0.2.mp3">Pobierz MP3 →</a></article>
+            <article><span>03</span><h3>Przykłady</h3><p>Process Pack: DSL, JSON Schema, kontrakt authority oraz przepływ URI Process.</p><b>ZIP + źródła</b><a href="/releases/retrospektywa-process-pack-0.2.zip">Pobierz ZIP →</a></article>
           </div>
         </div>
       </section>

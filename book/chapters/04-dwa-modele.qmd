@@ -4,6 +4,11 @@ Model A przygotowuje rozwiązanie. Model B otrzymuje diff i kryteria, a następn
 szuka luk, projektuje testy lub podważa założenia. Dostawca jest bindingiem do
 capability, nie częścią strategii.
 
+Obserwacje programistów korzystających z generatorów kodu rozróżniają tryb
+przyspieszenia, gdy człowiek zna następny krok, oraz eksploracji, gdy dopiero
+szuka rozwiązania [@barke2023grounded]. Rozdzielenie ról modeli powinno wynikać
+z tych odmiennych potrzeb, a nie z samej dostępności kolejnego okna czatu.
+
 Posiadanie dwóch dostępów nie jest jeszcze redundancją. Redundancja powstaje
 dopiero wtedy, gdy drugi tor potrafi przejąć potrzebną capability albo
 niezależnie wykryć błąd pierwszego.

@@ -38,6 +38,7 @@ next-env.d.ts
 /dist/
 /book/.quarto/
 /book/_book/
+/.quarto-cache/
 /.vinext/
 /.wrangler/
 /.sites-runtime/

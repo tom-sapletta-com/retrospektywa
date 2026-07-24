@@ -26,9 +26,10 @@ w D1 — bez kodu, promptów i sekretów.
 - `app/` — serwis i prywatne laboratorium digital twina;
 - `book/` — źródła książki Quarto;
 - `content/podcast/` — scenariusze odcinków;
-- `dsl/` — schemat eksperymentu i przykładowy Process Pack;
+- `dsl/` — schematy i trzy przykładowe Process Packi, w tym URI Process;
 - `db/` — rejestr zdarzeń;
-- `scripts/generate-audio.mjs` — TTS przez OpenAI albo ElevenLabs;
+- `scripts/generate-audio.mjs` — TTS przez Google Cloud, OpenAI, ElevenLabs albo lokalny eSpeak NG;
+- `scripts/generate-release.mjs` — generator wydania i manifestu SHA-256;
 - `.github/workflows/` — statyczna publikacja książki w GitHub Pages.
 
 ## Uruchomienie serwisu
@@ -46,17 +47,49 @@ npm run db:generate
 
 ## Książka
 
-Źródłem są pliki `.qmd`. Manuskrypt wydania 0.1 ma trzy części i jedenaście
-rozdziałów. Quarto generuje stronę, EPUB, DOCX i PDF przez Typst:
+Źródłem są pliki `.qmd`. Manuskrypt wydania 0.2 ma cztery części, czternaście
+rozdziałów i dwa aneksy. Obejmuje SOA, POA, URI Process, publikowanie
+wieloformatowe oraz prawne granice `authority` w UoP, zleceniu, dziele i B2B.
+Quarto generuje stronę, EPUB, DOCX i PDF przez Typst:
 
 ```bash
 npm run content:render
 ```
 
+Pełne, lokalne wydanie z DSL, próbką audio, paczką ZIP i manifestem:
+
+```bash
+npm run release:generate
+npm run release:validate
+```
+
 ## Audio
 
-Skrypt dzieli dłuższy tekst na segmenty i tworzy manifest. Sekrety pozostają
-wyłącznie w zmiennych środowiskowych.
+Skrypt dzieli dłuższy tekst bez utraty treści, łączy segmenty MP3 i tworzy
+manifest. Sekrety pozostają wyłącznie w zmiennych środowiskowych. Kontrakt
+Google Cloud TTS można przetestować bez sekretu:
+
+```bash
+npm run audio:test
+```
+
+Lokalna, deterministyczna próbka używana w otwartym wydaniu:
+
+```bash
+npm run audio:preview
+```
+
+Google Cloud TTS (REST `text:synthesize`, głos `pl-PL-Standard-F`):
+
+```bash
+AUDIO_PROVIDER=google \
+GOOGLE_TTS_API_KEY=... \
+npm run audio:generate -- content/podcast/001.qmd outputs/episode-001-google
+
+GOOGLE_TTS_API_KEY=... npm run audio:google:test
+```
+
+Alternatywni providerzy:
 
 ```bash
 AUDIO_PROVIDER=openai \
@@ -73,13 +106,15 @@ ELEVENLABS_VOICE_ID=... \
 npm run audio:generate -- content/podcast/001.qmd outputs/episode-001
 ```
 
-Domyślne modele można zmienić przez `OPENAI_AUDIO_MODEL` i
-`ELEVENLABS_AUDIO_MODEL`.
+Domyślne modele i głosy można zmienić przez `GOOGLE_TTS_VOICE`,
+`OPENAI_AUDIO_MODEL`, `OPENAI_AUDIO_VOICE` i `ELEVENLABS_AUDIO_MODEL`.
 
 ## Publikacja
 
-GitHub Pages publikuje statyczną książkę/blog. Interaktywne laboratorium działa
-oddzielnie, ponieważ wymaga uwierzytelnienia i bazy danych.
+GitHub Pages publikuje książkę i pliki do pobrania. Landing page w Sites
+prowadzi do książki HTML, PDF/EPUB/DOCX, audiobooka i Process Packa.
+Interaktywne laboratorium działa w tej samej aplikacji, ale jego dane wymagają
+uwierzytelnienia.
 
 Docelowa mapa:
 

@@ -4,6 +4,12 @@ Naturalny język dobrze przenosi kontekst, motywację i wyjątki. Słabo nadaje 
 jednak do jednoznacznego wykrywania brakujących pól, porównywania wersji i
 automatycznego testowania.
 
+Badania ReAct pokazują wartość przeplatania rozumowania z działaniami
+wykonywanymi w środowisku [@yao2023react]. Z kolei SWE-agent wskazuje, że
+projekt interfejsu agent--komputer wpływa na skuteczność agenta
+[@yang2024sweagent]. DSL w tej książce pełni właśnie rolę ograniczonego
+interfejsu: zmniejsza przestrzeń możliwych działań i wymusza jawny dowód.
+
 DSL zwiększa wartość idei, gdy formalizuje pięć elementów:
 
 1. intencję,

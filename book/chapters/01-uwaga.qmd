@@ -4,6 +4,12 @@ AI może generować więcej wyników, niż człowiek jest w stanie odpowiedzialn
 odebrać. Dlatego podstawową jednostką systemu nie jest prompt ani liczba
 wygenerowanych linii, lecz **decyzja zakończona dowodem**.
 
+Badania nad wznawianiem przerwanych zadań programistycznych pokazują, że powrót
+do kodowania wymaga rekonstrukcji planu, intencji i kontekstu pracy
+[@parnin2011resumption]. W badaniu postrzegania produktywności programiści
+łączyli produktywny dzień z domykaniem znaczących zadań bez nadmiernych
+przerwań i zmian kontekstu [@meyer2014productivity].
+
 W typowym zadaniu człowiek nadal musi:
 
 1. rozpoznać problem i jego granice,

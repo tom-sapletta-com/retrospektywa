@@ -3,15 +3,14 @@ import Link from "next/link";
 import { SiteHeader } from "../components/SiteHeader";
 
 export const metadata: Metadata = {
-  title: "Podcast",
-  description: "Podcast Retrospektywa o efektywnej pracy programisty z AI.",
+  title: "Audiobook i podcast",
+  description: "Audiobook i podcast Retrospektywa o efektywnej pracy programisty z AI.",
 };
 
+const audioUrl = "/releases/retrospektywa-audiobook-preview-0.2.mp3";
+
 const episodes = [
-  ["001", "Programista jako wąskie gardło", "18 min", "Dlaczego szybkość generowania kodu nie jest już najważniejszą metryką."],
-  ["002", "Dwa modele, jedna decyzja", "24 min", "Jak podzielić implementację i review bez mnożenia pracy człowieka."],
-  ["003", "Digital twin potrzebuje dowodów", "21 min", "Co zapisywać, czego nie przechowywać i kiedy podnieść poziom autonomii."],
-  ["004", "Koszt przełączania kontekstu", "27 min", "Eksperyment z dwoma projektami i kolejką wyników AI."],
+  ["001", "Programista jako wąskie gardło", "próbka", "Dlaczego szybkość generowania kodu nie jest już najważniejszą metryką."],
 ];
 
 export default function PodcastPage() {
@@ -20,11 +19,11 @@ export default function PodcastPage() {
       <SiteHeader />
       <section className="podcast-hero">
         <div className="shell">
-          <p className="eyebrow">Podcast / sezon 01</p>
+          <p className="eyebrow">Audiobook / podcast / wydanie 0.2</p>
           <h1>Głos<br />retrospektywy</h1>
           <div className="podcast-intro">
             <p>Rozmowy, pomiary i eksperymenty z pracy programistów wspieranych przez AI.</p>
-            <div><span>RSS</span><span>YouTube</span><span>Spotify</span><span>Apple Podcasts</span></div>
+            <div><span>MP3</span><span>polski</span><span>TTS</span><span>jawny manifest</span></div>
           </div>
         </div>
       </section>
@@ -40,20 +39,24 @@ export default function PodcastPage() {
               <span>{no}</span>
               <div><h3>{title}</h3><p>{text}</p></div>
               <b>{duration}</b>
-              <button aria-label={`Odtwórz odcinek ${no}`} disabled>▶</button>
+              <a className="button button-secondary" aria-label={`Pobierz odcinek ${no}`} href={audioUrl}>MP3</a>
             </article>
           ))}
         </div>
-        <p className="sales-note">Odtwarzacze zostaną aktywowane po wygenerowaniu i opublikowaniu pierwszych plików audio.</p>
+        <audio controls preload="metadata" src={audioUrl}>
+          <a href={audioUrl}>Pobierz próbkę audiobooka MP3</a>
+        </audio>
+        <p className="sales-note">Głos został wygenerowany syntetycznie. Scenariusz QMD pozostaje audytowalnym źródłem nagrania.</p>
       </section>
 
       <section className="audio-pipeline">
         <div className="shell">
           <p className="section-kicker">Audio pipeline</p>
-          <h2>Jedna transkrypcja.<br />Dwóch niezależnych providerów.</h2>
+          <h2>Jedna transkrypcja.<br />Czterech wymiennych providerów.</h2>
           <div className="audio-flow">
             <span>QMD / Markdown</span><i>→</i><span>Skrypt odcinka</span><i>→</i>
-            <span>OpenAI Audio</span><b>lub</b><span>ElevenLabs</span><i>→</i><span>MP3 + RSS</span>
+            <span>Google Cloud</span><b>lub</b><span>OpenAI</span><b>lub</b>
+            <span>ElevenLabs</span><b>lub</b><span>eSpeak NG</span><i>→</i><span>MP3 + manifest</span>
           </div>
           <Link className="text-link" href="/ksiazka">Zobacz źródło książki →</Link>
         </div>

@@ -10,13 +10,18 @@
     "dev": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vite",
     "build": "bash scripts/build-verified.sh",
     "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
-    "test": "npm run build && node --test tests/rendered-html.test.mjs",
+    "test": "npm run build && node --test tests/*.test.mjs",
     "validate:artifact": "bash scripts/validate-artifact.sh",
     "lint": "bash scripts/sites-env.sh -- eslint . --ignore-pattern dist --ignore-pattern .next",
-    "db:generate": "bash scripts/sites-env.sh -- drizzle-kit generate"
-    ,
+    "db:generate": "bash scripts/sites-env.sh -- drizzle-kit generate",
+    "dsl:validate": "python3 scripts/validate-dsl.py",
     "content:render": "quarto render book",
-    "audio:generate": "node scripts/generate-audio.mjs"
+    "audio:generate": "node scripts/generate-audio.mjs",
+    "audio:preview": "AUDIO_PROVIDER=espeak node scripts/generate-audio.mjs content/podcast/001.qmd outputs/audio-preview",
+    "audio:test": "node --test tests/audio-generator.test.mjs",
+    "audio:google:test": "node scripts/test-google-tts.mjs",
+    "release:generate": "npm run dsl:validate && npm run audio:test && npm run audio:preview && node scripts/generate-release.mjs",
+    "release:validate": "node scripts/validate-release.mjs"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",

@@ -30,8 +30,15 @@ DSL nie zastępuje narracji. Wyodrębnia z niej część wykonawczą:
 Dzięki temu idea jest krótsza, ale jednocześnie łatwiejsza do zmiany,
 wersjonowania, wdrożenia, testowania i prototypowania.
 
-## Dwa przykłady
+## Przykłady
 
 - `examples/two-models/` — podział implementacji i niezależnego review;
 - `examples/digital-twin-router/` — edukacyjna formalizacja portretu, routera,
-  false-ready i łańcucha handoffów wdrożonych w Subactorze.
+  false-ready i łańcucha handoffów wdrożonych w Subactorze;
+- `examples/uri-process-publication/` — SOA, POA i URI Process na przykładzie
+  wieloformatowego wydania książki.
+
+Listy URI Process można walidować względem
+`schema/uri-process.schema.json`. Schemat opisuje przenośną warstwę edukacyjną;
+runtime produkcyjny musi dodatkowo sprawdzić registry, kontrakt capability,
+authority i aktualną politykę.

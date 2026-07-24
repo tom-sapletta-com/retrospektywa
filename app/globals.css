@@ -330,6 +330,7 @@ footer { padding: 60px 0 75px; background: var(--paper-deep); border-top: 1px so
 .episode-list p { color: var(--muted); font-size: 13px; margin: 0; }
 .episode-list article > b { color: var(--muted); font: 10px var(--font-geist-mono),monospace; }
 .episode-list button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--muted); }
+.episodes audio { width: min(100%, 760px); margin-top: 34px; accent-color: var(--signal); }
 .audio-pipeline { padding: 100px 0; background: var(--ink); color: var(--paper); }
 .audio-pipeline .section-kicker { color: #aaa59b; }
 .audio-pipeline h2 { font: clamp(52px,7vw,96px)/.93 Georgia,serif; letter-spacing: -.055em; font-weight: 400; }

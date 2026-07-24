@@ -19,7 +19,13 @@ const chapters = [
   ["09", "Digital twin programisty", "Rejestr zdarzeń, profil decyzji i stopniowo zdobywana autonomia."],
   ["10", "DSL: idea, którą można uruchomić", "Formalizacja intencji, walidacja, wersjonowanie i ewolucyjna pętla zmian."],
   ["11", "Cotygodniowa retrospektywa", "Co zachować, co usunąć, co zautomatyzować i jaki test wykonać dalej."],
+  ["12", "SOA, POA i URI Process", "Od granic usług do wykonywalnej sieci procesów adresowanych przez URI."],
+  ["13", "Wydanie wieloformatowe", "Jeden tekst źródłowy, generator, manifesty i walidacja HTML, PDF, EPUB, DOCX oraz audio."],
+  ["14", "Forma współpracy i authority", "UoP, zlecenie, dzieło i B2B jako różne granice kierowania pracą agenta."],
 ];
+
+const bookUrl = "https://tom-sapletta-com.github.io/retrospektywa/";
+const release = "/releases";
 
 export default function BookPage() {
   return (
@@ -30,7 +36,7 @@ export default function BookPage() {
           <span>RETROSPEKTYWA.PL</span>
           <h1>Retro<br />spektywa</h1>
           <p>Jak projektować i mierzyć pracę programisty z AI</p>
-          <b>WYDANIE 0.1</b>
+          <b>WYDANIE 0.2</b>
         </div>
         <div className="book-copy">
           <p className="eyebrow">Książka jako kod</p>
@@ -44,9 +50,9 @@ export default function BookPage() {
             <span>PDF</span><span>EPUB</span><span>HTML</span><span>DOCX</span><span>AUDIO</span>
           </div>
           <div className="book-actions">
-            <a className="button button-primary" href="#pakiety">Zobacz wydania</a>
+            <a className="button button-primary" href={bookUrl}>Czytaj online</a>
+            <a className="button button-secondary" href={`${release}/retrospektywa-0.2.pdf`}>Pobierz PDF</a>
             <a className="button button-secondary" href="#spis">Spis treści</a>
-            <Link className="button button-secondary" href="/dsl">DSL w praktyce</Link>
           </div>
         </div>
       </section>
@@ -63,21 +69,21 @@ export default function BookPage() {
       <section className="packages-section" id="pakiety">
         <div className="shell">
           <div className="section-heading">
-            <div><p className="section-kicker">Wydania</p><h2>Jedna treść.<br />Trzy sposoby odbioru.</h2></div>
-            <p>Moduł płatności zostanie podłączony do wybranego operatora bez zmiany źródeł książki.</p>
+            <div><p className="section-kicker">Otwarte wydanie 0.2</p><h2>Jedna treść.<br />Wiele sposobów odbioru.</h2></div>
+            <p>Każdy plik powstaje z wersjonowanego źródła, a manifest wydania zawiera rozmiary i sumy SHA-256.</p>
           </div>
           <div className="package-grid">
-            <article><span>01</span><h3>Cyfrowa</h3><p>EPUB + PDF + aktualizacje wydania 1.x.</p><b>premiera 2026</b><button disabled>Przedsprzedaż wkrótce</button></article>
-            <article className="featured"><span>02</span><h3>Pełna</h3><p>Wydanie cyfrowe, audiobook i Process Packi.</p><b>premiera 2026</b><button disabled>Przedsprzedaż wkrótce</button></article>
-            <article><span>03</span><h3>Zespół</h3><p>Licencja zespołowa, warsztat i arkusze pomiarów.</p><b>wycena indywidualna</b><a href="mailto:info@softreck.com">Zapytaj o wydanie →</a></article>
+            <article><span>01</span><h3>Czytaj</h3><p>Responsywna książka HTML oraz wersja PDF do czytania i druku.</p><b>HTML + PDF</b><a href={bookUrl}>Otwórz HTML →</a><a href={`${release}/retrospektywa-0.2.pdf`}>Pobierz PDF →</a></article>
+            <article className="featured"><span>02</span><h3>Czytnik</h3><p>EPUB dla czytników oraz edytowalny DOCX do pracy redakcyjnej.</p><b>EPUB + DOCX</b><a href={`${release}/retrospektywa-0.2.epub`}>Pobierz EPUB →</a><a href={`${release}/retrospektywa-0.2.docx`}>Pobierz DOCX →</a></article>
+            <article><span>03</span><h3>Uruchom</h3><p>Próbka audiobooka i Process Pack z DSL, schematami i przykładami URI Process.</p><b>MP3 + ZIP</b><a href={`${release}/retrospektywa-audiobook-preview-0.2.mp3`}>Pobierz audio →</a><a href={`${release}/retrospektywa-process-pack-0.2.zip`}>Pobierz przykłady →</a></article>
           </div>
-          <p className="sales-note">Nie pobieramy jeszcze płatności. Najpierw potwierdzimy zakres, cenę i operatora sprzedaży.</p>
+          <p className="sales-note"><a href={`${release}/manifest.json`}>Manifest wydania i sumy kontrolne →</a></p>
         </div>
       </section>
 
       <section className="book-end shell">
-        <p>Książka powstaje publicznie z wyników laboratorium.</p>
-        <Link className="text-link" href="/laboratorium">Zobacz metodę pomiaru →</Link>
+        <p>Książka powstaje publicznie z wyników laboratorium i wersjonowanych przykładów.</p>
+        <Link className="text-link" href="/dsl">Zobacz DSL w praktyce →</Link>
       </section>
     </main>
   );

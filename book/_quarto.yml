@@ -17,7 +17,7 @@ book:
   repo-actions: [source, issue]
   page-navigation: true
   search: true
-  downloads: [epub, docx]
+  downloads: [pdf, epub, docx]
   chapters:
     - index.qmd
     - part: "I. Człowiek i przepływ pracy"
@@ -37,9 +37,18 @@ book:
         - chapters/09-digital-twin.qmd
         - chapters/10-dsl-intencji.qmd
         - chapters/11-retrospektywa.qmd
+    - part: "IV. Architektura wykonywalna"
+      chapters:
+        - chapters/12-soa-poa-uri-process.qmd
+        - chapters/13-wydanie-wieloformatowe.qmd
+        - chapters/14-forma-wspolpracy-authority.qmd
+    - part: "Aneksy"
+      chapters:
+        - appendices/a-badania.qmd
+        - appendices/b-process-pack.qmd
   page-footer:
     left: "Retrospektywa.pl"
-    right: "Wydanie 0.1"
+    right: "Wydanie 0.2"
 
 format:
   html:

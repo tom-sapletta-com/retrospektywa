@@ -4,6 +4,13 @@ Najważniejsze metryki to lead time, aktywny czas człowieka, czas oczekiwania,
 rework, defekty po odbiorze oraz koszt zaakceptowanej zmiany. Liczba linii kodu
 nie jest miarą wartości.
 
+Kontrolowany eksperyment z GitHub Copilot wykazał istotne skrócenie czasu
+wykonania konkretnego zadania typu greenfield [@peng2023copilot]. Nie należy
+jednak przenosić tego wyniku automatycznie na utrzymanie dojrzałego
+repozytorium: benchmark SWE-bench pokazuje, że rzeczywiste zgłoszenia wymagają
+nawigacji po kodzie, uruchamiania testów i koordynacji zmian w wielu plikach
+[@jimenez2024swebench].
+
 Pomiar ma wspierać decyzję o procesie, a nie tworzyć ranking programistów.
 Metryka bez pytania prowadzi do optymalizacji liczby, często kosztem całego
 systemu.

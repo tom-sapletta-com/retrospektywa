@@ -37,13 +37,30 @@ Subactora:
 | Intent Contract | Co dokładnie chcemy osiągnąć? |
 | AQL | Kto może wykonać działanie i czego nie wolno? |
 | OQL | Jaki jest przebieg operacji? |
-| URI Process | Która capability realizuje krok? |
+| URI Process | Który adresowalny proces realizuje krok i przez jaki runtime? |
 | EQL i TestQL | Po czym poznamy prawidłowy rezultat? |
 | DOQL i DQL | Jaka jest sytuacja i które inwarianty zostały naruszone? |
 | SODL | Co faktycznie wydarzyło się w czasie? |
 
 DSL nie zastępuje prozy. Proza wyjaśnia motywację i kontekst, a kontrakt
 oddziela pola, które można walidować, porównywać i testować.
+
+Wydanie 0.2 rozwija ten model o przejście od architektury usługowej do
+architektury zorientowanej na proces. Książka, audiobook, przykłady i strona
+nie są osobnymi produktami redakcyjnymi: powstają z jednego wersjonowanego
+źródła oraz wspólnego generatora.
+
+![SOA udostępnia zdolności, POA składa je w kontrolowany proces, a URI Process
+wiąże plan z runtime'em i dowodem.](figures/soa-poa-uri-process.svg){fig-alt="Diagram pokazujący warstwy SOA, POA i URI Process" width=95%}
+
+## Pobierz wydanie 0.2
+
+- [PDF](downloads/retrospektywa-0.2.pdf)
+- [EPUB](downloads/retrospektywa-0.2.epub)
+- [DOCX](downloads/retrospektywa-0.2.docx)
+- [próbka audiobooka MP3](downloads/retrospektywa-audiobook-preview-0.2.mp3)
+- [Process Pack: DSL, schematy i przykłady](downloads/retrospektywa-process-pack-0.2.zip)
+- [manifest wydania z sumami SHA-256](downloads/manifest.json)
 
 ## Jak czytać
 

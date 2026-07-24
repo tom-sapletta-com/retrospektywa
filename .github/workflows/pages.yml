@@ -6,6 +6,9 @@ on:
     paths:
       - "book/**"
       - "content/**"
+      - "dsl/**"
+      - "scripts/**"
+      - "package.json"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -24,8 +27,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: quarto-dev/quarto-actions/setup@v2
-      - name: Render HTML book
-        run: quarto render book --to html
+      - name: Install release tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes espeak-ng ffmpeg zip
+          python3 -m pip install --requirement scripts/requirements-dsl.txt
+      - name: Generate and validate release
+        run: |
+          npm run release:generate
+          npm run release:validate
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
