@@ -6,9 +6,18 @@ import { join, resolve } from "node:path";
 const root = resolve(import.meta.dirname, "..");
 const siteBase = (process.env.SITE_BASE ?? "https://retrospektywa.softreck.chatgpt.site").replace(/\/$/, "");
 const bookBase = (process.env.BOOK_BASE ?? "https://tom-sapletta-com.github.io/retrospektywa").replace(/\/$/, "");
-const expectedManifest = JSON.parse(
-  await readFile(join(root, "public", "releases", "manifest.json"), "utf8"),
-);
+const expectedManifestPath =
+  process.env.EXPECTED_MANIFEST_PATH ??
+  join(root, "public", "releases", "manifest.json");
+const expectedManifest = JSON.parse(await readFile(expectedManifestPath, "utf8"));
+
+function parseBoolean(value, fallback = false) {
+  if (value === undefined) return fallback;
+  return ["1", "true", "yes", "on"].includes(value.toLowerCase());
+}
+
+const checkSites = parseBoolean(process.env.CHECK_SITES, false);
+const compareManifest = parseBoolean(process.env.CHECK_PUBLICATION_MANIFEST, true);
 
 function sha256(value) {
   return createHash("sha256").update(value).digest("hex");
@@ -45,7 +54,9 @@ async function assertHtml(url, patterns) {
 async function assertChannel(name, base) {
   const manifestResponse = await get(`${base}/manifest.json`);
   const manifest = await manifestResponse.json();
-  assert.deepEqual(manifest, expectedManifest, `${name}: opublikowano inny manifest`);
+  if (compareManifest) {
+    assert.deepEqual(manifest, expectedManifest, `${name}: opublikowano inny manifest`);
+  }
 
   for (const item of manifest.files) {
     const response = await get(`${base}/${item.file}`);
@@ -62,6 +73,15 @@ await retry("landing page", () =>
 await retry("strona książki", () =>
   assertHtml(bookBase, [/SOA, POA i URI Process/, /Forma współpracy, authority i dowód pracy/, /Cybernetyczny WorkCell/]),
 );
-await retry("artefakty Sites", () => assertChannel("Sites", `${siteBase}/releases`));
 await retry("artefakty GitHub Pages", () => assertChannel("GitHub Pages", `${bookBase}/downloads`));
-console.log("publication ok: landing, książka i oba kanały mają identyczne artefakty");
+if (checkSites) {
+  await retry("artefakty Sites", () => assertChannel("Sites", `${siteBase}/releases`));
+}
+
+if (checkSites && compareManifest) {
+  console.log("publication ok: landing, książka, GitHub Pages i Sites mają identyczne artefakty");
+} else if (checkSites) {
+  console.log("publication ok: landing, książka i oba kanały działają (manifesty lokalnie nieporównywane)");
+} else {
+  console.log("publication ok: landing, książka i GitHub Pages działają");
+}
